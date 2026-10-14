@@ -1,20 +1,52 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
 body { 
-  background: #0a0a0a; 
-  color: #d0d0d0; 
-  font-family: Georgia, serif; 
-  text-align: center; 
-  padding: 80px 20px; 
-  background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');
+    background: #000; 
+    overflow: hidden; 
+    height: 100vh; 
 }
-h1 { 
-  color: #bfa76a; 
-  font-size: 3em; 
-  letter-spacing: 4px; 
-  text-shadow: 0 0 15px #4a1a2c; 
+
+.homepage-container { 
+    position: fixed; 
+    width: 100%; 
+    height: 100%; 
 }
-header { 
-  border-bottom: 1px solid #4a1a2c; 
-  padding-bottom: 20px; 
-  margin-bottom: 40px; 
+
+.homepage-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: brightness(0.4); 
+    transition: 0.5s ease; 
 }
-p { font-style: italic; font-size: 1.1em; }
+
+.homepage-container:hover img { 
+    filter: brightness(0.6) contrast(1.1); 
+}
+
+/* BOTÃO AJUSTADO PRA PORTA EM ÂNGULO */
+.porta-botao {
+    position: absolute; 
+    bottom: 5.5%;          
+    right: 10.2%;           
+    width: 92px;           
+    height: 360px;        
+    cursor: pointer; 
+    transition: 0.4s;
+    z-index: 10;
+    border-radius: 45px 45px 0 0; 
+    transform: skewX(-10deg); 
+    transform-origin: bottom right;
+    overflow: hidden;
+    outline: none;
+    text-decoration: none;
+}
+
+.porta-botao:hover {
+    box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 70px rgba(255, 215, 0, 0.7);
+    transform: skewX(-10deg) scale(1.03);
+}
