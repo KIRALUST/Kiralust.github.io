@@ -1,78 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX | Arte Digital</title>
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-        background: #000; 
-        overflow: hidden; 
-        height: 100vh; 
-    }
-    .homepage-container { 
-        position: fixed; 
-        width: 100%; 
-        height: 100%; 
-    }
-    .homepage-container img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
-        filter: brightness(0.4); 
-        transition: 0.5s ease; 
-    }
-    body.porta-hover .homepage-container img { 
-        filter: brightness(0.6) contrast(1.1); 
-    }
-
-    /* BOTÃO AJUSTADO PRA PORTA EM ÂNGULO - VERSÃO FINAL */
-    .porta-botao {
-        position: absolute; 
-        bottom: 5.5%;          
-        right: 10.2%;           
-        width: 92px;           
-        height: 360px;        
-        cursor: pointer; 
-        transition: 0.4s;
-        z-index: 10;
-        border-radius: 45px 45px 0 0; 
-        transform: skewX(-10deg); 
-        transform-origin: bottom right;
-        overflow: hidden;
-        outline: none; /* tira borda branca */
-    }
-    .porta-botao:hover {
-        box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 70px rgba(255, 215, 0, 0.7);
-        transform: skewX(-10deg) scale(1.03);
-    }
-</style>
+<title>KIRA LUX | Portal</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="homepage-container">
-    <img src="IMG_7ab253ae-9f9b-4505-81ef-bd4e09a3fd06.jpg" alt="Portal">
-    <a href="galeria.html" class="porta-botao" id="portaBtn"></a>
+    <img src="IMG_7ab253ae-9f9b-4505-81ef-bd4e09a3fd06.jpg" alt="Portal Gótico da Arte das Sombras">
+    <a href="galeria.html" class="porta-botao" title="Entrar na Galeria" 
+       onmouseenter="document.getElementById('som-porta').currentTime = 0; document.getElementById('som-porta').play();">
+    </a>
 </div>
 
-<audio id="somPorta" src="https://cdn.pixabay.com/download/audio/2022-03-24/03-31-33-100.mp3" preload="auto"></audio>
-
-<script>
-    const porta = document.getElementById('portaBtn');
-    const som = document.getElementById('somPorta');
-    let tocou = false;
-    porta.addEventListener('mouseenter', () => {
-        document.body.classList.add('porta-hover');
-        if(!tocou) { 
-            som.volume = 0.4; 
-            som.play(); 
-            tocou = true; 
-            setTimeout(() => { tocou = false }, 2000); 
-        }
-    });
-    porta.addEventListener('mouseleave', () => { 
-        document.body.classList.remove('porta-hover'); 
-    });
-</script>
+<audio id="som-porta" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022-03-24/03-31-33-100.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
