@@ -19,24 +19,24 @@
         filter: brightness(0.6) contrast(1.1); 
     }
 
-    /* BOTÃO AJUSTADO PARA A PORTA EM PERSPECTIVA */
+    /* BOTÃO AJUSTADO PRA PORTA EM PERSPECTIVA */
     .porta-botao {
         position: absolute; 
-        bottom: 7%;           /* altura da base da porta */
-        right: 9.5%;          /* posição horizontal */
-        width: 105px;         /* largura da porta na foto */
-        height: 370px;        /* altura da porta na foto */
+        bottom: 6.5%;          
+        right: 9.8%;           
+        width: 98px;           
+        height: 365px;        
         cursor: pointer; 
         transition: 0.4s;
         z-index: 10;
-        border-radius: 50px 50px 0 0; /* topo arredondado */
-        transform: skewX(-8deg); /* inclina pra seguir a perspectiva */
+        border-radius: 45px 45px 0 0; 
+        transform: skewX(-9deg); 
         transform-origin: bottom right;
         overflow: hidden;
     }
     .porta-botao:hover {
         box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.6);
-        transform: skewX(-8deg) scale(1.03); /* mantém a inclinação no hover */
+        transform: skewX(-9deg) scale(1.03);
     }
 </style>
 </head>
@@ -52,18 +52,4 @@
     const porta = document.getElementById('portaBtn');
     const som = document.getElementById('somPorta');
     let tocou = false;
-    porta.addEventListener('mouseenter', () => {
-        document.body.classList.add('porta-hover');
-        if(!tocou) { 
-            som.volume = 0.4; 
-            som.play(); 
-            tocou = true; 
-            setTimeout(() => { tocou = false }, 2000); 
-        }
-    });
-    porta.addEventListener('mouseleave', () => { 
-        document.body.classList.remove('porta-hover'); 
-    });
-</script>
-</body>
-</html>
+    porta.addEvent
