@@ -4,7 +4,25 @@ body { background: #000; overflow: hidden; height: 100vh; }
 .homepage-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); transition: 0.5s ease; }
 .homepage-container:hover img { filter: brightness(0.6) contrast(1.1); }
 
-/* BOTÃO COM BORDA PRA VER ONDE TÁ */
+/* FRASE EM LATIM DOURADA */
+.frase-latim {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
+    z-index: 5;
+    pointer-events: none; /* não atrapalha o clique do botão */
+}
+
+/* BOTÃO AJUSTADO PRA PORTA EM ÂNGULO */
 .porta-botao {
     position: absolute; 
     bottom: 5.5%;          
@@ -19,12 +37,9 @@ body { background: #000; overflow: hidden; height: 100vh; }
     transform-origin: bottom right;
     outline: none;
     text-decoration: none;
-    border: 2px solid red; /* LINHA VERMELHA PRA TESTE */
-    background: rgba(255, 215, 0, 0.1); /* FUNDO AMARELO TRANSPARENTE */
 }
 
 .porta-botao:hover {
     box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 70px rgba(255, 215, 0, 0.7);
     transform: skewX(-10deg) scale(1.03);
-    background: rgba(255, 215, 0, 0.3);
 }
