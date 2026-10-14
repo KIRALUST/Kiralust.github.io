@@ -14,77 +14,74 @@
       background-image: url('IMG_5c552ac3-9e1d-4112-b7f1-74130cb0961a.jpg');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
       font-family: 'Cinzel', serif;
       color: white;
-      overflow: hidden;
       position: relative;
     }
 
-    /* Nome KIRA LUST separado e maiúsculo */
-    .titulo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      font-size: 5em;
-      letter-spacing: 15px;
-      font-weight: 700;
-      text-shadow: 0 0 20px black;
-    }
-
-    /* Obra #1 no canto sem cobrir a silhueta */
-    .obra {
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-      width: 180px;
-      border: 2px solid white;
-      box-shadow: 0 0 15px black;
-      opacity: 0.9;
-      transition: 0.3s;
-    }
-    .obra:hover { opacity: 1; transform: scale(1.05); }
-
-    /* Menu links */
+    /* Menu */
     .menu {
       position: absolute;
       top: 40px;
       width: 100%;
       display: flex;
       justify-content: center;
-      gap: 40px;
-      font-size: 1.1em;
-      letter-spacing: 3px;
+      gap: 50px;
+      font-size: 1.2em;
+      letter-spacing: 5px;
     }
-    .menu a {
-      color: white;
-      text-decoration: none;
+    .menu a { color: white; text-decoration: none; text-shadow: 2px 2px 5px black; }
+    .menu a:hover { color: #ccc; }
+
+    /* KIRA LUST */
+    .titulo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 4.5em;
+      letter-spacing: 12px;
+      font-weight: 700;
+      text-shadow: 0 0 25px black;
+    }
+
+    /* Obra #1 - canto direito embaixo pra não pegar a silhueta */
+    .obra {
+      position: absolute;
+      bottom: 100px;
+      right: 40px;
+      width: 160px;
+      border: 2px solid white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      opacity: 0.9;
       transition: 0.3s;
     }
-    .menu a:hover { color: #ccc; text-shadow: 0 0 10px white; }
+    .obra:hover { opacity: 1; transform: scale(1.05); }
 
-    /* Botão Galeria */
+    /* Botão */
     .btn-galeria {
       position: absolute;
-      bottom: 30px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      padding: 15px 40px;
+      padding: 12px 35px;
       border: 2px solid white;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       color: white;
       text-decoration: none;
-      font-size: 1.2em;
+      font-size: 1.1em;
       letter-spacing: 4px;
       transition: 0.3s;
     }
-    .btn-galeria:hover {
-      background: white;
-      color: black;
-    }
+    .btn-galeria:hover { background: white; color: black; }
 
+    /* Ajuste pro celular */
+    @media (max-width: 768px) {
+      .titulo { font-size: 3em; letter-spacing: 8px; }
+      .menu { gap: 20px; font-size: 0.9em; }
+      .obra { width: 120px; bottom: 90px; right: 20px; }
+    }
   </style>
 </head>
 <body>
