@@ -1,8 +1,32 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #000; overflow: hidden; height: 100vh; }
-.homepage-container { position: fixed; width: 100%; height: 100%; }
-.homepage-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); transition: 0.5s ease; }
-.homepage-container:hover img { filter: brightness(0.6) contrast(1.1); }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    background: #000; 
+    overflow: hidden; 
+    height: 100vh; 
+}
+
+.homepage-container { 
+    position: fixed; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.homepage-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: brightness(0.4); 
+    transition: 0.5s ease; 
+}
+
+.homepage-container:hover img { 
+    filter: brightness(0.6) contrast(1.1); 
+}
 
 /* FRASE EM LATIM DOURADA */
 .frase-latim {
@@ -19,27 +43,11 @@ body { background: #000; overflow: hidden; height: 100vh; }
     color: #FFD700;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
     z-index: 5;
-    pointer-events: none; /* não atrapalha o clique do botão */
+    pointer-events: none;
 }
 
-/* BOTÃO AJUSTADO PRA PORTA EM ÂNGULO */
+/* BOTÃO PORTA - COBRINDO TUDO */
 .porta-botao {
     position: absolute; 
-    bottom: 5.5%;          
-    right: 10.2%;           
-    width: 92px;           
-    height: 360px;        
-    cursor: pointer; 
-    transition: 0.4s;
-    z-index: 10;
-    border-radius: 45px 45px 0 0; 
-    transform: skewX(-10deg); 
-    transform-origin: bottom right;
-    outline: none;
-    text-decoration: none;
-}
-
-.porta-botao:hover {
-    box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 70px rgba(255, 215, 0, 0.7);
-    transform: skewX(-10deg) scale(1.03);
-}
+    bottom: 8%;              /* do rodapé até quase o topo do arco */
+    right: 7.5%;             /* encostado na frase "NA ARTE
