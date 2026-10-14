@@ -1,23 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIRALUST - Arte Luz na Escuridão</title>
+
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
-<body style="background-color:#000; color:#ffffff; text-align:center; font-family:Arial; padding:50px;">
+<style>
+body {
+  background-image: url('1571982968278570.jpg');
+  background-size: cover;
+  background-position: left center;
+  background-attachment: fixed;
+  background-color: #000;
+  color: #ffffff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-<h1 style="font-family:'UnifrakturMaguntia', serif; color:#b30000; font-size:60px; letter-spacing:3px; text-shadow:0 0 15px #b30000;">
-KIRALUST ARTE LUZ NA ESCURIDÃO
-</h1>
+.overlay {
+  background-color: rgba(0,0,0,0.65);
+  min-height: 100vh;
+  padding: 60px 20px;
+}
 
-<img src="image_d73fa71d.jpg" alt="Obra Destaque" style="max-width:80%; border:3px solid #4a1a2c; box-shadow:0 0 40px #4a1a2c; margin:40px 0;">
+h1 {
+  font-family: 'UnifrakturMaguntia', serif;
+  color: #b30000;
+  font-size: 60px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px #b30000;
+  margin-bottom: 30px;
+}
 
-<div style="margin:30px 0;">
-  <a href="galeria.html" style="font-family:'UnifrakturMaguntia', serif; color:#b30000; font-size:26px; text-decoration:none; margin:0 20px; text-shadow:0 0 10px #b30000;">Galeria</a>
-  
-  <a href="#" style="font-family:'UnifrakturMaguntia', serif; color:#b30000; font-size:26px; text-decoration:none; margin:0 20px; text-shadow:0 0 10px #b30000;">Sobre</a>
-  
-  <a href="#" style="font-family:'UnifrakturMaguntia', serif; color:#b30000; font-size:26px; text-decoration:none; margin:0 20px; text-shadow:0 0 10px #b30000;">Contato</a>
+.menu a {
+  font-family: 'UnifrakturMaguntia', serif;
+  color: #b30000;
+  font-size: 26px;
+  text-decoration: none;
+  margin: 0 25px;
+  text-shadow: 0 0 10px #b30000;
+  transition: 0.3s;
+}
+.menu a:hover {
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000;
+}
+
+.destaque {
+  max-width: 75%;
+  border: 3px solid #4a1a2c;
+  box-shadow: 0 0 50px #4a1a2c;
+  margin: 50px 0;
+  border-radius: 5px;
+}
+
+.texto {
+  max-width: 700px;
+  margin: 50px auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ddd;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+  <h1>KIRALUST ARTE LUZ NA ESCURIDÃO</h1>
+
+  <div class="menu">
+    <a href="galeria.html">Galeria</a>
+    <a href="#">Sobre</a>
+    <a href="#">Contato</a>
+  </div>
+
+  <img src="image_d73fa71d.jpg" alt="Obra Destaque" class="destaque">
+
+  <div class="texto">
+    <!-- Escreve seu texto aqui depois -->
+  </div>
+
 </div>
-
-<p style="max-width:600px; margin:40px auto; font-size:18px; line-height:1.6;">
-<!-- Escreve seu texto aqui depois -->
-</p>
-
 </body>
+</html>
