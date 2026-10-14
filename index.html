@@ -2,116 +2,38 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIRA LUX | Arte Digital</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-        background: #000;
-        font-family: 'Arial', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    /* FUNDO COM A PORTA GÓTICA */
-    .homepage-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
-    .homepage-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.4);
-        transition: 0.5s ease;
-    }
-
-    body.porta-hover .homepage-container img {
-        filter: brightness(0.6) contrast(1.1);
-    }
-
-    /* BOTÃO INVISÍVEL EM CIMA DA PORTA */
+    body { margin: 0; background: #000; overflow: hidden; height: 100vh; }
+    .homepage-container { position: fixed; width: 100%; height: 100%; }
+    .homepage-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); transition: 0.5s; }
+    body.porta-hover .homepage-container img { filter: brightness(0.6) contrast(1.1); }
     .porta-botao {
-        position: absolute;
-        bottom: 12%;
-        right: 14%;
-        width: 160px;
-        height: 340px;
-        z-index: 10;
-        cursor: pointer;
-        transition: 0.4s ease;
+        position: absolute; bottom: 12%; right: 14%; width: 160px; height: 340px; 
+        cursor: pointer; transition: 0.4s;
     }
-
     .porta-botao:hover {
-        /* BRILHO DOURADO */
-        box-shadow: 
-            0 0 20px rgba(255, 215, 0, 0.6),
-            0 0 40px rgba(255, 215, 0, 0.4),
-            inset 0 0 25px rgba(255, 215, 0, 0.3);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.4);
         transform: scale(1.02);
     }
+</style>
+</head>
+<body>
+<div class="homepage-container">
+    <img src="IMG_7626ec1b-7792-4558-a23e -425500198d68.jpg" alt="Portal">
+    <a href="galeria.html" class="porta-botao" id="portaBtn"></a>
+</div>
 
-    /* DOCUMENTO A4 CENTRAL */
-    .documento {
-        width: 90%;
-        max-width: 800px;
-        height: 90vh;
-        max-height: 1000px;
-        background: #1a1a1a;
-        border: 2px solid #ff0040;
-        box-shadow: 0 0 30px rgba(255,0,64,0.5);
-        padding: 40px;
-        position: relative;
-        z-index: 2;
-        overflow-y: auto;
-    }
-
-    /* CABEÇALHO: FOTO 3x4 + TITULO */
-    .cabecalho {
-        display: flex;
-        align-items: flex-start;
-        gap: 25px;
-        border-bottom: 2px solid #ff0040;
-        padding-bottom: 20px;
-        margin-bottom: 30px;
-    }
-
-    /* FOTO 3x4 PREGADA */
-    .obra {
-        width: 120px;
-        height: 160px;
-        object-fit: cover;
-        border: 4px solid #fff;
-        box-shadow: 3px 3px 10px rgba(0,0,0,0.7);
-        transform: rotate(-3deg);
-        transition: 0.3s ease;
-    }
-    .obra:hover { 
-        transform: rotate(0deg) scale(1.05); 
-        box-shadow: 3px 3px 20px rgba(255,0,64,0.5);
-    }
-
-    /* TITULO E MENU */
-    .info { flex: 1; }
-    
-    h1 {
-        font-size: 3em;
-        color: #ff0040;
-        letter-spacing: 5px;
-        text-shadow: 0 0 10px #ff0040, 0 0 20px #ff0040;
-        margin-bottom: 15px;
-        animation: neonPisca 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes neonPisca {
-        from { text-shadow: 0 0 10px #ff0040; }
-        to { text-shadow: 0 0
+<audio id="somPorta" src="https://cdn.pixabay.com/download/audio/2022-03-24/03-31-33-100.mp3"></audio>
+<script>
+    const porta = document.getElementById('portaBtn');
+    const som = document.getElementById('somPorta');
+    let tocou = false;
+    porta.addEventListener('mouseenter', () => {
+        document.body.classList.add('porta-hover');
+        if(!tocou) { som.volume = 0.4; som.play(); tocou = true; setTimeout(() => { tocou = false }, 2000); }
+    });
+    porta.addEventListener('mouseleave', () => { document.body.classList.remove('porta-hover'); });
+</script>
+</body>
+</html>
