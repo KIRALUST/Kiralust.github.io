@@ -18,19 +18,25 @@
     body.porta-hover .homepage-container img { 
         filter: brightness(0.6) contrast(1.1); 
     }
+
+    /* BOTÃO AJUSTADO PARA A PORTA EM PERSPECTIVA */
     .porta-botao {
         position: absolute; 
-        bottom: 12%; 
-        right: 14%; 
-        width: 160px; 
-        height: 340px; 
+        bottom: 7%;           /* altura da base da porta */
+        right: 9.5%;          /* posição horizontal */
+        width: 105px;         /* largura da porta na foto */
+        height: 370px;        /* altura da porta na foto */
         cursor: pointer; 
         transition: 0.4s;
         z-index: 10;
+        border-radius: 50px 50px 0 0; /* topo arredondado */
+        transform: skewX(-8deg); /* inclina pra seguir a perspectiva */
+        transform-origin: bottom right;
+        overflow: hidden;
     }
     .porta-botao:hover {
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.4);
-        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.6);
+        transform: skewX(-8deg) scale(1.03); /* mantém a inclinação no hover */
     }
 </style>
 </head>
