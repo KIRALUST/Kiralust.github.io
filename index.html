@@ -1,103 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KIRA LUST</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIRA LUST</title>
+<style>
     body {
-      height: 100vh;
-      background-image: url('IMG_5c552ac3-9e1d-4112-b7f1-74130cb0961a.jpg');
-      background-size: cover;
-      background-position: center;
-      font-family: 'Cinzel', serif;
-      color: white;
-      position: relative;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        overflow: hidden;
     }
 
-    /* Menu */
-    .menu {
-      position: absolute;
-      top: 40px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      font-size: 1.2em;
-      letter-spacing: 5px;
-    }
-    .menu a { color: white; text-decoration: none; text-shadow: 2px 2px 5px black; }
-    .menu a:hover { color: #ccc; }
-
-    /* KIRA LUST */
-    .titulo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      font-size: 4.5em;
-      letter-spacing: 12px;
-      font-weight: 700;
-      text-shadow: 0 0 25px black;
+    .fundo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('IMG_5c552ac3-9e1d-4112-b7f1-74130cb0961a.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.4);
+        z-index: -1;
     }
 
-    /* Obra #1 - canto direito embaixo pra não pegar a silhueta */
+    h1 {
+        margin-top: 40vh;
+        font-size: 4em;
+        letter-spacing: 8px;
+        text-shadow: 0 0 20px #ff0040;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 1.2em;
+        border-bottom: 2px solid transparent;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        border-bottom: 2px solid #ff0040;
+    }
+
+    /* SUA OBRA #1 */
     .obra {
-      position: absolute;
-      bottom: 100px;
-      right: 40px;
-      width: 160px;
-      border: 2px solid white;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
-      opacity: 0.9;
-      transition: 0.3s;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        width: 200px;
+        border: 3px solid #ff0040;
+        box-shadow: 0 0 15px #ff0040;
+        transition: 0.3s;
     }
-    .obra:hover { opacity: 1; transform: scale(1.05); }
 
-    /* Botão */
-    .btn-galeria {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 12px 35px;
-      border: 2px solid white;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      letter-spacing: 4px;
-      transition: 0.3s;
+    .obra:hover {
+        transform: scale(1.05);
     }
-    .btn-galeria:hover { background: white; color: black; }
 
-    /* Ajuste pro celular */
-    @media (max-width: 768px) {
-      .titulo { font-size: 3em; letter-spacing: 8px; }
-      .menu { gap: 20px; font-size: 0.9em; }
-      .obra { width: 120px; bottom: 90px; right: 20px; }
-    }
-  </style>
+</style>
 </head>
 <body>
 
-  <nav class="menu">
+<div class="fundo"></div>
+
+<h1>KIRA LUST</h1>
+
+<nav>
     <a href="index.html">HOME</a>
     <a href="galeria.html">GALERIA</a>
-    <a href="sobre.html">SOBRE</a>
-    <a href="contato.html">CONTATO</a>
-  </nav>
+    <a href="#">CONTATO</a>
+</nav>
 
-  <h1 class="titulo">KIRA<br>LUST</h1>
-
-  <img src="image_d73fa71d.jpg" alt="Obra #1" class="obra">
-
-  <a href="galeria.html" class="btn-galeria">ENTRAR NA GALERIA</a>
+<!-- OBRA 1 -->
+<img src="image_d73fa71d.jpg" alt="Obra #1" class="obra">
 
 </body>
 </html>
