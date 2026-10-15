@@ -24,14 +24,14 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
 .botoes a { flex:1; text-align:center; padding:8px 5px; background:rgba(0,0,0,0.85); color:#DC143C; text-decoration:none; border:1px solid #DC143C; font-family:Arial; font-size:14px; font-weight:bold; }
 .botoes a:hover { background:#DC143C; color:#000; }
 
-/* BOTÃO DA PORTA - AJUSTADO */
+/* BOTÃO DA PORTA - AGORA GIGANTE E FÁCIL DE CLICAR */
 .porta-botao { 
     position:absolute; 
-    top:46.5%;  /* AJUSTE FINO: desci pra ficar no centro da maçaneta */
-    left:67.5%; /* AJUSTE FINO: centralizado na porta */
+    top:47%;      /* centro da porta */
+    left:67%;     /* centro da porta */
     transform:translate(-50%, -50%); 
-    width:18%;  /* área maior pra clicar fácil no celular */
-    height:34%; 
+    width:25%;    /* AUMENTEI: pega quase a porta inteira */
+    height:45%;   /* AUMENTEI: de cima a baixo da porta */
     z-index:998; 
     cursor:pointer; 
 }
@@ -57,7 +57,6 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
     <!-- PORTAL + BOTAO DA GALERIA -->
     <div class="portal-wrapper">
         <img src="Messenger_creation_1107486295409870.jpeg" class="portal-img">
-        <!-- ESSE BOTAO VAI PRA GALERIA QUANDO CLICAR NA PORTA -->
         <a href="galeria.html" class="porta-botao"></a>
     </div>
 
