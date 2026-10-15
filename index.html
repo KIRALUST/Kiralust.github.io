@@ -6,19 +6,54 @@
 <title>KIRA LUX | Portal</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+/* CAMADA NOVA POR CIMA */
+.topo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+.foto {
+    width: 30vw;
+    max-width: 150px;
+    border: 2px solid #8B0000;
+    display: block;
+    margin-bottom: 10px;
+}
+.nome {
+    font-family: 'Cinzel', serif;
+    font-size: 6vw;
+    color: #DC143C;
+    margin: 0 0 10px 0;
+}
+.botoes { display: flex; gap: 10px; }
+.botoes a {
+    padding: 5px 10px;
+    background: rgba(0,0,0,0.6);
+    color: #DC143C;
+    text-decoration: none;
+    border: 1px solid #8B0000;
+    font-size: 14px;
+}
+</style>
 </head>
 <body>
 <div class="homepage-container">
-    <img src="Messenger_creation_1107486295409870.jpeg" alt="Portal Gótico KIRA LUX">
     
-    <!-- BOTÃO INVISÍVEL SOBRE A PORTA -->
-    <a href="galeria.html" class="porta-botao" title="Entrar na Galeria"
-       onmouseenter="document.getElementById('som-porta').currentTime = 0; document.getElementById('som-porta').play();">
-    </a>
-</div>
+    <!-- NOVO: FOTO + NOME + BOTOES -->
+    <div class="topo">
+        <img src="image_d73fa71d.jpg" class="foto">
+        <h1 class="nome">KIRA LUX</h1>
+        <div class="botoes">
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </div>
+    </div>
 
-<audio id="som-porta" preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022-03-24/03-31-33-100.mp3" type="audio/mpeg">
-</audio>
+    <!-- ANTIGO: PORTAL CONTINUA IGUAL -->
+    
+</div>
 </body>
 </html>
