@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIRA LUX | Portal</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 <style>
 body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden; }
 .homepage-container { position:relative; width:100%; height:100vh; }
@@ -25,31 +25,37 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
     z-index:999;
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
 }
 
 .linha-topo {
     display:flex;
-    align-items:center;
+    align-items:stretch; /* alinha pela altura */
     gap:15px;
 }
 
+/* FOTO E NOME COM MESMA ALTURA */
 .foto {
-    width:25vw; 
-    max-width:120px; 
-    border:2px solid #DC143C; /* borda vermelha também */
+    height:18vh; /* altura da foto */
+    max-height:160px;
+    width:auto;
+    border:2px solid #DC143C;
     border-radius:2px;
 }
 
-/* NOME VERMELHO SANGUE */
 .nome {
     font-family:'Cinzel', serif; 
-    font-size:8vw; 
+    font-size:18vh; /* MESMA ALTURA DA FOTO */
+    max-font-size:160px;
+    line-height:18vh; /* pra centralizar vertical */
+    max-line-height:160px;
     font-weight:700;
-    color:#DC143C; /* VERMELHO CRIMSON */
+    color:#DC143C; /* VERMELHO */
     margin:0; 
-    text-shadow:0 0 12px #DC143C, 0 0 3px #000; /* brilho vermelho */
-    letter-spacing:3px;
+    text-shadow:0 0 15px #DC143C, 2px 2px 4px #000;
+    letter-spacing:2px;
+    display:flex;
+    align-items:center;
 }
 
 .botoes {
@@ -57,13 +63,14 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
     gap:10px;
 }
 .botoes a {
-    padding:7px 14px; 
-    background:rgba(0,0,0,0.8); 
-    color:#DC143C; /* botões vermelhos também */
+    padding:8px 16px; 
+    background:rgba(0,0,0,0.85); 
+    color:#DC143C; 
     text-decoration:none; 
     border:1px solid #DC143C;
     font-family:Arial;
     font-size:14px;
+    font-weight:bold;
     transition:0.3s;
 }
 .botoes a:hover {
@@ -88,7 +95,7 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
 
     <!-- TOPO -->
     <div class="topo">
-        <!-- FOTO + NOME LADO A LADO -->
+        <!-- FOTO + NOME MESMA ALTURA -->
         <div class="linha-topo">
             <img src="image_d73fa71d.jpg" class="foto">
             <h1 class="nome">KIRA LUX</h1>
@@ -98,4 +105,17 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
         <div class="botoes">
             <a href="sobre.html">Sobre</a>
             <a href="galeria.html">Galeria</a>
-            <a href="contato.html">
+            <a href="contato.html">Contato</a>
+        </div>
+    </div>
+
+    <!-- PORTAL ATRAS -->
+    <img src="Messenger_creation_1107486295409870.jpeg" class="portal-img">
+
+    <!-- BOTAO DA PORTA -->
+    <a href="galeria.html" class="porta-botao"></a>
+
+</div>
+
+</body>
+</html>
