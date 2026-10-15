@@ -31,39 +31,43 @@ body {
 /* FRASE EM LATIM DOURADA */
 .frase-latim {
     position: absolute;
-    top: 45%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
     text-align: center;
     font-family: 'Cinzel', serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    line-height: 1.8;
     color: #FFD700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 25px rgba(255, 215, 0, 0.6);
     z-index: 5;
     pointer-events: none;
 }
 
-/* BOTÃO PORTA - POSIÇÃO EXATA DO SEU PRINT */
+/* BOTÃO GIGANTE - COBRE A PORTA INTEIRA + SOBRA */
 .porta-botao {
     position: absolute; 
     bottom: 0%;              
-    right: 2.5%;             
-    width: 9%;               
-    height: 78%;             
+    right: 0%;             
+    width: 18%;               
+    height: 85%;             
     cursor: pointer; 
     transition: 0.4s;
     z-index: 10;
     outline: none;
     text-decoration: none;
-    border-radius: 6% 6% 0 0; 
-    background: rgba(255, 0, 0, 0.3); /* APAGA DEPOIS DO TESTE */
-    border: 2px solid yellow; /* APAGA DEPOIS DO TESTE */
+    border-radius: 8% 8% 0 0; 
+    
+    /* APAGA ESSAS 2 LINHAS DEPOIS DO TESTE */
+    background: rgba(255, 0, 0, 0.2);
+    border: 3px solid red;
 }
 
+/* BRILHO GIGANTE QUANDO PASSAR O DEDO */
 .porta-botao:hover {
-    box-shadow: 0 0 60px rgba(255, 215, 0, 1), inset 0 0 120px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 100px rgba(255, 215, 0, 1), inset 0 0 200px rgba(255, 215, 0, 0.3);
     background: rgba(255, 215, 0, 0.2);
 }
