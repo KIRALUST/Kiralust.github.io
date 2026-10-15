@@ -17,11 +17,12 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
     background: #000;
 }
 
-/* TOPO */
+/* TOPO OCUPANDO A LARGURA TODA */
 .topo {
     position:absolute; 
-    top:20px; 
-    left:20px; 
+    top:15px; 
+    left:15px; 
+    right:15px; /* <-- ocupa até a direita */
     z-index:999;
     display:flex;
     flex-direction:column;
@@ -30,44 +31,49 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
 
 .linha-topo {
     display:flex;
-    align-items:center; /* centraliza vertical */
-    gap:12px;
+    align-items:center;
+    gap:15px;
+    width:100%;
 }
 
-/* FOTO */
+/* FOTO MAIOR */
 .foto {
-    height:10vh; /* tamanho bom pra mobile */
-    max-height:90px;
+    height:14vh; /* aumentei */
+    max-height:120px;
     width:auto;
-    border:2px solid #DC143C;
-    border-radius:2px;
+    border:3px solid #DC143C; /* borda mais grossa */
+    border-radius:3px;
+    flex-shrink:0;
 }
 
-/* NOME - TAMANHO FIXO PRA 1 LINHA */
+/* NOME MAIOR E ESTICADO */
 .nome {
     font-family:'Cinzel', serif; 
-    font-size:6vh; /* menor pra caber */
-    max-font-size:50px;
+    font-size:9vw; /* usa % da largura da tela */
     font-weight:700;
     color:#DC143C; /* VERMELHO */
     margin:0; 
-    text-shadow:0 0 10px #DC143C, 2px 2px 4px #000;
-    letter-spacing:2px;
-    white-space:nowrap; /* IMPEDE DE QUEBRAR LINHA */
+    text-shadow:0 0 12px #DC143C, 2px 2px 5px #000;
+    letter-spacing:3px;
+    white-space:nowrap;
+    flex-grow:1; /* ocupa o resto do espaço */
 }
 
 .botoes {
     display:flex; 
     gap:10px;
+    justify-content:space-between; /* 3 botões distribuídos */
 }
 .botoes a {
-    padding:6px 12px; 
+    flex:1; /* cada botão ocupa 1/3 */
+    text-align:center;
+    padding:8px 5px; 
     background:rgba(0,0,0,0.85); 
     color:#DC143C; 
     text-decoration:none; 
     border:1px solid #DC143C;
     font-family:Arial;
-    font-size:13px;
+    font-size:14px;
     font-weight:bold;
     transition:0.3s;
 }
@@ -80,40 +86,4 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
 .porta-botao {
     position:absolute; 
     top:45%; 
-    left:68%; 
-    width:18%; 
-    height:35%; 
-    z-index:998;
-}
-</style>
-</head>
-<body>
-
-<div class="homepage-container">
-
-    <!-- TOPO -->
-    <div class="topo">
-        <!-- FOTO + NOME 1 LINHA -->
-        <div class="linha-topo">
-            <img src="image_d73fa71d.jpg" class="foto">
-            <h1 class="nome">KIRA LUX</h1>
-        </div>
-        
-        <!-- 3 BOTOES EMBAIXO -->
-        <div class="botoes">
-            <a href="sobre.html">Sobre</a>
-            <a href="galeria.html">Galeria</a>
-            <a href="contato.html">Contato</a>
-        </div>
-    </div>
-
-    <!-- PORTAL ATRAS -->
-    <img src="Messenger_creation_1107486295409870.jpeg" class="portal-img">
-
-    <!-- BOTAO DA PORTA -->
-    <a href="galeria.html" class="porta-botao"></a>
-
-</div>
-
-</body>
-</html>
+    left:68%;
