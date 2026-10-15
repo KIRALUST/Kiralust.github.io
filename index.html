@@ -30,32 +30,30 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
 
 .linha-topo {
     display:flex;
-    align-items:stretch; /* alinha pela altura */
-    gap:15px;
+    align-items:center; /* centraliza vertical */
+    gap:12px;
 }
 
-/* FOTO E NOME COM MESMA ALTURA */
+/* FOTO */
 .foto {
-    height:18vh; /* altura da foto */
-    max-height:160px;
+    height:10vh; /* tamanho bom pra mobile */
+    max-height:90px;
     width:auto;
     border:2px solid #DC143C;
     border-radius:2px;
 }
 
+/* NOME - TAMANHO FIXO PRA 1 LINHA */
 .nome {
     font-family:'Cinzel', serif; 
-    font-size:18vh; /* MESMA ALTURA DA FOTO */
-    max-font-size:160px;
-    line-height:18vh; /* pra centralizar vertical */
-    max-line-height:160px;
+    font-size:6vh; /* menor pra caber */
+    max-font-size:50px;
     font-weight:700;
     color:#DC143C; /* VERMELHO */
     margin:0; 
-    text-shadow:0 0 15px #DC143C, 2px 2px 4px #000;
+    text-shadow:0 0 10px #DC143C, 2px 2px 4px #000;
     letter-spacing:2px;
-    display:flex;
-    align-items:center;
+    white-space:nowrap; /* IMPEDE DE QUEBRAR LINHA */
 }
 
 .botoes {
@@ -63,13 +61,13 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
     gap:10px;
 }
 .botoes a {
-    padding:8px 16px; 
+    padding:6px 12px; 
     background:rgba(0,0,0,0.85); 
     color:#DC143C; 
     text-decoration:none; 
     border:1px solid #DC143C;
     font-family:Arial;
-    font-size:14px;
+    font-size:13px;
     font-weight:bold;
     transition:0.3s;
 }
@@ -95,7 +93,7 @@ body, html { margin:0; padding:0; background:#000; height:100%; overflow:hidden;
 
     <!-- TOPO -->
     <div class="topo">
-        <!-- FOTO + NOME MESMA ALTURA -->
+        <!-- FOTO + NOME 1 LINHA -->
         <div class="linha-topo">
             <img src="image_d73fa71d.jpg" class="foto">
             <h1 class="nome">KIRA LUX</h1>
