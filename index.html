@@ -10,22 +10,48 @@ body{
     color:#DC143C;
     font-family:Georgia, serif;
     margin:0;
+    padding:0;
     text-align:center;
+    min-height:100vh;
 }
 .porta{
     width:100%;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:radial-gradient(circle, #1a0000 0%, #000 100%);
+    background:radial-gradient(circle at center, #1a0000 0%, #000 100%);
+    position:relative;
+}
+.bg-kira{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover; /* faz a imagem cobrir tudo */
+    opacity:0.4; /* deixa mais escura pra ler o texto */
+    z-index:0;
+}
+.conteudo{
+    position:relative;
+    z-index:1; /* fica na frente da imagem */
 }
 h1{
     font-size:60px;
     letter-spacing:5px;
     text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C;
-    margin-bottom:40px;
+    margin-bottom:20px;
+}
+.foto-3x4{
+    width:120px;
+    height:150px;
+    border:2px solid #DC143C;
+    border-radius:5px;
+    box-shadow:0 0 15px #DC143C;
+    margin-bottom:30px;
+    object-fit:cover;
 }
 .btn-entrar{
     padding:15px 50px;
@@ -36,6 +62,7 @@ h1{
     text-decoration:none;
     transition:0.3s;
     margin-bottom:30px;
+    display:inline-block;
 }
 .btn-entrar:hover{
     background:#DC143C;
@@ -58,14 +85,21 @@ h1{
 <body>
 
 <div class="porta">
-    <h1>KIRA LUX</h1>
+    <img src="kira-porta.jpg" alt="Kira na porta" class="bg-kira">
     
-    <a href="/menu.html" class="btn-entrar">ENTRAR</a>
-    
-    <div class="menu">
-        <a href="/sobre.html">Sobre</a>
-        <a href="/galeria.html">Galeria</a>
-        <a href="/contato.html">Contato</a>
+    <div class="conteudo">
+        <h1>KIRA LUX</h1>
+        
+        <img src="foto3x4.jpg" alt="Foto 3x4" class="foto-3x4">
+        
+        <br>
+        <a href="/menu.html" class="btn-entrar">ENTRAR</a>
+        
+        <div class="menu">
+            <a href="/sobre.html">Sobre</a>
+            <a href="/galeria.html">Galeria</a>
+            <a href="/contato.html">Contato</a>
+        </div>
     </div>
 </div>
 
