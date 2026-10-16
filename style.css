@@ -1,73 +1,9 @@
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
-
-body { 
-    background: #000; 
-    overflow: hidden; 
-    height: 100vh; 
-}
-
-.homepage-container { 
-    position: fixed; 
-    width: 100%; 
-    height: 100%; 
-}
-
-.homepage-container img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    filter: brightness(0.4); 
-    transition: 0.5s ease; 
-}
-
-.homepage-container:hover img { 
-    filter: brightness(0.6) contrast(1.1); 
-}
-
-/* FRASE EM LATIM DOURADA */
-.frase-latim {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    line-height: 1.8;
-    color: #FFD700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 25px rgba(255, 215, 0, 0.6);
-    z-index: 5;
-    pointer-events: none;
-}
-
-/* BOTÃO GIGANTE - COBRE A PORTA INTEIRA */
-.porta-botao {
-    position: absolute; 
-    bottom: 0%;              
-    right: 2%;             
-    width: 28%;               
-    height: 88%;             
-    cursor: pointer; 
-    transition: 0.4s;
-    z-index: 10;
-    outline: none;
-    text-decoration: none;
-    border-radius: 8% 8% 0 0; 
-    
-    /* APAGA ESSAS 2 LINHAS DEPOIS DO TESTE */
-    background: rgba(255, 0, 0, 0.2);
-    border: 3px solid red;
-}
-
-/* BRILHO GIGANTE QUANDO PASSAR O DEDO */
-.porta-botao:hover {
-    box-shadow: 0 0 100px rgba(255, 215, 0, 1), inset 0 0 200px rgba(255, 215, 0, 0.3);
-    background: rgba(255, 215, 0, 0.2);
+.banner {
+    width:100%;
+    height:calc(100vh - 145px);
+    background:url('https://raw.githubusercontent.com/KIRALUST/kiralust.github.io/main/Messenger_creation_1107486295409870.jpeg') center/cover no-repeat;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
