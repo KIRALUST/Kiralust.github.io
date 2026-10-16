@@ -3,108 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX - MENU</title>
+<title>MENU - KIRA LUST</title>
 <style>
-body {
-    margin:0;
-    background:#000;
-    overflow:hidden;
-    font-family:'Georgia', serif;
+body {margin:0; background:#000; font-family:'Georgia', serif;}
+
+.menu {
+    width:100%; height:100vh;
+    background:url('porta-aberta.jpg') center/cover no-repeat;
+    display:flex; flex-direction:column; 
+    justify-content:center; align-items:center;
 }
 
-.porta {
-    width:100%;
-    height:100vh;
-    background:url('IMG_05e5782b-ebb4-4eb9-b32d-18f5f86e488b.jpg') center/cover no-repeat;
-    position:relative;
-    cursor:pointer;
-    transition:0.5s;
+.titulo {
+    color:#DC143C; font-size:48px; 
+    text-shadow:0 0 25px #DC143C; 
+    margin-bottom:50px;
+    animation:brilho 2s infinite;
 }
 
-.porta:hover {
-    filter:brightness(1.1) drop-shadow(0 0 25px #DC143C);
+@keyframes brilho {
+    0%, 100% {text-shadow:0 0 25px #DC143C;}
+    50% {text-shadow:0 0 40px #ff0033;}
 }
 
-.texto-porta {
-    position:absolute;
-    top:75%;
-    width:100%;
-    text-align:center;
-    color:#DC143C;
-    font-size:22px;
-    letter-spacing:3px;
-    text-shadow:0 0 15px #000;
-    pointer-events:none;
-    animation: pisca 2s infinite;
+.botoes a {
+    display:block; color:#fff; text-decoration:none; font-size:22px;
+    padding:16px 45px; border:2px solid #DC143C; 
+    background:rgba(0,0,0,0.7); margin:18px; 
+    text-align:center; min-width:260px; 
+    transition:0.3s; letter-spacing:2px;
 }
 
-@keyframes pisca {
-    0%, 100% {opacity:1;}
-    50% {opacity:0.5;}
-}
-
-.menu-interno {
-    display:none;
-    flex-direction:column;
-    gap:20px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    align-items:center;
-}
-
-.porta.aberta .menu-interno {
-    display:flex;
-    animation: fadeIn 0.8s;
-}
-
-@keyframes fadeIn {
-    from {opacity:0; transform:translate(-50%, -45%);}
-    to {opacity:1; transform:translate(-50%, -50%);}
-}
-
-.menu-interno a {
-    padding:14px 35px;
-    background:rgba(0,0,0,0.85);
-    color:#DC143C;
-    border:2px solid #DC143C;
-    text-decoration:none;
-    font-size:18px;
-    letter-spacing:2px;
-    transition:0.3s;
-    width:220px;
-    text-align:center;
-    backdrop-filter:blur(3px);
-}
-
-.menu-interno a:hover {
-    background:#DC143C;
-    color:#000;
-    box-shadow:0 0 20px #DC143C;
-    transform:scale(1.05);
+.botoes a:hover {
+    background:#DC143C; 
+    box-shadow:0 0 25px #DC143C;
+    transform:scale(1.08);
 }
 </style>
 </head>
 <body>
-
-<div class="porta" id="porta" onclick="abrirPorta()">
-    <div class="texto-porta">CLIQUE PARA ENTRAR</div>
-    
-    <div class="menu-interno" onclick="event.stopPropagation()">
-        <a href="galeria.html">GALERIA</a>
-        <a href="#">RITUAIS</a>
-        <a href="#">CONTATO</a>
-        <a href="index.html" style="border-color:#555;color:#555">← VOLTAR</a>
+<div class="menu">
+    <div class="titulo">KIRA LUST</div>
+    <div class="botoes">
+        <a href="#">ENTRAR</a>
+        <a href="#">GALERIA</a>
+        <a href="#">CONTATO VIP</a>
     </div>
 </div>
-
-<script>
-function abrirPorta() {
-    document.getElementById('porta').classList.add('aberta');
-    document.querySelector('.texto-porta').style.display = 'none';
-}
-</script>
-
 </body>
 </html>
