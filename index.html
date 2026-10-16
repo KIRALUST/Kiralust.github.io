@@ -5,103 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIRA LUX</title>
 <style>
-body{
-    background:#000;
-    color:#DC143C;
-    font-family:Georgia, serif;
-    margin:0;
-    padding:0;
-    text-align:center;
-    min-height:100vh;
-}
-.porta{
-    width:100%;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:radial-gradient(circle at center, #1a0000 0%, #000 100%);
-    position:relative;
-}
-.bg-kira{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover; /* faz a imagem cobrir tudo */
-    opacity:0.4; /* deixa mais escura pra ler o texto */
-    z-index:0;
-}
-.conteudo{
-    position:relative;
-    z-index:1; /* fica na frente da imagem */
-}
-h1{
-    font-size:60px;
-    letter-spacing:5px;
-    text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C;
-    margin-bottom:20px;
-}
-.foto-3x4{
-    width:120px;
-    height:150px;
-    border:2px solid #DC143C;
-    border-radius:5px;
-    box-shadow:0 0 15px #DC143C;
-    margin-bottom:30px;
-    object-fit:cover;
-}
-.btn-entrar{
-    padding:15px 50px;
-    font-size:22px;
-    color:#fff;
-    background:transparent;
-    border:2px solid #DC143C;
-    text-decoration:none;
-    transition:0.3s;
-    margin-bottom:30px;
-    display:inline-block;
-}
-.btn-entrar:hover{
-    background:#DC143C;
-    color:#000;
-    box-shadow:0 0 20px #DC143C;
-}
-.menu a{
-    color:#DC143C;
-    text-decoration:none;
-    font-size:18px;
-    margin:0 15px;
-    transition:0.3s;
-}
-.menu a:hover{
-    color:#fff;
-    text-shadow:0 0 10px #DC143C;
-}
+body{margin:0;padding:0;background:#000;min-height:100vh;font-family:Georgia, serif;overflow:hidden;}
+.porta{position:relative;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.bg-kira{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;z-index:0;filter:brightness(0.7);}
+.conteudo{position:relative;z-index:1;color:#DC143C;}
+h1{font-size:60px;letter-spacing:5px;text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C;margin:0 0 20px 0;}
+.foto-3x4{width:120px;height:150px;border:2px solid #DC143C;border-radius:5px;box-shadow:0 0 15px #DC143C;margin-bottom:30px;object-fit:cover;background:#000;}
+.btn-entrar{padding:15px 50px;font-size:22px;color:#fff;background:transparent;border:2px solid #DC143C;text-decoration:none;display:inline-block;margin-bottom:30px;transition:0.3s;}
+.btn-entrar:hover{background:#DC143C;color:#000;box-shadow:0 0 20px #DC143C;}
+.menu a{color:#DC143C;text-decoration:none;font-size:18px;margin:0 15px;transition:0.3s;}
+.menu a:hover{color:#fff;text-shadow:0 0 10px #DC143C;}
 </style>
 </head>
 <body>
 
 <div class="porta">
-    <img src="kira-porta.jpg" alt="Kira na porta" class="bg-kira">
+    <img src="/Messenger_creation_1107486295409870.jpeg" alt="Kira na porta" class="bg-kira">
     
     <div class="conteudo">
         <h1>KIRA LUX</h1>
-        
-        <img src="foto3x4.jpg" alt="Foto 3x4" class="foto-3x4">
-        
+        <img src="/image_d73fa71d.jpg" alt="Foto 3x4" class="foto-3x4">
         <br>
-        <a href="/menu.html" class="btn-entrar">ENTRAR</a>
-        
-        <div class="menu">
-            <a href="/sobre.html">Sobre</a>
-            <a href="/galeria.html">Galeria</a>
-            <a href="/contato.html">Contato</a>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
