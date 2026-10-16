@@ -6,75 +6,51 @@
 <title>KIRA LUX</title>
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {background:#000; color:#fff; font-family:'Georgia', serif; overflow:hidden;}
+body {background:#000; color:#fff; font-family:'Georgia', serif; overflow-x:hidden;}
 
-.header {
-    background:#000;
-    padding:15px 20px;
-    position:sticky;
-    top:0;
-    z-index:10;
-    border-bottom:2px solid #DC143C;
-}
-.top {
-    display:flex;
-    align-items:center;
-    gap:20px;
-    margin-bottom:12px;
-}
-.top img {
-    width:90px; /* AUMENTEI - era 55px */
-    height:90px;
-    border:3px solid #DC143C;
-    object-fit:cover;
-    box-shadow:0 0 15px #DC143C;
-}
-.top h1 {
-    color:#DC143C;
-    font-size:52px; /* AUMENTEI - era 36px */
-    text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C;
-    letter-spacing:5px;
-    animation:brilhar 2s infinite;
-}
-@keyframes brilhar {
-    0%,100% {opacity:1; text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C;}
-    50% {opacity:0.8; text-shadow:0 0 10px #DC143C, 0 0 20px #DC143C;}
-}
-.menu {
-    display:flex;
-    gap:12px;
-}
-.menu a {
-    flex:1;
-    text-align:center;
-    color:#DC143C;
-    text-decoration:none;
-    border:1px solid #DC143C;
-    padding:8px 0;
-    font-size:15px;
-    letter-spacing:2px;
-    transition:0.3s;
-}
-.menu a:hover {background:#DC143C; color:#000; box-shadow:0 0 15px #DC143C;}
+.header {background:#000; padding:15px 20px; border-bottom:2px solid #DC143C;}
+.top {display:flex; align-items:center; gap:20px; margin-bottom:12px;}
+.top img {width:90px; height:90px; border:3px solid #DC143C; object-fit:cover; box-shadow:0 0 15px #DC143C;}
+.top h1 {color:#DC143C; font-size:52px; text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C; letter-spacing:5px; animation:brilhar 2s infinite;}
+@keyframes brilhar {0%,100% {opacity:1;} 50% {opacity:0.8;}}
+.menu {display:flex; gap:12px;}
+.menu a {flex:1; text-align:center; color:#DC143C; text-decoration:none; border:1px solid #DC143C; padding:8px 0; font-size:15px; letter-spacing:2px;}
+.menu a:hover {background:#DC143C; color:#000;}
 
 .banner {
     width:100%;
     height:calc(100vh - 145px);
-    background:url('Messenger_creation_1107486295409870.jpeg?v=2') center/cover no-repeat; /* CORRIGI - cover pra aparecer inteira */
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    background:url('https://raw.githubusercontent.com/KIRALUST/kiralust.github.io/main/Messenger_creation_1107486295409870.jpeg') center/cover no-repeat;
+    display:flex; align-items:center; justify-content:center;
 }
 
 .btn-entrar {
     background:linear-gradient(45deg, #DC143C, #8B0000);
-    color:#fff;
-    text-decoration:none;
-    padding:18px 60px;
-    font-size:22px;
-    font-weight:bold;
-    letter-spacing:4px;
-    border:2px solid #DC143C;
-    border-radius:8px;
-    box-shadow:0 0 25px #DC143C, 0 0 50
+    color:#fff; text-decoration:none; padding:18px 60px;
+    font-size:22px; font-weight:bold; letter-spacing:4px;
+    border:2px solid #DC143C; border-radius:8px;
+    box-shadow:0 0 25px #DC143C; animation:pulso 1.5s infinite;
+}
+@keyframes pulso {0%,100% {transform:scale(1);} 50% {transform:scale(1.05);}}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="top">
+        <img src="image_d73fa71d.jpg" alt="Kira">
+        <h1>KIRA LUX</h1>
+    </div>
+    <div class="menu">
+        <a href="sobre.html">Sobre</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="contato.html">Contato</a>
+    </div>
+</div>
+
+<div class="banner">
+    <a href="menu.html" class="btn-entrar">ENTRAR</a>
+</div>
+
+</body>
+</html>
