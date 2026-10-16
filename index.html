@@ -3,48 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUST</title>
+<title>KIRA LUX</title>
 <style>
+* {margin:0; padding:0; box-sizing:border-box;}
 body {
-    margin:0;
-    background:#000;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    background:#000; 
+    display:flex; 
+    flex-direction:column;
+    justify-content:center; 
+    align-items:center; 
     height:100vh;
+    font-family:'Georgia', serif;
+    overflow:hidden;
 }
 
-.porta {
-    width:500px;
-    height:700px;
-    background:url('https://i.imgur.com/8bK2gZQ.png') center/cover no-repeat;
-    cursor:pointer;
-    animation: respirar 4s infinite ease-in-out;
-    filter:drop-shadow(0 0 20px #DC143C);
+.logo {
+    color:#DC143C; 
+    font-size:72px; 
+    font-weight:bold;
+    text-shadow:0 0 30px #DC143C, 0 0 60px #DC143C; 
+    animation:piscar 2s infinite;
+    letter-spacing:5px;
+    margin-bottom:60px;
+}
+
+@keyframes piscar {
+    0%, 100% {opacity:1; text-shadow:0 0 30px #DC143C;}
+    50% {opacity:0.7; text-shadow:0 0 50px #ff0033;}
+}
+
+.btn-entrar {
+    color:#fff; 
+    font-size:24px; 
+    text-decoration:none; 
+    border:2px solid #DC143C; 
+    padding:18px 50px;
+    background:rgba(0,0,0,0.7);
+    letter-spacing:3px;
     transition:0.3s;
 }
 
-.porta:hover {
-    filter:drop-shadow(0 0 40px #DC143C);
-    transform:scale(1.02);
-}
-
-@keyframes respirar {
-    0%, 100% {transform:scale(1);}
-    50% {transform:scale(1.03);}
-}
-
-@media(max-width:600px){
-    .porta {width:90vw; height:126vw;}
+.btn-entrar:hover {
+    background:#DC143C;
+    color:#000;
+    font-weight:bold;
+    box-shadow:0 0 30px #DC143C;
+    transform:scale(1.1);
 }
 </style>
 </head>
 <body>
-
-<a href="menu.html">
-    <div class="porta"></div>
-</a>
-
+<div class="logo">KIRA LUX</div>
+<a href="menu.html" class="btn-entrar">ENTRAR</a>
 </body>
 </html>
