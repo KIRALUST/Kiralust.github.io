@@ -2,84 +2,98 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIRA LUX - MENU</title>
 <style>
 body {
     margin:0;
     background:#000;
     overflow:hidden;
-    font-family:Arial;
+    font-family:'Georgia', serif;
 }
 
-/* A porta de frente - imagem de fundo CLICÁVEL */
 .porta {
     width:100%;
     height:100vh;
-    background:url('https://i.imgur.com/8bK2gZQ.png') center no-repeat;
-    background-size:contain;
+    background:url('IMG_05e5782b-ebb4-4eb9-b32d-18f5f86e488b.jpg') center/cover no-repeat;
     position:relative;
-    cursor:pointer; /* mostra que é clicável */
-    transition:1s;
+    cursor:pointer;
+    transition:0.5s;
 }
 
-/* Texto sobre a porta */
+.porta:hover {
+    filter:brightness(1.1) drop-shadow(0 0 25px #DC143C);
+}
+
 .texto-porta {
     position:absolute;
-    top:60%;
+    top:75%;
     width:100%;
     text-align:center;
     color:#DC143C;
-    font-size:24px;
-    letter-spacing:4px;
-    text-shadow:0 0 10px #000;
-    pointer-events:none; /* pra não atrapalhar o clique */
+    font-size:22px;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #000;
+    pointer-events:none;
+    animation: pisca 2s infinite;
 }
 
-/* Quando clica, abre a porta */
-.porta.aberta {
-    background:url('https://i.imgur.com/DOOR_OPEN.png') center no-repeat;
-    background-size:contain;
-    cursor:default;
+@keyframes pisca {
+    0%, 100% {opacity:1;}
+    50% {opacity:0.5;}
 }
 
-/* Menu que aparece dentro da porta aberta */
 .menu-interno {
     display:none;
     flex-direction:column;
-    gap:15px;
+    gap:20px;
     position:absolute;
-    top:65%;
-    width:100%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
     align-items:center;
 }
+
 .porta.aberta .menu-interno {
     display:flex;
+    animation: fadeIn 0.8s;
 }
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translate(-50%, -45%);}
+    to {opacity:1; transform:translate(-50%, -50%);}
+}
+
 .menu-interno a {
-    padding:12px 30px;
-    background:rgba(0,0,0,0.8);
+    padding:14px 35px;
+    background:rgba(0,0,0,0.85);
     color:#DC143C;
     border:2px solid #DC143C;
     text-decoration:none;
     font-size:18px;
+    letter-spacing:2px;
     transition:0.3s;
-    width:200px;
+    width:220px;
     text-align:center;
+    backdrop-filter:blur(3px);
 }
+
 .menu-interno a:hover {
     background:#DC143C;
     color:#000;
+    box-shadow:0 0 20px #DC143C;
+    transform:scale(1.05);
 }
 </style>
 </head>
 <body>
 
 <div class="porta" id="porta" onclick="abrirPorta()">
-    <div class="texto-porta">ENTRE SE OUSAR</div>
+    <div class="texto-porta">CLIQUE PARA ENTRAR</div>
     
     <div class="menu-interno" onclick="event.stopPropagation()">
         <a href="galeria.html">GALERIA</a>
-        <a href="#">SOBRE</a>
+        <a href="#">RITUAIS</a>
         <a href="#">CONTATO</a>
         <a href="index.html" style="border-color:#555;color:#555">← VOLTAR</a>
     </div>
