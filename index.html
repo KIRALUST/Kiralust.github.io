@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>KIRA LUX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIRA LUST</title>
 <style>
 body {
     margin:0;
@@ -15,31 +16,35 @@ body {
 }
 
 .porta {
-    width:400px;
-    animation: respira 2s infinite;
+    width:500px;
+    height:700px;
+    background:url('https://i.imgur.com/8bK2gZQ.png') center/cover no-repeat;
     cursor:pointer;
+    animation: respirar 4s infinite ease-in-out;
+    filter:drop-shadow(0 0 20px #DC143C);
     transition:0.3s;
-}
-
-@keyframes respira {
-    0%, 100% { transform:scale(1); filter:drop-shadow(0 0 10px #DC143C); }
-    50% { transform:scale(1.03); filter:drop-shadow(0 0 30px #DC143C); }
 }
 
 .porta:hover {
     filter:drop-shadow(0 0 40px #DC143C);
+    transform:scale(1.02);
+}
+
+@keyframes respirar {
+    0%, 100% {transform:scale(1);}
+    50% {transform:scale(1.03);}
+}
+
+@media(max-width:600px){
+    .porta {width:90vw; height:126vw;}
 }
 </style>
 </head>
 <body>
 
 <a href="menu.html">
-  <img src="https://i.imgur.com/8bK2gZQ.png" class="porta" alt="Porta">
+    <div class="porta"></div>
 </a>
-
-<audio autoplay loop>
-  <source src="som_porta.mp3" type="audio/mpeg">
-</audio>
 
 </body>
 </html>
