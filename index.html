@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#000;color:#DC143C;font-family:Georgia, serif;}
-.porta{width:100vw;height:100vh;background:url('/Messenger_creation_1107486295409870.jpeg') center/cover no-repeat;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;}
-.porta::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
-.conteudo{position:relative;z-index:2;text-align:center;}
-h1{font-size:60px;letter-spacing:8px;text-shadow:0 0 20px #DC143C, 0 0 40px #DC143C;margin-bottom:20px;}
-.foto-3x4{width:120px;height:150px;border:2px solid #DC143C;border-radius:4px;box-shadow:0 0 15px #DC143C;margin-bottom:25px;object-fit:cover;}
-.btn-entrar{padding:14px 45px;border:2px solid #DC143C;color:#fff;text-decoration:none;font-size:20px;display:inline-block;margin-bottom:25px;transition:0.3s;}
-.btn-entrar:hover{background:#DC143C;color:#000;box-shadow:0 0 20px #DC143C;}
-.menu a{color:#DC143C;text-decoration:none;font-size:18px;margin:0 12px;transition:0.3s;}
-.menu a:hover{color:#fff;text-shadow:0 0 8px #DC143C;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Lux</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="porta">
-  <div class="conteudo">
-    <h1>KIRA LUX</h1>
-    <img src="/image_d73fa71d.jpg" class="foto-3x4" alt="Foto 3x4">
-    <br>
-    <a href="/menu.html" class="btn-entrar">ENTRAR</a>
-    <div class="menu">
-      <a href="/sobre.html">Sobre</a>
-      <a href="/galeria.html">Galeria</a>
-      <a href="/contato.html">Contato</a>
-    </div>
-  </div>
-</div>
+    <!-- Cabeçalho Superior da Imagem 2 -->
+    <header class="navbar">
+        <div class="logo">KIRA LUX</div>
+        <nav class="nav-links">
+            <a href="sobre.html">Sobre</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Área Principal com o Fundo e o Botão Secreto na Porta -->
+    <main class="hero-container">
+        <div class="hero-background"></div>
+        
+        <!-- Botão Secreto Pulsante que leva ao menu.html -->
+        <a href="menu.html" class="secret-door-btn" aria-label="Entrar no Menu"></a>
+    </main>
 
 </body>
 </html>
