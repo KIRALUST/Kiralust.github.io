@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>KIRA LUX - MENU</title>
+<style>
+body {
+    margin:0;
+    background:#000;
+    overflow:hidden;
+    font-family:Arial;
+}
+
+/* A porta de frente - imagem de fundo CLICÁVEL */
+.porta {
+    width:100%;
+    height:100vh;
+    background:url('https://i.imgur.com/8bK2gZQ.png') center no-repeat;
+    background-size:contain;
+    position:relative;
+    cursor:pointer; /* mostra que é clicável */
+    transition:1s;
+}
+
+/* Texto sobre a porta */
+.texto-porta {
+    position:absolute;
+    top:60%;
+    width:100%;
+    text-align:center;
+    color:#DC143C;
+    font-size:24px;
+    letter-spacing:4px;
+    text-shadow:0 0 10px #000;
+    pointer-events:none; /* pra não atrapalhar o clique */
+}
+
+/* Quando clica, abre a porta */
+.porta.aberta {
+    background:url('https://i.imgur.com/DOOR_OPEN.png') center no-repeat;
+    background-size:contain;
+    cursor:default;
+}
+
+/* Menu que aparece dentro da porta aberta */
+.menu-interno {
+    display:none;
+    flex-direction:column;
+    gap:15px;
+    position:absolute;
+    top:65%;
+    width:100%;
+    align-items:center;
+}
+.porta.aberta .menu-interno {
+    display:flex;
+}
+.menu-interno a {
+    padding:12px 30px;
+    background:rgba(0,0,0,0.8);
+    color:#DC143C;
+    border:2px solid #DC143C;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.3s;
+    width:200px;
+    text-align:center;
+}
+.menu-interno a:hover {
+    background:#DC143C;
+    color:#000;
+}
+</style>
+</head>
+<body>
+
+<div class="porta" id="porta" onclick="abrirPorta()">
+    <div class="texto-porta">ENTRE SE OUSAR</div>
+    
+    <div class="menu-interno" onclick="event.stopPropagation()">
+        <a href="galeria.html">GALERIA</a>
+        <a href="#">SOBRE</a>
+        <a href="#">CONTATO</a>
+        <a href="index.html" style="border-color:#555;color:#555">← VOLTAR</a>
+    </div>
+</div>
+
+<script>
+function abrirPorta() {
+    document.getElementById('porta').classList.add('aberta');
+    document.querySelector('.texto-porta').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
