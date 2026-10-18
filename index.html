@@ -1,45 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX - Portal</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KIRA LUX - Portal</title>
+
+  <!-- Se quiser usar o style.css do repositório (opcional) -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Base rápida para garantir a aparência independente do style.css */
     * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:#000; color:#fff; font-family:Arial; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
-  h1 { color:#ff0000; text-shadow:0 0 15px red, 0 0 30px red; letter-spacing:12px; margin:25px 0 15px; font-size:32px; }
-  .portal { position:relative; line-height:0; }
-  .portal img { max-width:95vw; max-height:75vh; width:auto; height:auto; display:block; }
-  
-  /* BOTÃO INVISÍVEL QUE RESPIRA - CORRIGIDO PASSADA RÁPIDA */
-  .porta {
-    position:absolute;
-    left:33%; top:28%; width:34%; height:58%;
-    cursor:pointer;
-    background: radial-gradient(ellipse at center, rgba(255,0,0,0.22) 0%, transparent 70%);
-    box-shadow:0 0 20px rgba(255,0,0,0.5);
-    opacity:0;
-    transition: opacity 0.5s ease;
-    border-radius:6px;
-  }
-  .porta:hover {
-    opacity:1;
-    animation: respirar 1.6s infinite ease-in-out;
-  }
-  @keyframes respirar {
-    0% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
-    50% { box-shadow:0 0 40px rgba(255,0,0,1), inset 0 0 20px rgba(255,0,0,0.4); }
-    100% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
-  }
-  .toque { margin-top:20px; color:#ff0000; letter-spacing:4px; font-size:13px; text-shadow:0 0 8px red; opacity:0.8; }
-</style>
+    body {
+      background:#000;
+      color:#fff;
+      font-family: Arial, Helvetica, sans-serif;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      min-height:100vh;
+    }
+
+    /* Foto de perfil 3x4 (bloco novo) */
+    .profile-wrap {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+
+    .profile-photo {
+      width: min(220px, 60vw);
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border: 3px solid #ff0000;
+      box-shadow:
+        0 0 18px rgba(255, 0, 0, 0.7),
+        0 0 28px rgba(255, 0, 0, 0.35);
+      border-radius: 12px;
+      background: #111;
+      display: block;
+    }
+
+    /* Título */
+    h1 {
+      color:#ff0000;
+      text-shadow:0 0 15px red, 0 0 30px red;
+      letter-spacing:12px;
+      margin:18px 0 10px;
+      font-size:32px;
+    }
+
+    /* Portal and image */
+    .portal { position:relative; line-height:0; z-index: 1; }
+    .portal img { max-width:95vw; max-height:75vh; width:auto; height:auto; display:block; }
+
+    /* BOTÃO INVISÍVEL QUE RESPIRA */
+    .porta {
+      position:absolute;
+      left:33%; top:28%; width:34%; height:58%;
+      cursor:pointer;
+      background: radial-gradient(ellipse at center, rgba(255,0,0,0.22) 0%, transparent 70%);
+      box-shadow:0 0 20px rgba(255,0,0,0.5);
+      opacity:0;
+      transition: opacity 0.5s ease;
+      border-radius:6px;
+    }
+    .porta:hover {
+      opacity:1;
+      animation: respirar 1.6s infinite ease-in-out;
+    }
+    @keyframes respirar {
+      0% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
+      50% { box-shadow:0 0 40px rgba(255,0,0,1), inset 0 0 20px rgba(255,0,0,0.4); }
+      100% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
+    }
+
+    .toque { margin-top:20px; color:#ff0000; letter-spacing:4px; font-size:13px; text-shadow:0 0 8px red; opacity:0.9; }
+
+    /* Pequenos ajustes responsivos */
+    @media (max-width: 600px) {
+      h1 { font-size:26px; letter-spacing:8px; margin-top:14px; }
+      .profile-photo { width: min(160px, 52vw); }
+      .porta { left:28%; top:26%; width:44%; height:58%; }
+    }
+  </style>
 </head>
+
 <body>
-<h1>KIRA LUX</h1>
-<div class="portal">
-  <img src="kira-portal.jpg" alt="Portal Kira Lux">
-  <a href="galeria.html" class="porta" aria-label="Entrar"></a>
-</div>
-<div class="toque">TOQUE NA PORTA</div>
+  <!-- FOTO DE PERFIL 3x4 - insere logo abaixo do <body> -->
+  <div class="profile-wrap">
+    <img class="profile-photo" src="kira-3x4.jpg" alt="Kira Lux">
+  </div>
+
+  <h1>KIRA LUX</h1>
+
+  <div class="portal">
+    <img src="kira-portal.jpg" alt="Portal Kira Lux">
+    <a href="galeria.html" class="porta" aria-label="Entrar"></a>
+  </div>
+
+  <div class="toque">TOQUE NA PORTA</div>
 </body>
 </html>
