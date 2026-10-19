@@ -5,39 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KIRA LUX - Portal</title>
 
-  <link rel="stylesheet" href="style.css">
-
   <style>
+    :root {
+      /* altura do topo (foto + título) — responsiva */
+      --hero-h: clamp(84px, 12vh, 140px);
+    }
+
     * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; }
     body {
       background:#000;
       color:#fff;
       font-family: Arial, Helvetica, sans-serif;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
       min-height:100vh;
-      padding:20px 12px;
+      margin:0;
     }
 
-    /* HERO: foto 3x4 + título sempre lado a lado (não empilha) */
+    /* HEADER: foto 3x4 + título com mesma altura e ocupando toda a largura */
     .hero {
+      height: var(--hero-h);
       display:flex;
       align-items:center;
-      gap:18px;
-      margin-top:12px;
+      gap:16px;
+      padding:0 12px;
       width:100%;
-      max-width:980px;
+      max-width:100%;
       justify-content:flex-start;
-      flex-wrap:nowrap; /* evita empilhar */
+      position:relative;
+      z-index:3; /* garante que o header fique acima do portal */
+      box-sizing:border-box;
     }
 
-    .profile-wrap { flex: 0 0 auto; }
+    .profile-wrap { flex: 0 0 auto; display:flex; align-items:center; height:100%; }
     .profile-photo {
-      width:120px;
-      min-width:80px;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
+      height:100%;             /* mesma altura do header */
+      aspect-ratio:3/4;        /* preserva proporção 3x4 */
+      width:auto;
+      object-fit:cover;
       border: 3px solid #ff0000;
       box-shadow: 0 0 18px rgba(255,0,0,0.7), 0 0 28px rgba(255,0,0,0.35);
       border-radius:8px;
@@ -46,26 +50,50 @@
     }
 
     h1 {
+      margin:0;
+      padding:0;
       color:#ff0000;
       text-shadow:0 0 15px red, 0 0 30px red;
-      letter-spacing:10px;
-      font-size:36px;
-      line-height:1.05;
-      margin:0;
-      padding:6px 0;
-      flex: 1 1 auto;
-      white-space:nowrap;
+      letter-spacing:0.18em;
+      display:flex;
+      align-items:center;
+      height:100%;
+      flex:1 1 auto; /* ocupa o resto da largura ao lado da foto */
+      font-size:clamp(1.2rem, 3.4vw, 2.6rem); /* responsivo */
+      text-align:left;
       overflow:hidden;
-      text-overflow:ellipsis;
+      white-space:nowrap;
     }
 
-    /* Portal: movido ligeiramente para cima para dividir a área preta */
-    .portal { position:relative; line-height:0; z-index: 1; margin-top: -6vh; width:100%; display:flex; justify-content:center; }
-    .portal img { max-width:95vw; max-height:62vh; width:auto; height:auto; display:block; }
+    /* PORTAL: ocupa toda a largura horizontal; centraliza verticalmente no espaço restante */
+    .portal-area {
+      width:100%;
+      height: calc(100vh - var(--hero-h)); /* altura restante do viewport */
+      display:flex;
+      align-items:center;    /* centra verticalmente a imagem do portal */
+      justify-content:center;
+      overflow:hidden;
+      position:relative;
+      z-index:1;
+      background:#000;
+    }
+
+    .portal-img {
+      width:100%;            /* ocupa totalmente a largura da tela */
+      max-width:100%;
+      height:auto;
+      max-height:100%;       /* não ultrapassa o contêiner vertical */
+      object-fit:contain;    /* garante que a imagem inteira apareça, centrada */
+      display:block;
+    }
 
     .porta {
       position:absolute;
-      left:33%; top:28%; width:34%; height:58%;
+      /* posicione a área clicável conforme a composição visual do portal */
+      left:33%;
+      top:28%;
+      width:34%;
+      height:58%;
       cursor:pointer;
       background: radial-gradient(ellipse at center, rgba(255,0,0,0.22) 0%, transparent 70%);
       box-shadow:0 0 20px rgba(255,0,0,0.5);
@@ -73,22 +101,31 @@
       transition: opacity 0.5s ease;
       border-radius:6px;
     }
-    .porta:hover { opacity:1; animation: respirar 1.6s infinite ease-in-out; }
+    .porta:hover { opacity:1; animation:respirar 1.6s infinite ease-in-out; }
     @keyframes respirar {
       0% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
       50% { box-shadow:0 0 40px rgba(255,0,0,1), inset 0 0 20px rgba(255,0,0,0.4); }
       100% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
     }
 
-    .toque { margin-top:16px; color:#ff0000; letter-spacing:4px; font-size:13px; text-shadow:0 0 8px red; opacity:0.9; }
+    .toque {
+      margin-top:18px;
+      color:#ff0000;
+      letter-spacing:4px;
+      font-size:13px;
+      text-shadow:0 0 8px red;
+      opacity:0.9;
+      text-align:center;
+    }
 
-    /* Responsivo: reduz tamanhos mas mantém a posição lado a lado */
+    /* ajustes para telas pequenas */
     @media (max-width:720px) {
-      .profile-photo { width:96px; }
-      h1 { font-size:24px; letter-spacing:8px; }
-      .portal img { max-height:52vh; }
-      .porta { left:28%; top:26%; width:44%; height:58%; }
-      body { padding:12px; }
+      :root { --hero-h: clamp(72px, 14vh, 110px); }
+      h1 { font-size:clamp(1rem, 5vw, 1.6rem); text-align:center; }
+      .hero { padding:0 10px; }
+      .profile-photo { height:100%; }
+      .portal-area { height: calc(100vh - var(--hero-h)); }
+      .portal-img { object-position:center center; }
     }
   </style>
 </head>
@@ -101,10 +138,10 @@
     <h1>KIRA LUX</h1>
   </header>
 
-  <div class="portal">
-    <img src="kira-portal.jpg" alt="Portal Kira Lux">
+  <main class="portal-area">
+    <img class="portal-img" src="kira-portal.jpg" alt="Portal Kira Lux">
     <a href="galeria.html" class="porta" aria-label="Entrar"></a>
-  </div>
+  </main>
 
   <div class="toque">TOQUE NA PORTA</div>
 </body>
