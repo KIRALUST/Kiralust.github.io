@@ -26,9 +26,9 @@
       height: var(--hero-h);
       display:flex;
       align-items:center;
-      gap:12px;             /* pequeno espaçamento entre foto e título */
-      padding:0 12px 0 12px;/* mantém respiração nas laterais */
-      width:100vw;          /* ocupa toda a largura da viewport */
+      gap:12px;
+      padding:0 12px;
+      width:100vw;
       justify-content:flex-start;
       position:relative;
       z-index:3; /* garante que o header fique acima do portal */
@@ -53,15 +53,16 @@
        e que, junto com a foto, preencham horizontalmente o topo. */
     h1 {
       margin:0;
-      padding:0;
+      padding:0 6px;
       color:#ff0000;
-      text-shadow:0 0 22px rgba(255,0,red,0.98), 0 0 48px rgba(255,0,red,0.75);
+      text-shadow:0 0 22px rgba(255,0,0,0.95), 0 0 48px rgba(255,0,0,0.7);
       letter-spacing:0.18em;
       display:flex;
       align-items:center;
       height:100%;              /* mesma altura que a foto */
       flex:1 1 auto;            /* ocupa o espaço horizontal restante */
-      font-size: calc(var(--hero-h) * 0.75); /* aumentado para dar mais presença */
+      /* Make font size match the photo height precisely */
+      font-size: calc(var(--hero-h) * 0.95);
       line-height:1;            /* evita quebra vertical dentro do header */
       text-align:left;
       overflow:hidden;
@@ -125,8 +126,9 @@
     /* ajustes para telas pequenas */
     @media (max-width:720px) {
       :root { --hero-h: clamp(72px, 14vh, 110px); }
-      h1 { font-size: calc(var(--hero-h) * 0.50); text-align:left; }
-      .hero { padding:0 10px; gap:10px; }
+      /* scale down a bit on smaller screens so text doesn't overflow */
+      h1 { font-size: calc(var(--hero-h) * 0.78); text-align:left; }
+      .hero { padding:0 10px; gap:8px; }
       .profile-photo { height:100%; }
       .portal-area { height: calc(100vh - var(--hero-h)); }
       .portal-img { object-position:center center; }
