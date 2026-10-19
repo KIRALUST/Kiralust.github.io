@@ -93,20 +93,38 @@
       display:block;
     }
 
+    /* botão/área clicável sobre a porta: posicionado à direita, altura reduzida, quase invisível por padrão */
     .porta {
-      position:absolute;
-      left:33%;
-      top:28%;
-      width:34%;
-      height:58%;
-      cursor:pointer;
-      background: radial-gradient(ellipse at center, rgba(255,0,0,0.22) 0%, transparent 70%);
-      box-shadow:0 0 20px rgba(255,0,0,0.5);
-      opacity:0;
-      transition: opacity 0.5s ease;
-      border-radius:6px;
+      position: absolute;
+      left: 70%;              /* movido para a direita */
+      top: 18%;
+      width: 18%;            /* mantido */
+      height: 52%;           /* diminuído verticalmente */
+      z-index: 2;            /* garante que fique sobre a imagem do portal */
+      cursor: pointer;
+      background: radial-gradient(ellipse at center, rgba(255,0,0,0.08) 0%, transparent 70%);
+      box-shadow: 0 0 6px rgba(255,0,0,0.18); /* sutil por padrão */
+      opacity: 0.06;         /* quase invisível por padrão */
+      transition: opacity .25s ease, box-shadow .25s ease, transform .15s ease;
+      border-radius: 10px;
+      border: 2px solid rgba(255,0,0,0.04); /* borda muito sutil quando escondida */
+      -webkit-tap-highlight-color: transparent; /* remove destaque em Android */
+      outline: none;
+      transform: translateZ(0);
     }
-    .porta:hover { opacity:1; animation:respirar 1.6s infinite ease-in-out; }
+
+    /* hover / foco / toque mostram o efeito vermelho forte (glow) */
+    .porta:hover,
+    .porta:focus,
+    .porta:active {
+      opacity: 1;
+      box-shadow: 0 0 48px rgba(255,0,0,0.95), inset 0 0 12px rgba(255,0,0,0.18);
+      border-color: rgba(255,0,0,0.85);
+    }
+
+    /* garante que não apareça o ring branco do navegador */
+    .porta:focus { outline: none; }
+
     @keyframes respirar {
       0% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
       50% { box-shadow:0 0 40px rgba(255,0,0,1), inset 0 0 20px rgba(255,0,0,0.4); }
