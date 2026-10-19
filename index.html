@@ -21,19 +21,19 @@
       margin:0;
     }
 
-    /* HEADER: foto 3x4 + título com mesma altura e ocupando toda a largura */
+    /* HEADER: foto 3x4 + título com mesma altura e ocupando toda a largura do topo */
     .hero {
       height: var(--hero-h);
       display:flex;
       align-items:center;
-      gap:16px;
-      padding:0 12px;
-      width:100%;
-      max-width:100%;
+      gap:12px;             /* pequeno espaçamento entre foto e título */
+      padding:0 12px 0 12px;/* mantém respiração nas laterais */
+      width:100vw;          /* ocupa toda a largura da viewport */
       justify-content:flex-start;
       position:relative;
       z-index:3; /* garante que o header fique acima do portal */
       box-sizing:border-box;
+      background:transparent;
     }
 
     .profile-wrap { flex: 0 0 auto; display:flex; align-items:center; height:100%; }
@@ -49,20 +49,24 @@
       display:block;
     }
 
+    /* Garantir que o texto ocupe exatamente a mesma altura visual da foto
+       e que, junto com a foto, preencham horizontalmente o topo. */
     h1 {
       margin:0;
       padding:0;
       color:#ff0000;
-      text-shadow:0 0 15px red, 0 0 30px red;
+      text-shadow:0 0 15px rgba(255,0,0,0.95), 0 0 30px rgba(255,0,0,0.65);
       letter-spacing:0.18em;
       display:flex;
       align-items:center;
-      height:100%;
-      flex:1 1 auto; /* ocupa o resto da largura ao lado da foto */
-      font-size:clamp(1.2rem, 3.4vw, 2.6rem); /* responsivo */
+      height:100%;              /* mesma altura que a foto */
+      flex:1 1 auto;            /* ocupa o espaço horizontal restante */
+      font-size: calc(var(--hero-h) * 0.42); /* escala proporcional à altura do header */
+      line-height:1;            /* evita quebra vertical dentro do header */
       text-align:left;
       overflow:hidden;
       white-space:nowrap;
+      justify-content:flex-start; /* texto alinhado à esquerda dentro do espaço */
     }
 
     /* PORTAL: ocupa toda a largura horizontal; centraliza verticalmente no espaço restante */
@@ -79,17 +83,17 @@
     }
 
     .portal-img {
-      width:100%;            /* ocupa totalmente a largura da tela */
+      width:100%;
       max-width:100%;
       height:auto;
-      max-height:100%;       /* não ultrapassa o contêiner vertical */
-      object-fit:contain;    /* garante que a imagem inteira apareça, centrada */
+      max-height:100%;
+      object-fit:contain;
+      object-position:center center;
       display:block;
     }
 
     .porta {
       position:absolute;
-      /* posicione a área clicável conforme a composição visual do portal */
       left:33%;
       top:28%;
       width:34%;
@@ -121,8 +125,8 @@
     /* ajustes para telas pequenas */
     @media (max-width:720px) {
       :root { --hero-h: clamp(72px, 14vh, 110px); }
-      h1 { font-size:clamp(1rem, 5vw, 1.6rem); text-align:center; }
-      .hero { padding:0 10px; }
+      h1 { font-size: calc(var(--hero-h) * 0.38); text-align:left; }
+      .hero { padding:0 10px; gap:10px; }
       .profile-photo { height:100%; }
       .portal-area { height: calc(100vh - var(--hero-h)); }
       .portal-img { object-position:center center; }
