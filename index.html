@@ -21,7 +21,7 @@
       margin:0;
     }
 
-    /* HEADER: foto 3x4 + título com mesma altura e ocupando toda a largura do topo */
+    /* HEADER: foto 3x4 + título com mesma height e ocupando toda a largura do topo */
     .hero {
       height: var(--hero-h);
       display:flex;
@@ -55,13 +55,13 @@
       margin:0;
       padding:0;
       color:#ff0000;
-      text-shadow:0 0 15px rgba(255,0,0,0.95), 0 0 30px rgba(255,0,0,0.65);
+      text-shadow:0 0 22px rgba(255,0,red,0.98), 0 0 48px rgba(255,0,red,0.75);
       letter-spacing:0.18em;
       display:flex;
       align-items:center;
       height:100%;              /* mesma altura que a foto */
       flex:1 1 auto;            /* ocupa o espaço horizontal restante */
-      font-size: calc(var(--hero-h) * 0.42); /* escala proporcional à altura do header */
+      font-size: calc(var(--hero-h) * 0.75); /* aumentado para dar mais presença */
       line-height:1;            /* evita quebra vertical dentro do header */
       text-align:left;
       overflow:hidden;
@@ -125,7 +125,7 @@
     /* ajustes para telas pequenas */
     @media (max-width:720px) {
       :root { --hero-h: clamp(72px, 14vh, 110px); }
-      h1 { font-size: calc(var(--hero-h) * 0.38); text-align:left; }
+      h1 { font-size: calc(var(--hero-h) * 0.50); text-align:left; }
       .hero { padding:0 10px; gap:10px; }
       .profile-photo { height:100%; }
       .portal-area { height: calc(100vh - var(--hero-h)); }
