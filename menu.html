@@ -1,1 +1,71 @@
-<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>KIRA LUX - Menu</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;width:100vw;min-height:100vh}.topo-header{width:100vw;display:flex;align-items:center;justify-content:space-between;padding:12px 0}.foto-3x4{width:18vw;max-width:70px;height:24vw;max-height:90px;object-fit:cover;border:1.5px solid #fff;margin-left:3vw;flex-shrink:0}.logo-kira{width:78vw;color:#e30613;font-family:Impact,'Arial Black',sans-serif;font-size:11.5vw;letter-spacing:.22em;font-weight:900;margin-right:2vw}.porta-img{width:100vw;height:auto;max-height:62vh;object-fit:contain;display:block}.menu-botoes{width:100%;padding:14px 12px;display:flex;flex-direction:column;gap:12px}.botao-menu{display:block;width:100%;padding:14px;text-align:center;text-decoration:none;font-family:monospace;font-size:10px;letter-spacing:4px;color:#ff1a1a;background:rgba(60,0,0,.3);border:1px solid #a00;text-transform:uppercase}</style></head><body><header class="topo-header"><img src="kira-3x4.jpg" class="foto-3x4"><h1 class="logo-kira">KIRA LUX</h1></header><img src="porta-aberta.jpg" class="porta-img"><div class="menu-botoes"><a href="galeria.html" class="botao-menu">Galeria</a><a href="index.html" class="botao-menu">Voltar ao portal</a></div></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIRA LUX - Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000; color:#fff; font-family: 'Cinzel', serif;}
+
+  /* PORTAL COM BOTOES DENTRO */
+  .portal-menu{
+    position:relative;
+    width:100%;
+    line-height:0;
+  }
+  .portal-menu img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  /* BOTOES NA PORTA ABERTA */
+  .botoes-porta{
+    position:absolute;
+    top:52%; /* <-- SOBE/DESCE AQUI pra centralizar na porta aberta */
+    left:50%;
+    transform:translate(-50%, -50%);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    width:52%;
+    z-index:2;
+  }
+  .botoes-porta a{
+    display:block;
+    text-align:center;
+    padding:14px 10px;
+    background:rgba(0,0,0,0.88);
+    border:1.5px solid #ff0a2a;
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    letter-spacing:4px;
+    font-weight:900;
+    box-shadow:0 0 12px rgba(255,10,42,.6), inset 0 0 10px rgba(255,10,42,.2);
+    transition:.2s;
+  }
+  .botoes-porta a:hover{
+    background:#ff0a2a;
+    box-shadow:0 0 20px #ff0a2a;
+  }
+</style>
+</head>
+<body>
+
+<div class="portal-menu">
+  <!-- IMAGEM DA PORTA ABERTA -->
+  <img src="kira-portal.jpg?v=110" alt="Portal Aberto">
+
+  <!-- BOTOES DENTRO DA PORTA -->
+  <div class="botoes-porta">
+    <a href="galeria.html?v=110">GALERIA</a>
+    <a href="sobre.html?v=110">SOBRE</a>
+    <a href="contato.html?v=110">CONTATO</a>
+  </div>
+</div>
+
+</body>
+</html>
