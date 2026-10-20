@@ -4,158 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Kira Lux</title>
-    <style>
-        /* Configurações básicas da página */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #050507;
-            color: #e0e0e6;
-            overflow: hidden; /* Mantém a tela fixa sem barras de rolagem na página inteira */
-        }
-
-        /* Container da imagem de fundo */
-        .hero-background {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            /* Busca a imagem direto do link correto do seu GitHub */
-            background-image: url('kira-portal.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center;     /* Centraliza verticalmente para não cortar no celular */
-            padding: 20px;
-        }
-
-        /* Camada escura geral sutil para dar contraste */
-        .hero-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 1;
-        }
-
-        /* Caixa de conteúdo centralizada e segura para mobile */
-        .content-box {
-            position: relative;
-            z-index: 2;
-            max-width: 500px; 
-            width: 100%;
-            background: rgba(10, 10, 14, 0.88); /* Um pouco mais opaco para leitura perfeita */
-            padding: 25px 30px;
-            border-radius: 8px;
-            border: 1px solid rgba(157, 78, 221, 0.3); 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
-            text-align: center;
-            backdrop-filter: blur(4px);
-            
-            /* Correção essencial para celular: */
-            max-height: 85vh;    /* Garante que a caixa nunca seja maior que a tela do celular */
-            overflow-y: auto;    /* Adiciona uma barra de rolagem interna se o texto for muito longo para a tela */
-        }
-
-        /* Título Principal */
-        h1 {
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* Texto corrido */
-        p.main-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #d1d1d6;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        /* Destaque para termos importantes */
-        p.main-text strong {
-            color: #9d4edd; 
-        }
-
-        /* Frase de efeito final */
-        .final-phrase {
-            font-size: 0.95rem;
-            font-style: italic;
-            color: #b0a0c0;
-            margin-bottom: 20px;
-            display: block;
-            line-height: 1.5;
-        }
-
-        /* Botão de Entrada */
-        .btn-enter {
-            display: inline-block;
-            padding: 10px 30px;
-            background: transparent;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05rem;
-            letter-spacing: 3px;
-            border: 2px solid #9d4edd;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Efeito hover do botão */
-        .btn-enter:hover {
-            background: #9d4edd;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
-        }
-
-        /* Ajustes finos para telas muito pequenas */
-        @media (max-width: 480px) {
-            .content-box {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
-            p.main-text, .final-phrase {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <!-- Importação de fontes sofisticadas e estilizadas para o tema gótico -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="hero-background">
-        <div class="content-box">
-            
-            <h1>Portal Kira Lux</h1>
-            
-            <p class="main-text">
-                Este é um site dedicado à cultura gótica, artes plásticas, literatura, <strong>HQ (comics, mangás, etc.)</strong>, música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG. Autodedicado por <strong>Kira</strong>, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos <em>cult</em>, <em>thrash</em>, <em>pop</em>, fantasia, ficção e cyberpunk. Se você já é apaixonado por esses temas ou quer conhecê-los melhor...
-            </p>
-
-            <span class="final-phrase">
-                ...atravesse a porta que lhe permitirá conhecer a luz na arte das sombras...
-            </span>
-
-            <a href="menu.html" class="btn-enter">...ENTRE!</a>
-
+    <!-- Header flutuante sobreposto à imagem de fundo -->
+    <header class="site-header">
+        <div class="profile-container">
+            <img src="foto_perfil.png" alt="Foto Perfil Kira" class="profile-pic">
         </div>
-    </div>
+        <h1 class="logo-neon">PORTAL KIRA LUX</h1>
+    </header>
+
+    <!-- Layout principal contendo os blocos centrais de texto e ação -->
+    <main class="content-wrapper">
+        <section class="intro-box">
+            <p class="text-block entry-desc">
+                Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG. Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.
+            </p>
+            
+            <p class="text-block entry-call">
+                Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...
+            </p>
+            
+            <!-- Botão com efeito brilhoso integrado à porta de entrada -->
+            <a href="#entrar" class="enter-btn">...ENTRE!</a>
+        </section>
+    </main>
 
 </body>
 </html>
