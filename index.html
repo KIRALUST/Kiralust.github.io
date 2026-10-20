@@ -3,62 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX | Portal</title>
+<title>KIRA LUX</title>
 <style>
 html,body{margin:0;padding:0;background:#000;width:100%;height:100%;overflow:hidden}
-.portal{position:relative;width:100vw;height:100vh;background:#000;display:flex;justify-content:center;align-items:center}
-.portal img.fundo{width:100%;height:100vh;object-fit:contain;background:#000}
-
-/* LOGO KIRALUX NO CENTRO TOPO */
+.portal{position:relative;width:100vw;height:100vh;background:#000}
+.portal .fundo{width:100%;height:100vh;object-fit:contain;background:#000;display:block}
 .logo{
-  position:absolute;
-  top:18px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#fff;
-  font-family:Arial;
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:7px;
-  text-shadow:0 0 10px #DC143C, 0 0 22px #DC143C;
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  color:#fff;font-family:Arial;font-weight:900;font-size:32px;
+  letter-spacing:7px;text-shadow:0 0 10px #DC143C,0 0 22px #DC143C;
   z-index:10;
 }
-
-/* FOTO NO CANTO SUPERIOR ESQUERDO */
 .foto-canto{
-  position:absolute;
-  top:12px;
-  left:12px;
-  width:85px;
-  height:110px;
-  border:2px solid #DC143C;
-  border-radius:6px;
-  overflow:hidden;
-  box-shadow:0 0 12px #DC143C;
-  z-index:10;
+  position:absolute;top:10px;left:10px;width:95px;height:120px;
+  border:2px solid #DC143C;border-radius:6px;overflow:hidden;
+  box-shadow:0 0 14px #DC143C;z-index:10;background:#000;
 }
-.foto-canto img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+.foto-canto img{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
-
 <div class="portal">
-  <!-- LOGO -->
   <div class="logo">KIRALUX</div>
-  
-  <!-- FOTINHA CANTO ESQUERDO -->
-  <div class="foto-canto">
-    <img src="image_d73fa71d.jpg?v=canto" alt="Kira">
-  </div>
-
-  <!-- IMAGEM DA RUA/PORTA SEM BOTÃO -->
-  <img src="kira-portal.jpg?v=final" class="fundo" alt="Portal">
+  <div class="foto-canto"><img src="kira-3x4.jpg?v=agora" alt="Kira"></div>
+  <img src="kira-portal.jpg?v=agora" class="fundo" alt="Portal">
 </div>
-
 </body>
 </html>
