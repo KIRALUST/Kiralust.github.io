@@ -1,172 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KIRA LUX - Portal</title>
-
-  <style>
-    :root {
-      /* altura do topo (foto + título) — responsiva */
-      --hero-h: clamp(84px, 12vh, 140px);
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html, body { height:100%; }
-    body {
-      background:#000;
-      color:#fff;
-      font-family: Arial, Helvetica, sans-serif;
-      min-height:100vh;
-      margin:0;
-    }
-
-    /* HEADER: foto 3x4 + título com mesma height e ocupando toda a largura do topo */
-    .hero {
-      height: var(--hero-h);
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:0 12px;
-      width:100vw;
-      justify-content:flex-start;
-      position:relative;
-      z-index:3; /* garante que o header fique acima do portal */
-      box-sizing:border-box;
-      background:transparent;
-    }
-
-    .profile-wrap { flex: 0 0 auto; display:flex; align-items:center; height:100%; }
-    .profile-photo {
-      height:100%;             /* mesma altura do header */
-      aspect-ratio:3/4;        /* preserva proporção 3x4 */
-      width:auto;
-      object-fit:cover;
-      border: 3px solid #ff0000;
-      box-shadow: 0 0 18px rgba(255,0,0,0.7), 0 0 28px rgba(255,0,0,0.35);
-      border-radius:8px;
-      background:#111;
-      display:block;
-    }
-
-    /* Garantir que o texto ocupe exatamente a mesma altura visual da foto
-       e que, junto com a foto, preencham horizontalmente o topo. */
-    h1 {
-      margin:0;
-      padding:0 6px;
-      color:#ff0000;
-      text-shadow:0 0 22px rgba(255,0,0,0.95), 0 0 48px rgba(255,0,0,0.7);
-      letter-spacing:0.18em;
-      display:flex;
-      align-items:center;
-      height:100%;              /* mesma altura que a foto */
-      flex:1 1 auto;            /* ocupa o espaço horizontal restante */
-      /* Make font size match the photo height precisely */
-      font-size: calc(var(--hero-h) * 0.95);
-      line-height:1;            /* evita quebra vertical dentro do header */
-      text-align:left;
-      overflow:hidden;
-      white-space:nowrap;
-      justify-content:flex-start; /* texto alinhado à esquerda dentro do espaço */
-    }
-
-    /* PORTAL: ocupa toda a largura horizontal; centraliza verticalmente no espaço restante */
-    .portal-area {
-      width:100%;
-      height: calc(100vh - var(--hero-h)); /* altura restante do viewport */
-      display:flex;
-      align-items:center;    /* centra verticalmente a imagem do portal */
-      justify-content:center;
-      overflow:hidden;
-      position:relative;
-      z-index:1;
-      background:#000;
-    }
-
-    .portal-img {
-      width:100%;
-      max-width:100%;
-      height:auto;
-      max-height:100%;
-      object-fit:contain;
-      object-position:center center;
-      display:block;
-    }
-
-    /* botão/área clicável sobre a porta: posicionado à direita, altura reduzida, quase invisível por padrão */
-    .porta {
-      position: absolute;
-      left: 70%;              /* movido para a direita */
-      top: 18%;
-      width: 18%;            /* mantido */
-      height: 52%;           /* diminuído verticalmente */
-      z-index: 2;            /* garante que fique sobre a imagem do portal */
-      cursor: pointer;
-      background: radial-gradient(ellipse at center, rgba(255,0,0,0.08) 0%, transparent 70%);
-      box-shadow: 0 0 6px rgba(255,0,0,0.18); /* sutil por padrão */
-      opacity: 0.06;         /* quase invisível por padrão */
-      transition: opacity .25s ease, box-shadow .25s ease, transform .15s ease;
-      border-radius: 10px;
-      border: 2px solid rgba(255,0,0,0.04); /* borda muito sutil quando escondida */
-      -webkit-tap-highlight-color: transparent; /* remove destaque em Android */
-      outline: none;
-      transform: translateZ(0);
-    }
-
-    /* hover / foco / toque mostram o efeito vermelho forte (glow) */
-    .porta:hover,
-    .porta:focus,
-    .porta:active {
-      opacity: 1;
-      box-shadow: 0 0 48px rgba(255,0,0,0.95), inset 0 0 12px rgba(255,0,0,0.18);
-      border-color: rgba(255,0,0,0.85);
-    }
-
-    /* garante que não apareça o ring branco do navegador */
-    .porta:focus { outline: none; }
-
-    @keyframes respirar {
-      0% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
-      50% { box-shadow:0 0 40px rgba(255,0,0,1), inset 0 0 20px rgba(255,0,0,0.4); }
-      100% { box-shadow:0 0 10px rgba(255,0,0,0.4); }
-    }
-
-    .toque {
-      margin-top:18px;
-      color:#ff0000;
-      letter-spacing:4px;
-      font-size:13px;
-      text-shadow:0 0 8px red;
-      opacity:0.9;
-      text-align:center;
-    }
-
-    /* ajustes para telas pequenas */
-    @media (max-width:720px) {
-      :root { --hero-h: clamp(72px, 14vh, 110px); }
-      /* scale down a bit on smaller screens so text doesn't overflow */
-      h1 { font-size: calc(var(--hero-h) * 0.78); text-align:left; }
-      .hero { padding:0 10px; gap:8px; }
-      .profile-photo { height:100%; }
-      .portal-area { height: calc(100vh - var(--hero-h)); }
-      .portal-img { object-position:center center; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIRA LUX</title>
+<style>
+html,body{margin:0;padding:0;background:#000;width:100%;height:100%;overflow:hidden}
+.topo{width:100%;height:125px;background:#000}
+.topo img{width:100%;height:125px;object-fit:cover;display:block}
+.portal{width:100%;height:calc(100vh - 125px);background:#000;display:flex;justify-content:center;align-items:center}
+.portal img{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+</style>
 </head>
-
 <body>
-  <header class="hero">
-    <div class="profile-wrap">
-      <img class="profile-photo" src="kira-3x4.jpg" alt="Kira Lux">
-    </div>
-    <h1>KIRA LUX</h1>
-  </header>
-
-  <main class="portal-area">
-    <img class="portal-img" src="kira-portal.jpg" alt="Portal Kira Lux">
-    <a href="galeria.html" class="porta" aria-label="Entrar"></a>
-  </main>
-
-  <div class="toque">TOQUE NA PORTA</div>
+<div class="topo">
+<img src="kira-3x4.jpg" alt="Kira Lux">
+</div>
+<div class="portal">
+<img src="kira-portal.jpg" alt="Portal">
+</div>
 </body>
 </html>
