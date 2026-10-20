@@ -4,10 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIRA LUX</title>
-<style> *{margin:0;padding:0;box-sizing:border-box} body{background:#000} .topo{width:100%} .topo img{width:100%;height:auto;display:block} .portal{width:100%} .portal img{width:100%;height:auto;display:block} </style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000}
+  
+  /* HEADER - FOTO 3x4 + LOGO */
+  .header{
+    width:100%;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    border-bottom:1px solid #151515;
+  }
+  .foto-3x4{
+    width:102px;
+    height:auto;
+    display:block;
+    border:1.6px solid #ff0a2a;
+    box-shadow:0 0 14px rgba(255,10,42,.65);
+  }
+  .logo{
+    font-family:'Cinzel', serif;
+    font-weight:900;
+    font-size:42px;
+    letter-spacing:8px;
+    color:#fff;
+    text-shadow:0 0 12px #ff0a2a, 0 0 28px #ff0a2a;
+    line-height:1;
+    text-align:right;
+  }
+  .portal img{width:100%;height:auto;display:block}
+</style>
 </head>
 <body>
-<div class="topo"><img src="image_d73fa71d.jpg?v=100" alt="Kira Lux"></div>
-<div class="portal"><a href="menu.html?v=100" style="display:block"><img src="kira-portal.jpg?v=100" alt="Portal"></a></div>
+
+<div class="header">
+  <img class="foto-3x4" src="image_d73fa71d.jpg?v=102" alt="Foto 3x4 Kira">
+  <div class="logo">KIRA<br>LUX</div>
+</div>
+
+<div class="portal">
+  <a href="menu.html?v=102" style="display:block;line-height:0">
+    <img src="kira-portal.jpg?v=102" alt="Portal">
+  </a>
+</div>
+
 </body>
 </html>
