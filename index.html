@@ -1,27 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX | Portal</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:100%;background:#000}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Kira Lux</title>
+    <style>
+        /* Configurações básicas da página */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0b0d;
+            color: #e0e0e6;
+            overflow-x: hidden;
+        }
+
+        /* Container da imagem de fundo com efeito parallax/cover */
+        .hero-background {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            /* Substitua 'fundo.jpg' pelo caminho ou URL da sua imagem */
+            background-image: url('fundo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Camada escura para dar contraste e garantir legibilidade do texto */
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 12, 0.75); /* Ajuste a opacidade (0.75) se quiser o fundo mais claro ou escuro */
+            z-index: 1;
+        }
+
+        /* Caixa de conteúdo que flutua sobre a imagem */
+        .content-box {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            width: 100%;
+            background: rgba(20, 20, 25, 0.85);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #3a2a4a; /* Borda sutil em tom roxo escuro/gótico */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            text-align: left;
+        }
+
+        /* Títulos */
+        h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #6a0dad; /* Detalhe roxo abaixo do título */
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #a5a5b5;
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Lista em Tópicos */
+        ul {
+            list-style: none; /* Remove as bolinhas padrão */
+            margin-bottom: 35px;
+        }
+
+        li {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        /* Marcador customizado (estilo gótico/cyberpunk neon) */
+        li::before {
+            content: '✦'; 
+            position: absolute;
+            left: 0;
+            color: #9d4edd; /* Cor roxa vibrante para o marcador */
+            font-size: 1.1rem;
+        }
+
+        li strong {
+            color: #f1f1f5;
+        }
+
+        /* Citação final */
+        blockquote {
+            font-style: italic;
+            color: #b0a0c0;
+            border-left: 3px solid #9d4edd;
+            padding-left: 15px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        /* Botão de Entrada */
+        .btn-enter {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            background: transparent;
+            color: #9d4edd;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            border: 2px solid #9d4edd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Efeito de brilho ao passar o mouse no botão */
+        .btn-enter:hover {
+            background: #9d4edd;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.6);
+        }
+
+        /* Ajustes para telas menores (Celulares) */
+        @media (max-width: 600px) {
+            .content-box {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HEADER SÓ COM LOGOTIPO - MESMAS DIMENSÕES QUE VOCÊ REFERIU -->
-<header style="width:100%; height:145px; background:#000; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #1a0000;">
-  <span style="font-family:'Cinzel', serif; font-weight:900; font-size:clamp(36px, 10vw, 68px); color:#ff0a2a; letter-spacing:10px; text-shadow:0 0 10px #ff0a2a, 0 0 35px #ff0a2a, 0 0 70px #8b0000; line-height:1;">KIRA LUX</span>
-</header>
+    <div class="hero-background">
+        <div class="content-box">
+            
+            <h1>Portal Kira Lux</h1>
+            <p class="subtitle">Um espaço criado por <strong>Kira</strong> para verdadeiros apreciadores de arte, cultura e conhecimento profundo.</p>
 
-<!-- PORTAL - SEM BOTÃO -->
-<main onclick="window.location.href='menu.html?v=12'" style="width:100%; line-height:0; background:#000; cursor:pointer;">
-  <img src="kira-portal.jpg?v=12" alt="Portal"
-       style="width:100%; height:auto; display:block;">
-</main>
+            <ul>
+                <li><strong>Foco Principal:</strong> Cultura gótica, espiritualidade, esoterismo e filosofia.</li>
+                <li><strong>Artes & Expressão:</strong> Artes plásticas, literatura, HQ (comics, mangás, etc.), música, teatro e androginia.</li>
+                <li><strong>Universo Geek & Ficção:</strong> RPG, fantasia, ficção científica e cyberpunk.</li>
+                <li><strong>Vertentes Culturais:** Experiências imersivas nos contextos <em>cult</em>, <em>thrash</em> e <em>pop</em>.</li>
+            </ul>
+
+            <blockquote>
+                "Se você já é apaixonado por esses temas ou deseja conhecê-los melhor... atravesse a porta e conheça a luz na arte das sombras."
+            </blockquote>
+
+            <!-- Link/Botão de entrada para o restante do site -->
+            <a href="#proxima-pagina" class="btn-enter">... ENTRE!</a>
+
+        </div>
+    </div>
 
 </body>
 </html>
