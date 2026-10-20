@@ -1,0 +1,324 @@
+/* Base */
+:root {
+  --bg: #050505;
+  --bg-soft: #0d0d0d;
+  --panel: rgba(18, 18, 18, 0.92);
+  --panel-strong: rgba(32, 10, 12, 0.95);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f4f0ee;
+  --muted: #c8babc;
+  --red: #e50914;
+  --red-soft: rgba(229, 9, 20, 0.25);
+  --shadow: rgba(255, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 28px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.brand-mark,
+.brand-soft {
+  color: var(--red);
+  text-shadow: 0 0 12px rgba(229, 9, 20, 0.7);
+}
+
+.brand-soft {
+  color: #f7d7d7;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+.portal-stage {
+  min-height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: minmax(260px, 1.2fr) minmax(260px, 0.8fr);
+  align-items: center;
+  gap: 28px;
+  padding: 20px 0 32px;
+}
+
+.portal-visual {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.portal-visual img {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(229, 9, 20, 0.28));
+}
+
+.portal-callout {
+  align-self: center;
+}
+
+.eyebrow {
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  opacity: 0.92;
+  margin-bottom: 14px;
+}
+
+.portal-callout h1 {
+  color: var(--red);
+  text-shadow: 0 0 18px rgba(229, 9, 20, 0.7);
+  font-size: clamp(2.3rem, 7vw, 5rem);
+  letter-spacing: 0.12em;
+  line-height: 0.9;
+  margin-bottom: 18px;
+}
+
+.portal-callout p {
+  color: var(--muted);
+  max-width: 26rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(229, 9, 20, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.25), rgba(125, 10, 10, 0.28));
+  color: #fff;
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.2);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.primary:hover,
+.primary:focus-visible,
+.secondary:hover,
+.secondary:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.3);
+}
+
+.page-heading {
+  margin: 12px 0 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-heading h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-shadow: 0 0 18px rgba(229, 9, 20, 0.6);
+}
+
+.page-heading p {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 42rem;
+  line-height: 1.7;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.gallery-card {
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0.96), rgba(27, 12, 12, 0.86));
+  border: 1px solid rgba(229, 9, 20, 0.2);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-card .caption {
+  padding: 18px 18px 20px;
+}
+
+.gallery-card h3 {
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.gallery-card p {
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.menu-panel {
+  max-width: 740px;
+  margin: 56px auto 0;
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.95), rgba(37, 9, 11, 0.9));
+  border: 1px solid rgba(229, 9, 20, 0.28);
+  border-radius: 24px;
+  padding: 38px 28px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.menu-panel h1 {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 22px;
+}
+
+.menu-list {
+  display: grid;
+  gap: 14px;
+}
+
+.menu-list a {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 22px;
+  color: #f7efef;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.menu-list a:hover,
+.menu-list a:focus-visible {
+  border-color: rgba(229, 9, 20, 0.6);
+  background: rgba(229, 9, 20, 0.05);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    padding: 16px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    gap: 10px 14px;
+  }
+
+  .portal-stage {
+    grid-template-columns: 1fr;
+    padding-top: 12px;
+  }
+
+  .portal-callout {
+    text-align: center;
+  }
+
+  .portal-callout p {
+    margin: 0 auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
