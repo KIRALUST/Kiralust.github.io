@@ -7,63 +7,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#000; color:#fff; font-family: 'Cinzel', serif;}
-
-  /* PORTAL COM BOTOES DENTRO */
-  .portal-menu{
-    position:relative;
-    width:100%;
-    line-height:0;
-  }
-  .portal-menu img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-
-  /* BOTOES NA PORTA ABERTA */
+  body{background:#000; color:#fff; font-family:'Cinzel', serif;}
+  .portal-menu{position:relative; width:100%; line-height:0;}
+  .portal-menu img{width:100%; height:auto; display:block;}
   .botoes-porta{
     position:absolute;
-    top:52%; /* <-- SOBE/DESCE AQUI pra centralizar na porta aberta */
+    top:50%;
     left:50%;
     transform:translate(-50%, -50%);
     display:flex;
     flex-direction:column;
     gap:14px;
-    width:52%;
+    width:54%;
     z-index:2;
   }
   .botoes-porta a{
     display:block;
     text-align:center;
     padding:14px 10px;
-    background:rgba(0,0,0,0.88);
+    background:rgba(0,0,0,0.85);
     border:1.5px solid #ff0a2a;
     color:#fff;
     text-decoration:none;
     font-size:18px;
     letter-spacing:4px;
     font-weight:900;
-    box-shadow:0 0 12px rgba(255,10,42,.6), inset 0 0 10px rgba(255,10,42,.2);
-    transition:.2s;
-  }
-  .botoes-porta a:hover{
-    background:#ff0a2a;
-    box-shadow:0 0 20px #ff0a2a;
+    box-shadow:0 0 14px rgba(255,10,42,.7);
   }
 </style>
 </head>
 <body>
 
 <div class="portal-menu">
-  <!-- IMAGEM DA PORTA ABERTA -->
-  <img src="kira-portal.jpg?v=110" alt="Portal Aberto">
+  <!-- AGORA É A PORTA ABERTA DE VERDADE -->
+  <img src="porta-aberta.jpg?v=112" alt="Porta Aberta">
 
-  <!-- BOTOES DENTRO DA PORTA -->
   <div class="botoes-porta">
-    <a href="galeria.html?v=110">GALERIA</a>
-    <a href="sobre.html?v=110">SOBRE</a>
-    <a href="contato.html?v=110">CONTATO</a>
+    <a href="galeria.html?v=112">GALERIA</a>
+    <a href="sobre.html?v=112">SOBRE</a>
+    <a href="contato.html?v=112">CONTATO</a>
   </div>
 </div>
 
