@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Kira Lux</title>
     <style>
         /* Configurações básicas da página */
         * {
@@ -17,7 +11,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #050507;
             color: #e0e0e6;
-            overflow: hidden; /* Mantém a tela fixa sem barras de rolagem desnecessárias */
+            overflow: hidden; /* Mantém a tela fixa sem barras de rolagem na página inteira */
         }
 
         /* Container da imagem de fundo */
@@ -25,17 +19,17 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            background-image: url('kira-portal.jpg'); 
+            background-image: url('image_7et9ij.png'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
-            justify-content: center; /* Centraliza a caixa horizontalmente */
-            align-items: flex-end;    /* Empurra o texto para a parte inferior */
-            padding-bottom: 5vh;      /* Distância sutil da borda inferior */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center;     /* Centraliza verticalmente para não cortar no celular */
+            padding: 20px;
         }
 
-        /* Camada escura geral muito sutil para realçar o texto sem apagar a arte */
+        /* Camada escura geral sutil para dar contraste */
         .hero-background::before {
             content: '';
             position: absolute;
@@ -43,23 +37,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.25);
             z-index: 1;
         }
 
-        /* Caixa de conteúdo otimizada para o centro-inferior */
+        /* Caixa de conteúdo centralizada e segura para mobile */
         .content-box {
             position: relative;
             z-index: 2;
-            max-width: 500px; /* Largura reduzida para não vazar para as laterais */
-            width: 90%;
-            background: rgba(10, 10, 14, 0.85); /* Fundo escuro denso para contraste perfeito */
+            max-width: 500px; 
+            width: 100%;
+            background: rgba(10, 10, 14, 0.88); /* Um pouco mais opaco para leitura perfeita */
             padding: 25px 30px;
             border-radius: 8px;
-            border: 1px solid rgba(157, 78, 221, 0.3); /* Borda roxa neon bem suave */
+            border: 1px solid rgba(157, 78, 221, 0.3); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
             text-align: center;
-            backdrop-filter: blur(4px); /* Leve efeito de desfoque no fundo do bloco */
+            backdrop-filter: blur(4px);
+            
+            /* Correção essencial para celular: */
+            max-height: 85vh;    /* Garante que a caixa nunca seja maior que a tela do celular */
+            overflow-y: auto;    /* Adiciona uma barra de rolagem interna se o texto for muito longo para a tela */
         }
 
         /* Título Principal */
@@ -82,7 +80,7 @@
 
         /* Destaque para termos importantes */
         p.main-text strong {
-            color: #9d4edd; /* Roxo para as palavras-chave */
+            color: #9d4edd; 
         }
 
         /* Frase de efeito final */
@@ -118,41 +116,16 @@
             box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
         }
 
-        /* Ajustes responsivos para celulares (o bloco ganha mais destaque e prioridade na tela pequena) */
-        @media (max-width: 768px) {
-            .hero-background {
-                align-items: center; /* Em telas móveis, centraliza tudo pois a imagem corta */
-                padding-bottom: 0;
-            }
+        /* Ajustes finos para telas muito pequenas */
+        @media (max-width: 480px) {
             .content-box {
-                max-width: 90%;
                 padding: 20px;
             }
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+            }
+            p.main-text, .final-phrase {
+                font-size: 0.9rem;
             }
         }
     </style>
-</head>
-<body>
-
-    <div class="hero-background">
-        <div class="content-box">
-            
-            <h1>Portal Kira Lux</h1>
-            
-            <p class="main-text">
-                Este é um site dedicado à cultura gótica, artes plásticas, literatura, <strong>HQ (comics, mangás, etc.)</strong>, música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG. Autodedicado por <strong>Kira</strong>, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos <em>cult</em>, <em>thrash</em>, <em>pop</em>, fantasia, ficção e cyberpunk. Se você já é apaixonado por esses temas ou quer conhecê-los melhor...
-            </p>
-
-            <span class="final-phrase">
-                ...atravesse a porta que lhe permitirá conhecer a luz na arte das sombras...
-            </span>
-
-            <a href="#proxima-pagina" class="btn-enter">...ENTRE!</a>
-
-        </div>
-    </div>
-
-</body>
-</html>
