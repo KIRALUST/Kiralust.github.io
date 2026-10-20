@@ -3,21 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX</title>
+<title>KIRA LUX | Portal</title>
 <style>
-html,body{margin:0;padding:0;background:#000;width:100%}
+html,body{margin:0;padding:0;background:#000;width:100%;}
 .topo{width:100%;background:#000;line-height:0}
-.topo img{width:100%;height:220px;object-fit:cover;object-position:50% 15%;display:block}
-.portal{width:100%;background:#000;line-height:0}
+.topo img{width:100%;height:auto;display:block}
+.portal{width:100%;background:#000;position:relative;line-height:0}
 .portal img{width:100%;height:auto;display:block}
+
+/* LOGOTIPO KIRALUX DE VOLTA - SEM BOTÃO */
+.logo{
+  position:absolute;
+  top:6%;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:38px;
+  font-weight:bold;
+  letter-spacing:6px;
+  text-shadow:0 0 12px #DC143C, 0 0 25px #DC143C;
+  z-index:5;
+}
 </style>
 </head>
 <body>
+
+<!-- BANNER 3x4 NO TOPO -->
 <div class="topo">
-<img src="kira-3x4.jpg" alt="Kira Lux">
+  <img src="image_d73fa71d.jpg" alt="Kira Lux">
 </div>
+
+<!-- PORTAL COM LOGO MAS SEM BOTÃO -->
 <div class="portal">
-<img src="kira-portal.jpg" alt="Portal">
+  <div class="logo">KIRALUX</div>
+  <img src="kira-portal.jpg" alt="Portal">
 </div>
+
 </body>
 </html>
