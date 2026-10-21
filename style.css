@@ -12,7 +12,7 @@ body, html {
     overflow-x: hidden;
 }
 
-/* 4. HEADER FIXO (Foto de perfil 3x4 e logotipo) */
+/* HEADER FIXO */
 .site-header {
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@ body, html {
 }
 .profile-pic {
     width: 45px;
-    height: 60px; /* Proporção exata 3x4 */
+    height: 60px; /* Proporção 3x4 */
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 2px;
@@ -45,7 +45,7 @@ body, html {
     text-transform: uppercase;
 }
 
-/* 1. SEÇÃO HERO / PLANO DE FUNDO (Portal) */
+/* PLANO DE FUNDO PRINCIPAL */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -56,60 +56,5 @@ body, html {
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 140px; /* Joga o texto para baixo para não sumir sob o header */
-}
-
-/* 2. COLUNA DE TEXTO CENTRALIZADA (Espaço livre) */
-.text-column {
-    position: relative;
-    max-width: 460px; /* Mantém o formato de coluna vertical estreita */
-    width: 90%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* Destaca as letras sobre o fundo */
-    padding: 30px;
-    border-radius: 8px;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.text-list {
-    list-style: none;
-    text-align: left;
-    margin-bottom: 30px;
-}
-
-.text-list li {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #eceff1;
-}
-
-.text-list strong {
-    color: #ff3333; /* Vermelho numerado */
-}
-
-/* 2 e 3. BOTÃO VERMELHO FOGO/SANGUE */
-.btn-enter {
-    display: inline-block;
-    padding: 14px 45px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #990000; /* Vermelho Sangue */
-    border: 2px solid #ff3333; /* Vermelho Fogo */
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Brilho ao passar o mouse */
-.btn-enter:hover {
-    background-color: #ff0000;
-    box-shadow: 0 0 20px #ff3333;
-    transform: scale(1.05);
+    align-items: center;
 }
