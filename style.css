@@ -1,159 +1,115 @@
-/* Configurações Globais de Reset e Ambiente */
+/* Configurações Gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+    overflow-x: hidden;
+}
 
-body {
-    background-color: #030303;
-    /* Substitua pelo link ou caminho local da sua arte de fundo */
+/* 4. HEADER FIXO (Foto de perfil 3x4 e logotipo) */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.profile-pic {
+    width: 45px;
+    height: 60px; /* Proporção exata 3x4 */
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 1. SEÇÃO HERO / PLANO DE FUNDO (Portal) */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
     background-image: url('kira-portal.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: 'Cinzel', serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-    color: #e0dacf;
-}
-
-/* Estruturação do Header Integrado */
-.site-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 25px 40px;
-    background: transparent;
-    z-index: 10;
-    position: relative;
-}
-
-/* Moldura Foto 3x4 Vermelho Sangue */
-.profile-container {
-    width: 90px;
-    height: 120px;
-    border: 3px solid #8b0000; /* Tom vermelho sangue */
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
-    overflow: hidden;
-    background-color: #111;
-}
-
-.profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(40%) contrast(110%);
-}
-
-/* Efeito de Logotipo Neon Intenso */
-.logo-neon {
-    font-family: 'Creepster', cursive;
-    font-size: 3.5rem;
-    color: #ff3333;
-    margin-left: 30px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 40px #8b0000,
-        0 0 60px #8b0000;
-    animation: neon-glow 2s ease-in-out infinite alternate;
-}
-
-/* Animação sutil para simular a pulsação do neon */
-@keyframes neon-glow {
-    from {
-        text-shadow: 0 0 6px #ff0000, 0 0 12px #ff0000, 0 0 25px #ff0000, 0 0 45px #8b0000;
-    }
-    to {
-        text-shadow: 0 0 4px #ff3333, 0 0 8px #ff3333, 0 0 18px #ff0000, 0 0 35px #5c0000;
-    }
-}
-
-/* Posicionamento do Bloco Centralizado de Texto */
-.content-wrapper {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 100%;
-    padding: 20px 40px 60px 40px;
+    padding-top: 140px; /* Joga o texto para baixo para não sumir sob o header */
 }
 
-.intro-box {
-    max-width: 520px;
-    /* Alinha o bloco sobre o espaço flutuante ao lado da porta */
-    margin-left: -10%; 
+/* 2. COLUNA DE TEXTO CENTRALIZADA (Espaço livre) */
+.text-column {
+    position: relative;
+    max-width: 460px; /* Mantém o formato de coluna vertical estreita */
+    width: 90%;
     text-align: center;
-    background: rgba(3, 3, 3, 0.45);
+    background: rgba(0, 0, 0, 0.6); /* Destaca as letras sobre o fundo */
     padding: 30px;
     border-radius: 8px;
-    backdrop-filter: blur(3px);
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.text-block {
+.text-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.text-list li {
     font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #eceff1;
 }
 
-.entry-desc {
-    color: #dfd8cb;
+.text-list strong {
+    color: #ff3333; /* Vermelho numerado */
 }
 
-.entry-call {
-    color: #cfc6b5;
-    font-style: italic;
-}
-
-/* Botão Vermelho Fogo Dinâmico */
-.enter-btn {
+/* 2 e 3. BOTÃO VERMELHO FOGO/SANGUE */
+.btn-enter {
     display: inline-block;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #ffffff;
-    background: linear-gradient(135deg, #a60000 0%, #ff1a1a 50%, #800000 100%);
-    padding: 12px 45px;
-    text-decoration: none;
-    border-radius: 6px;
-    border: 2px solid #ff4d4d;
-    box-shadow: 
-        0 0 10px rgba(255, 0, 0, 0.5),
-        inset 0 0 8px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
-}
-
-.enter-btn:hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #ff1a1a 0%, #ff4d4d 50%, #a60000 100%);
-    box-shadow: 
-        0 0 20px rgba(255, 0, 0, 0.8),
-        inset 0 0 12px rgba(255, 255, 255, 0.5);
+    padding: 14px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #990000; /* Vermelho Sangue */
+    border: 2px solid #ff3333; /* Vermelho Fogo */
+    border-radius: 4px;
     cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Responsividade Básica para Telas Menores */
-@media (max-width: 900px) {
-    .site-header {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
-    .logo-neon {
-        margin-left: 0;
-        margin-top: 15px;
-        font-size: 2.5rem;
-    }
-    .intro-box {
-        margin-left: 0;
-        max-width: 100%;
-    }
+/* Brilho ao passar o mouse */
+.btn-enter:hover {
+    background-color: #ff0000;
+    box-shadow: 0 0 20px #ff3333;
+    transform: scale(1.05);
 }
