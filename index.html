@@ -2,15 +2,15 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portal Kira Lux</title>
-    <!-- Fonte com estilo Gótico/Medieval para os Títulos -->
+    
+    <!-- Importação robusta de fontes medievais/góticas -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=MedievalSharp&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Almendra+SC&family=MedievalSharp&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* Reset básico de estilos */
         * {
             margin: 0;
             padding: 0;
@@ -18,145 +18,144 @@
         }
 
         body {
-            background-color: #0b0202;
+            background-color: #000;
             color: #e0d0d0;
-            font-family: "Playfair Display", serif;
+            font-family: 'MedievalSharp', serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* Container Principal com a imagem de fundo do cenário gótico */
+        /* Container que preserva a proporção exata do design original */
         .portal-container {
             width: 100vw;
-            max-width: 1200px;
             height: 100vh;
-            min-height: 800px;
+            max-width: 900px; /* Alinhado à proporção vertical do design */
+            max-height: 1200px;
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
-                        url('kira-portal.jpg') no-repeat center center;
+            background: url('kira-portal.jpg') no-repeat center center;
             background-size: cover;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) inset;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 40px;
+            overflow: hidden;
         }
 
-        /* Foto de perfil/Retrato no topo esquerdo */
+        /* Retrato Superior Esquerdo com moldura vermelha idêntica */
         .avatar-box {
             position: absolute;
-            top: 30px;
-            left: 40px;
-            width: 140px;
-            height: 175px;
-            border: 3px solid #600;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3), 0 0 5px #000;
+            top: 3%;
+            left: 4%;
+            width: 18%;
+            aspect-ratio: 1 / 1.25;
+            border: 2px solid #8b0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4), inset 0 0 10px #000;
             background: url('kira-3x4.jpg') no-repeat center center;
             background-size: cover;
+            z-index: 10;
         }
 
-        /* Lado esquerdo (espaço livre para a pessoa na rua da imagem de fundo) */
-        .left-side {
+        /* Área de conteúdo centralizada e posicionada exatamente como a imagem */
+        .content-area {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 60%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            pointer-events: none; /* Mantém o foco de clique nos textos e botões */
-        }
-
-        /* Lado direito onde o conteúdo textual e título se concentram */
-        .content-side {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
             text-align: center;
-            padding-top: 20px;
-            z-index: 2;
+            z-index: 5;
         }
 
-        /* Título Principal com efeito de Neon Vermelho */
+        /* Título Vermelho Neon com fonte gótica correta */
         .main-title {
-            font-family: "Cinzel Decorative", serif;
-            font-size: 3.5rem;
-            color: #ff3333;
+            font-family: 'Cinzel Decorative', 'Almendra SC', serif;
+            font-size: 2.8rem;
+            color: #ff1a1a;
+            text-shadow: 0 0 8px #ff0000, 0 0 20px #800000, 2px 2px 4px #000;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #800000, 0 0 30px #000;
+            margin-bottom: 25px;
             line-height: 1.1;
+            width: 100%;
         }
 
-        /* Bloco de introdução e descrição do site */
+        /* Bloco de texto com alta legibilidade e espaçamento idêntico */
         .intro-text {
-            max-width: 460px;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            color: #d4c5c5;
-            text-shadow: 2px 2px 4px #000, -1px -1px 4px #000;
-            margin-bottom: 25px;
+            font-family: 'MedievalSharp', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.45;
+            color: #dcd0d0;
+            /* Sombra pesada em camadas para destacar o texto cinza do fundo claro */
+            text-shadow: 2px 2px 3px #000, -2px -2px 3px #000, 2px -2px 3px #000, -2px 2px 3px #000, 0px 0px 8px #000;
+            padding: 0 10px;
         }
 
         .intro-text p {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        /* Botão estilizado "...ENTRE!" */
+        /* Botão ...ENTRE! retangular, robusto e com degradê correto */
         .enter-button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 45px;
-            font-family: "MedievalSharp", sans-serif;
-            font-size: 1.8rem;
-            font-weight: bold;
+            display: block;
+            margin: 25px auto 0 auto;
+            padding: 12px 50px;
+            font-family: sans-serif; /* Fonte robusta sem serifa para o botão interno */
+            font-size: 1.6rem;
+            font-weight: 900;
             color: #fff;
-            background: linear-gradient(to bottom, #bd0000 0%, #6e0000 100%);
-            border: 2px solid #ff3333;
-            border-radius: 8px;
-            cursor: pointer;
+            text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 0, 0, 0.4);
-            transition: all 0.3s ease;
+            background: linear-gradient(to bottom, #ca0000 0%, #7a0000 100%);
+            border: 2px solid #ff3333;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             letter-spacing: 1px;
         }
 
         .enter-button:hover {
-            background: linear-gradient(to bottom, #e60000 0%, #990000 100%);
-            box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.7);
         }
 
-        /* Rodapé com carimbo de data opcional */
+        /* Carimbo de data no canto inferior direito */
         .footer-date {
             position: absolute;
-            bottom: 15px;
-            right: 20px;
+            bottom: 2%;
+            right: 4%;
             font-size: 0.75rem;
-            color: #666;
+            color: rgba(255, 255, 255, 0.4);
             font-family: sans-serif;
+            text-shadow: 1px 1px 2px #000;
         }
 
-        /* Responsividade para telas menores e celulares */
-        @media (max-width: 850px) {
-            .portal-container {
-                grid-template-columns: 1fr;
-                background-position: 35% center;
-                padding: 20px;
-                height: auto;
-                min-height: 100vh;
+        /* Ajustes finos para telas muito estreitas (como celulares em pé) */
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.9rem;
+                margin-bottom: 15px;
+            }
+            .content-area {
+                width: 65%;
+                top: 4%;
+                right: 3%;
+            }
+            .intro-text {
+                font-size: 0.85rem;
+                line-height: 1.3;
+            }
+            .intro-text p {
+                margin-bottom: 10px;
+            }
+            .enter-button {
+                padding: 8px 35px;
+                font-size: 1.2rem;
+                margin-top: 15px;
             }
             .avatar-box {
-                position: relative;
-                top: 0;
-                left: 0;
-                margin: 0 auto 20px auto;
-            }
-            .content-side {
-                grid-row: 1;
-            }
-            .main-title {
-                font-size: 2.5rem;
+                width: 22%;
+                top: 4%;
+                left: 3%;
             }
         }
     </style>
@@ -164,33 +163,24 @@
 <body>
 
     <div class="portal-container">
-        <!-- Retrato Superior Esquerdo -->
+        <!-- Retrato gótico (Canto Superior Esquerdo) -->
         <div class="avatar-box"></div>
 
-        <!-- Lado Esquerdo Reservado para Background Art -->
-        <div class="left-side"></div>
-
-        <!-- Conteúdo Principal -->
-        <div class="content-side">
+        <!-- Bloco de Conteúdo Alinhado à Direita -->
+        <div class="content-area">
             <h1 class="main-title">Portal Kira Lux</h1>
             
             <div class="intro-text">
-                <p>
-                    Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.
-                </p>
-                <p>
-                    Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.
-                </p>
-                <p>
-                    Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...
-                </p>
+                <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
+                <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
+                <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
             </div>
 
-            <!-- Botão de Entrada -->
+            <!-- Botão de Entrada Ajustado -->
             <a href="home.html" class="enter-button">...ENTRE!</a>
         </div>
 
-        <!-- Timestamp decorativo inferior -->
+        <!-- Data decorativa na base -->
         <div class="footer-date">20 de out. de 2026 11:27:58</div>
     </div>
 
