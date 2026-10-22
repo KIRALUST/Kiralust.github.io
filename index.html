@@ -1,27 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIRA LUX</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Kira Lux</title>
+    <!-- Fonte com estilo Gótico/Medieval para os Títulos -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=MedievalSharp&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset básico de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0202;
+            color: #e0d0d0;
+            font-family: "Playfair Display", serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Container Principal com a imagem de fundo do cenário gótico */
+        .portal-container {
+            width: 100vw;
+            max-width: 1200px;
+            height: 100vh;
+            min-height: 800px;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
+                        url('kira-portal.jpg') no-repeat center center;
+            background-size: cover;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) inset;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 40px;
+        }
+
+        /* Foto de perfil/Retrato no topo esquerdo */
+        .avatar-box {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            width: 140px;
+            height: 175px;
+            border: 3px solid #600;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3), 0 0 5px #000;
+            background: url('kira-3x4.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Lado esquerdo (espaço livre para a pessoa na rua da imagem de fundo) */
+        .left-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            pointer-events: none; /* Mantém o foco de clique nos textos e botões */
+        }
+
+        /* Lado direito onde o conteúdo textual e título se concentram */
+        .content-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            padding-top: 20px;
+            z-index: 2;
+        }
+
+        /* Título Principal com efeito de Neon Vermelho */
+        .main-title {
+            font-family: "Cinzel Decorative", serif;
+            font-size: 3.5rem;
+            color: #ff3333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #800000, 0 0 30px #000;
+            line-height: 1.1;
+        }
+
+        /* Bloco de introdução e descrição do site */
+        .intro-text {
+            max-width: 460px;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #d4c5c5;
+            text-shadow: 2px 2px 4px #000, -1px -1px 4px #000;
+            margin-bottom: 25px;
+        }
+
+        .intro-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Botão estilizado "...ENTRE!" */
+        .enter-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 45px;
+            font-family: "MedievalSharp", sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(to bottom, #bd0000 0%, #6e0000 100%);
+            border: 2px solid #ff3333;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .enter-button:hover {
+            background: linear-gradient(to bottom, #e60000 0%, #990000 100%);
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Rodapé com carimbo de data opcional */
+        .footer-date {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: #666;
+            font-family: sans-serif;
+        }
+
+        /* Responsividade para telas menores e celulares */
+        @media (max-width: 850px) {
+            .portal-container {
+                grid-template-columns: 1fr;
+                background-position: 35% center;
+                padding: 20px;
+                height: auto;
+                min-height: 100vh;
+            }
+            .avatar-box {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin: 0 auto 20px auto;
+            }
+            .content-side {
+                grid-row: 1;
+            }
+            .main-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
-<body style="margin:0;background:#000;">
+<body>
 
-<!-- HEADER EXATO: FOTO 3x4 ESQUERDA + LOGO MESMA ALTURA = 100% LARGURA -->
-<div style="width:100%;height:145px;background:#000;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;">
+    <div class="portal-container">
+        <!-- Retrato Superior Esquerdo -->
+        <div class="avatar-box"></div>
 
-  <img src="kira-3x4.jpg?v=17" style="height:145px;width:108.75px;object-fit:cover;display:block;border:2px solid #ff0a2a;box-shadow:0 0 12px #ff0a2a;flex-shrink:0;" alt="Kira">
+        <!-- Lado Esquerdo Reservado para Background Art -->
+        <div class="left-side"></div>
 
-  <div style="height:145px;flex:1;background:#000;display:flex;align-items:center;justify-content:center;">
-    <span style="font-family:'Cinzel', serif;font-weight:900;font-size:58px;color:#ff0a2a;letter-spacing:12px;text-shadow:0 0 10px #ff0a2a,0 0 35px #ff0a2a,0 0 70px #8b0000;">KIRA LUX</span>
-  </div>
+        <!-- Conteúdo Principal -->
+        <div class="content-side">
+            <h1 class="main-title">Portal Kira Lux</h1>
+            
+            <div class="intro-text">
+                <p>
+                    Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.
+                </p>
+                <p>
+                    Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.
+                </p>
+                <p>
+                    Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...
+                </p>
+            </div>
 
-</div>
+            <!-- Botão de Entrada -->
+            <a href="home.html" class="enter-button">...ENTRE!</a>
+        </div>
 
-<a href="menu.html?v=17" style="display:block;line-height:0;">
-  <img src="kira-portal.jpg?v=17" style="width:100%;height:auto;display:block;">
-</a>
+        <!-- Timestamp decorativo inferior -->
+        <div class="footer-date">20 de out. de 2026 11:27:58</div>
+    </div>
 
 </body>
 </html>
