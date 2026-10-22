@@ -5,29 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIRA LUX</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:100%;background:#000}
-</style>
 </head>
-<body>
+<body style="margin:0;background:#000;">
 
-<header style="width:100%;height:145px;background:#000;display:flex;">
+<!-- HEADER EXATO: FOTO 3x4 ESQUERDA + LOGO MESMA ALTURA = 100% LARGURA -->
+<div style="width:100%;height:145px;background:#000;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;">
 
-  <!-- FOTO 3x4 CANTO SUPERIOR ESQUERDO -->
-  <img src="kira-3x4.jpg?v=16" alt="Kira Lux"
-       style="height:145px;width:auto;aspect-ratio:3/4;object-fit:cover;display:block;flex-shrink:0;border:2px solid #ff0a2a;box-shadow:0 0 12px #ff0a2a;">
+  <img src="kira-3x4.jpg?v=17" style="height:145px;width:108.75px;object-fit:cover;display:block;border:2px solid #ff0a2a;box-shadow:0 0 12px #ff0a2a;flex-shrink:0;" alt="Kira">
 
-  <!-- LOGOTIPO MESMA ALTURA VERTICAL DA FOTO - SEM BORDA -->
-  <div style="width:100%;height:145px;background:#000;display:flex;align-items:center;justify-content:center;">
-    <span style="font-family:'Cinzel',serif;font-weight:900;font-size:clamp(32px, 8vw, 64px);color:#ff0a2a;letter-spacing:12px;text-shadow:0 0 12px #ff0a2a, 0 0 40px #ff0a2a, 0 0 80px #7a0000;line-height:1;white-space:nowrap;">KIRA LUX</span>
+  <div style="height:145px;flex:1;background:#000;display:flex;align-items:center;justify-content:center;">
+    <span style="font-family:'Cinzel', serif;font-weight:900;font-size:58px;color:#ff0a2a;letter-spacing:12px;text-shadow:0 0 10px #ff0a2a,0 0 35px #ff0a2a,0 0 70px #8b0000;">KIRA LUX</span>
   </div>
 
-</header>
+</div>
 
-<main onclick="location.href='menu.html?v=16'" style="width:100%;line-height:0;background:#000;cursor:pointer;">
-  <img src="kira-portal.jpg?v=16" style="width:100%;height:auto;display:block;">
-</main>
+<a href="menu.html?v=17" style="display:block;line-height:0;">
+  <img src="kira-portal.jpg?v=17" style="width:100%;height:auto;display:block;">
+</a>
 
 </body>
 </html>
