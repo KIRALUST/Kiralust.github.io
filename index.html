@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portal Kira Lux</title>
     
-    <!-- Importação robusta de fontes medievais/góticas -->
+    <!-- Importação das fontes góticas oficiais -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
@@ -28,7 +28,7 @@
             overflow: hidden;
         }
 
-        /* Container principal fixo em proporção mobile vertical */
+        /* Container que preserva a proporção vertical do design original */
         .portal-container {
             width: 100vw;
             height: 100vh;
@@ -38,33 +38,28 @@
             background: url('kira-portal.jpg') no-repeat center center;
             background-size: cover;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* Área do Topo: Organiza o Avatar e o Título lado a lado */
-        .header-area {
-            display: flex;
-            align-items: center;
-            padding: 20px 15px 5px 15px;
-            z-index: 15;
-            width: 100%;
-        }
-
-        /* Retrato Superior Esquerdo integrado ao fluxo */
+        /* Avatar posicionado no canto superior esquerdo */
         .avatar-box {
+            position: absolute;
+            top: 25px;
+            left: 20px;
             width: 85px;
             height: 105px;
             border: 2px solid #8b0000;
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.4), inset 0 0 10px #000;
             background: url('kira-3x4.jpg') no-repeat center center;
             background-size: cover;
-            flex-shrink: 0;
+            z-index: 10;
         }
 
-        /* Título Vermelho Neon ajustado para ocupar o espaço restante */
+        /* Título alinhado à direita do avatar para não haver choque visual */
         .main-title {
-            flex: 1;
+            position: absolute;
+            top: 30px;
+            left: 120px;
+            right: 15px;
             text-align: center;
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.8rem;
@@ -73,47 +68,40 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             line-height: 1.2;
-            padding-left: 10px;
+            z-index: 10;
         }
 
-        /* Grade invisível para separar o lado esquerdo (texto) do lado direito (porta) */
-        .layout-grid {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 56% 44%; /* Mantém o texto protegido na esquerda */
-            width: 100%;
+        /* Bloco de conteúdo com largura ideal que flui estritamente na calçada esquerda */
+        .content-area {
+            position: absolute;
+            top: 155px; /* Inicia logo abaixo do bloco do avatar e título */
+            left: 20px;  /* Margem confortável da borda esquerda da tela */
+            width: 52%;  /* Largura sob medida para não invadir a porta de pedra da direita */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             z-index: 5;
         }
 
-        /* Área de conteúdo confinada estritamente na coluna da esquerda */
-        .content-area {
-            grid-column: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
-            padding: 10px 5px 0 20px; /* Aumentado o recuo esquerdo para afastar da borda */
-        }
-
-        /* Bloco de texto com a nova fonte Almendra e estilo alongado */
+        /* Bloco de texto com estilo medieval elegante alongado */
         .intro-text {
             font-family: 'Almendra', serif;
             font-size: 1.15rem; 
-            line-height: 1.2; /* Linhas levemente mais compactas para liberar espaço abaixo */
+            line-height: 1.25;
             color: #e2d6d6;
             text-shadow: 2px 2px 3px #000, -2px -2px 3px #000, 2px -2px 3px #000, -2px 2px 3px #000, 0px 0px 8px #000;
         }
 
         .intro-text p {
-            margin-bottom: 8px; /* Reduzido o espaço entre os blocos de texto */
+            margin-bottom: 12px;
         }
 
-        /* Botão ...ENTRE! idêntico à imagem de referência */
+        /* Botão ...ENTRE! centralizado em relação ao bloco de texto */
         .enter-button {
             display: inline-block;
-            margin-top: 12px;
-            padding: 10px 35px;
+            margin-top: 10px;
+            padding: 10px 40px;
             font-family: sans-serif;
             font-size: 1.3rem;
             font-weight: 900;
@@ -132,7 +120,7 @@
             transform: scale(1.03);
         }
 
-        /* Carimbo de data no canto inferior direito */
+        /* Data decorativa na base inferior */
         .footer-date {
             position: absolute;
             bottom: 15px;
@@ -144,12 +132,14 @@
             z-index: 10;
         }
 
-        /* Pequena adequação para telas muito pequenas */
-        @media (max-height: 650px) {
-            .main-title { font-size: 1.5rem; }
-            .intro-text { font-size: 0.95rem; line-height: 1.15; }
-            .enter-button { font-size: 1.1rem; padding: 7px 25px; }
-            .avatar-box { width: 75px; height: 90px; }
+        /* Adaptação inteligente para telas menores ou celulares compactos */
+        @media (max-height: 680px) {
+            .main-title { font-size: 1.5rem; top: 25px; }
+            .content-area { top: 140px; width: 55%; }
+            .intro-text { font-size: 0.98rem; line-height: 1.2; }
+            .intro-text p { margin-bottom: 8px; }
+            .enter-button { font-size: 1.15rem; padding: 8px 30px; margin-top: 5px; }
+            .avatar-box { width: 75px; height: 95px; top: 20px; }
         }
     </style>
 </head>
@@ -157,30 +147,22 @@
 
     <div class="portal-container">
         
-        <!-- Topo da página: Avatar e Título alinhados lado a lado -->
-        <div class="header-area">
-            <div class="avatar-box"></div>
-            <h1 class="main-title">Portal<br>Kira Lux</h1>
-        </div>
+        <!-- Retrato gótico (Canto Superior Esquerdo) -->
+        <div class="avatar-box"></div>
 
-        <!-- Divisão estrutural em duas colunas -->
-        <div class="layout-grid">
-            
-            <!-- Coluna 1: Conteúdo de texto e botão (Fica estritamente na esquerda) -->
-            <div class="content-area">
-                <div class="intro-text">
-                    <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
-                    <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
-                    <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
-                </div>
+        <!-- Título principal posicionado ao lado do retrato -->
+        <h1 class="main-title">Portal<br>Kira Lux</h1>
 
-                <!-- Botão de Entrada -->
-                <a href="menu.html" class="enter-button">...ENTRE!</a>
+        <!-- Bloco de Conteúdo (Texto e Botão) alinhado perfeitamente na calçada esquerda -->
+        <div class="content-area">
+            <div class="intro-text">
+                <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
+                <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
+                <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
             </div>
 
-            <!-- Coluna 2: Vazia (Apenas para proteger o visual da porta ao fundo) -->
-            <div></div>
-            
+            <!-- Botão de Entrada -->
+            <a href="menu.html" class="enter-button">...ENTRE!</a>
         </div>
 
         <!-- Data decorativa na base -->
