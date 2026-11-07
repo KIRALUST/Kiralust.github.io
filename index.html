@@ -28,7 +28,7 @@
             overflow: hidden;
         }
 
-        /* Container que preserva a proporção vertical do design original */
+        /* Container principal que trava a proporção exata da sua imagem */
         .portal-container {
             width: 100vw;
             height: 100vh;
@@ -40,7 +40,7 @@
             overflow: hidden;
         }
 
-        /* Avatar posicionado no canto superior esquerdo */
+        /* Avatar perfeitamente isolado no topo esquerdo */
         .avatar-box {
             position: absolute;
             top: 25px;
@@ -54,7 +54,7 @@
             z-index: 10;
         }
 
-        /* Título alinhado à direita do avatar para não haver choque visual */
+        /* Título alinhado para começar após o avatar */
         .main-title {
             position: absolute;
             top: 30px;
@@ -71,12 +71,14 @@
             z-index: 10;
         }
 
-        /* Bloco de conteúdo com largura ideal que flui estritamente na calçada esquerda */
+        /* Área de conteúdo empurrada inteiramente para a esquerda com margens seguras */
         .content-area {
             position: absolute;
-            top: 150px; /* Inicia logo abaixo do bloco do avatar e título */
-            left: 15px;  /* Ajustado levemente para dar mais espaço */
-            width: 55%;  /* Alargado levemente para as palavras góticas caberem inteiras */
+            top: 150px;
+            left: 0;
+            width: 55%; /* Limita estritamente à metade esquerda da calçada */
+            padding-left: 25px;  /* Afasta o texto da borda física esquerda da tela */
+            padding-right: 15px; /* Evita que as palavras cheguem perto do meio do arco */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -84,26 +86,28 @@
             z-index: 5;
         }
 
-        /* Bloco de texto medieval elegante com controle de quebra */
+        /* Texto formatado de maneira fluida e suave, sem hifens forçados */
         .intro-text {
             font-family: 'Almendra', serif;
-            font-size: 1.1rem; /* Ajustado milimetricamente para evitar cortes de palavras */
-            line-height: 1.25;
+            font-size: 1.08rem; /* Tamanho exato para encaixar as palavras inteiras */
+            line-height: 1.3;
             color: #e2d6d6;
             text-shadow: 2px 2px 3px #000, -2px -2px 3px #000, 2px -2px 3px #000, -2px 2px 3px #000, 0px 0px 8px #000;
-            hyphens: none; /* Desativa cortes feios com hífen no meio das palavras */
-            word-break: keep-all;
+            text-align: center;
+            width: 100%;
         }
 
         .intro-text p {
             margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
-        /* Botão ...ENTRE! centralizado em relação ao bloco de texto */
+        /* Botão ...ENTRE! ajustado de forma simétrica */
         .enter-button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 45px;
+            margin-top: 10px;
+            padding: 10px 40px;
             font-family: sans-serif;
             font-size: 1.3rem;
             font-weight: 900;
@@ -118,11 +122,7 @@
             letter-spacing: 1px;
         }
 
-        .enter-button:hover {
-            transform: scale(1.03);
-        }
-
-        /* Data decorativa na base inferior */
+        /* Data fixa na base do site */
         .footer-date {
             position: absolute;
             bottom: 15px;
@@ -134,13 +134,13 @@
             z-index: 10;
         }
 
-        /* Adaptação inteligente para telas menores ou celulares compactos */
+        /* Adequação especial para celulares compactos */
         @media (max-height: 680px) {
             .main-title { font-size: 1.5rem; top: 25px; }
-            .content-area { top: 140px; width: 56%; }
+            .content-area { top: 140px; padding-left: 20px; padding-right: 10px; }
             .intro-text { font-size: 0.95rem; line-height: 1.2; }
             .intro-text p { margin-bottom: 8px; }
-            .enter-button { font-size: 1.15rem; padding: 8px 35px; margin-top: 5px; }
+            .enter-button { font-size: 1.15rem; padding: 8px 30px; margin-top: 5px; }
             .avatar-box { width: 75px; height: 95px; top: 20px; }
         }
     </style>
@@ -149,13 +149,13 @@
 
     <div class="portal-container">
         
-        <!-- Retrato gótico (Canto Superior Esquerdo) -->
+        <!-- Retrato gótico -->
         <div class="avatar-box"></div>
 
-        <!-- Título principal posicionado ao lado do retrato -->
+        <!-- Título principal -->
         <h1 class="main-title">Portal<br>Kira Lux</h1>
 
-        <!-- Bloco de Conteúdo (Texto e Botão) alinhado perfeitamente na calçada esquerda -->
+        <!-- Bloco de Conteúdo Fluido -->
         <div class="content-area">
             <div class="intro-text">
                 <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
@@ -167,7 +167,7 @@
             <a href="menu.html" class="enter-button">...ENTRE!</a>
         </div>
 
-        <!-- Data decorativa na base -->
+        <!-- Data decorativa -->
         <div class="footer-date">20 de out. de 2026 11:27:58</div>
     </div>
 
