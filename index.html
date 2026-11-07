@@ -42,45 +42,50 @@
             flex-direction: column;
         }
 
-        /* Título fixado no topo de forma independente e visível */
-        .main-title {
-            width: 100%;
-            text-align: center;
-            font-family: 'Cinzel Decorative', 'Almendra SC', serif;
-            font-size: 2.2rem;
-            color: #ff1a1a;
-            text-shadow: 0 0 8px #ff0000, 0 0 20px #800000, 2px 2px 4px #000;
-            text-transform: uppercase;
-            padding-top: 25px;
+        /* Área do Topo: Organiza o Avatar e o Título lado a lado */
+        .header-area {
+            display: flex;
+            align-items: center;
+            padding: 20px 15px 10px 15px;
             z-index: 15;
-            letter-spacing: 1px;
+            width: 100%;
         }
 
-        /* Retrato Superior Esquerdo com tamanho controlado */
+        /* Retrato Superior Esquerdo integrado ao fluxo */
         .avatar-box {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             width: 85px;
             height: 105px;
             border: 2px solid #8b0000;
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.4), inset 0 0 10px #000;
             background: url('kira-3x4.jpg') no-repeat center center;
             background-size: cover;
-            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        /* Título Vermelho Neon ajustado para ocupar o espaço restante */
+        .main-title {
+            flex: 1;
+            text-align: center;
+            font-family: 'Cinzel Decorative', 'Almendra SC', serif;
+            font-size: 1.8rem;
+            color: #ff1a1a;
+            text-shadow: 0 0 8px #ff0000, 0 0 20px #800000, 2px 2px 4px #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            padding-left: 10px;
         }
 
         /* Grade invisível para separar o lado esquerdo (texto) do lado direito (porta) */
         .layout-grid {
             flex: 1;
             display: grid;
-            grid-template-columns: 60% 40%; /* Ajustado para dar mais largura ao texto */
+            grid-template-columns: 60% 40%; /* Mantém o texto protegido na esquerda */
             width: 100%;
-            height: calc(100% - 80px);
             z-index: 5;
         }
 
-        /* Área de conteúdo confinada estritamente na coluna da esquerda com espaço para o avatar */
+        /* Área de conteúdo confinada estritamente na coluna da esquerda */
         .content-area {
             grid-column: 1;
             display: flex;
@@ -88,26 +93,26 @@
             justify-content: flex-start;
             align-items: center;
             text-align: center;
-            padding: 110px 10px 0 15px; /* padding-top de 110px joga o texto para baixo do retrato */
+            padding: 15px 5px 0 15px;
         }
 
         /* Bloco de texto com alta legibilidade */
         .intro-text {
             font-family: 'MedievalSharp', sans-serif;
             font-size: 0.82rem;
-            line-height: 1.3;
+            line-height: 1.35;
             color: #dcd0d0;
             text-shadow: 2px 2px 3px #000, -2px -2px 3px #000, 2px -2px 3px #000, -2px 2px 3px #000, 0px 0px 8px #000;
         }
 
         .intro-text p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         /* Botão ...ENTRE! idêntico à imagem de referência */
         .enter-button {
             display: inline-block;
-            margin-top: 8px;
+            margin-top: 10px;
             padding: 10px 35px;
             font-family: sans-serif;
             font-size: 1.3rem;
@@ -139,23 +144,24 @@
             z-index: 10;
         }
 
-        /* Pequena adequação para telas compactas */
+        /* Pequena adequação para telas muito pequenas */
         @media (max-height: 650px) {
-            .main-title { font-size: 1.8rem; padding-top: 15px; }
-            .content-area { padding-top: 95px; }
-            .intro-text { font-size: 0.75rem; }
-            .enter-button { font-size: 1.1rem; padding: 6px 20px; }
+            .main-title { font-size: 1.5rem; }
+            .intro-text { font-size: 0.75rem; line-height: 1.25; }
+            .enter-button { font-size: 1.1rem; padding: 7px 25px; }
+            .avatar-box { width: 75px; height: 90px; }
         }
     </style>
 </head>
 <body>
 
     <div class="portal-container">
-        <!-- Retrato gótico -->
-        <div class="avatar-box"></div>
-
-        <!-- Título principal centralizado no topo -->
-        <h1 class="main-title">Portal Kira Lux</h1>
+        
+        <!-- Topo da página: Avatar e Título alinhados lado a lado -->
+        <div class="header-area">
+            <div class="avatar-box"></div>
+            <h1 class="main-title">Portal<br>Kira Lux</h1>
+        </div>
 
         <!-- Divisão estrutural em duas colunas -->
         <div class="layout-grid">
