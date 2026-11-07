@@ -20,7 +20,7 @@
         body {
             background-color: #000;
             color: #e0d0d0;
-            font-family: 'MedievalSharp', serif;
+            font-family: 'Almendra', serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -66,7 +66,7 @@
         .main-title {
             flex: 1;
             text-align: center;
-            font-family: 'Cinzel Decorative', 'Almendra SC', serif;
+            font-family: 'Cinzel Decorative', serif;
             font-size: 1.8rem;
             color: #ff1a1a;
             text-shadow: 0 0 8px #ff0000, 0 0 20px #800000, 2px 2px 4px #000;
@@ -80,7 +80,7 @@
         .layout-grid {
             flex: 1;
             display: grid;
-            grid-template-columns: 60% 40%; /* Mantém o texto protegido na esquerda */
+            grid-template-columns: 58% 42%; /* Mantém o texto protegido na esquerda */
             width: 100%;
             z-index: 5;
         }
@@ -93,26 +93,26 @@
             justify-content: flex-start;
             align-items: center;
             text-align: center;
-            padding: 15px 5px 0 15px;
+            padding: 5px 5px 0 10px;
         }
 
-        /* Bloco de texto com alta legibilidade */
+        /* Bloco de texto com a nova fonte Almendra e estilo alongado */
         .intro-text {
-            font-family: 'MedievalSharp', sans-serif;
-            font-size: 0.82rem;
-            line-height: 1.35;
-            color: #dcd0d0;
+            font-family: 'Almendra', serif;
+            font-size: 1.15rem; /* Aumentado ligeiramente para destacar os traços da fonte */
+            line-height: 1.25;
+            color: #e2d6d6;
             text-shadow: 2px 2px 3px #000, -2px -2px 3px #000, 2px -2px 3px #000, -2px 2px 3px #000, 0px 0px 8px #000;
         }
 
         .intro-text p {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         /* Botão ...ENTRE! idêntico à imagem de referência */
         .enter-button {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 5px;
             padding: 10px 35px;
             font-family: sans-serif;
             font-size: 1.3rem;
@@ -147,7 +147,7 @@
         /* Pequena adequação para telas muito pequenas */
         @media (max-height: 650px) {
             .main-title { font-size: 1.5rem; }
-            .intro-text { font-size: 0.75rem; line-height: 1.25; }
+            .intro-text { font-size: 0.95rem; line-height: 1.2; }
             .enter-button { font-size: 1.1rem; padding: 7px 25px; }
             .avatar-box { width: 75px; height: 90px; }
         }
