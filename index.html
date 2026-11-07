@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Kira Lux</title>
-    <!-- Importação de fontes temáticas do Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500&family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
@@ -17,209 +16,172 @@
         }
 
         body {
-            background-color: #050202;
+            background-color: #000000;
             color: #d4c5b9;
             font-family: 'Goudy Bookletter 1911', serif;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 10px;
         }
 
-        /* Container principal simulando a proporção do cartaz */
-        .portal-container {
+        /* Container principal que força a estrutura idêntica ao modelo */
+        .portal-wrapper {
             position: relative;
             width: 100%;
-            max-width: 900px;
-            aspect-ratio: 3 / 4;
-            background-image: url('link_da_imagem_de_fundo.jpg'); /* Imagem da rua escura e da porta gótica */
+            max-width: 600px; /* Mantém a proporção vertical perfeita mesmo no celular */
+            background-image: url('SUA_IMAGEM_DE_FUNDO_AQUI.jpg'); 
             background-size: cover;
             background-position: center;
-            border: 3px solid #1a0f0f;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.85);
-            padding: 4% 6%;
+            border: 2px solid #1a0f0f;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+            padding: 30px 20px 20px 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
         }
 
-        /* Foto de perfil no canto superior esquerdo */
+        /* Cabeçalho superior contendo a foto e o título alinhados */
+        .header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        /* Caixa da foto de perfil corrigida */
         .profile-box {
-            position: absolute;
-            top: 4%;
-            left: 4%;
-            width: 18%;
-            aspect-ratio: 1 / 1.2;
+            width: 90px;
+            height: 110px;
             border: 2px solid #800000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
             overflow: hidden;
+            background-color: #050202;
         }
 
         .profile-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        /* Cabeçalho - Título com efeito Neon Vermelho */
+        /* Título com quebra controlada para o efeito neon */
         .header-title {
             font-family: 'Cinzel Decorative', serif;
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             text-align: right;
             color: #ff3333;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #800000;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            text-shadow: 0 0 8px #ff0000, 0 0 15px #800000;
+            line-height: 1.2;
+            max-width: 70%;
             text-transform: uppercase;
         }
 
-        /* Layout central dividido em duas colunas principais */
-        .main-content {
+        /* Área central flexível para acomodar o texto e a frase na lateral */
+        .content-layout {
             display: flex;
             justify-content: space-between;
-            height: 70%;
-            margin-top: 2%;
+            position: relative;
+            width: 100%;
         }
 
-        /* Coluna esquerda com os textos e o botão */
-        .text-column {
-            width: 48%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Bloco dos parágrafos e botão */
+        .text-block {
+            width: 75%;
             text-align: center;
             z-index: 2;
         }
 
-        .text-column p {
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-            font-weight: 500;
+        .text-block p {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: 22px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            color: #e0d5cb;
         }
 
-        /* Botão entrar com gradiente e borda iluminada */
+        /* Botão estilizado idêntico ao da imagem */
         .enter-button {
             display: inline-block;
-            background: linear-gradient(180deg, #b30000 0%, #4a0000 100%);
+            background: linear-gradient(180deg, #ba0000 0%, #4a0000 100%);
             color: #ffffff;
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            padding: 12px 35px;
+            padding: 12px 40px;
             border: 2px solid #ff4d4d;
-            border-radius: 8px;
+            border-radius: 6px;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
+            transition: transform 0.2s ease;
         }
 
         .enter-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #ff0000, inset 0 0 5px rgba(0, 0, 0, 0.5);
-            border-color: #ffffff;
+            transform: scale(1.03);
         }
 
-        /* Coluna direita para demarcar o texto vertical em arco da porta */
-        .door-column {
-            width: 45%;
-            position: relative;
+        /* Coluna lateral direita para o texto em latim vertical */
+        .sidebar-latin {
+            width: 20%;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
         }
 
-        /* Inscrição vertical simulando a lateral da porta */
         .vertical-text {
             font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
+            font-size: 1.1rem;
             color: #b09e8f;
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            letter-spacing: 6px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
-            opacity: 0.85;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            white-space: nowrap;
         }
 
-        /* Rodapé com a data */
-        .footer-date {
-            width: 100%;
+        /* Data no rodapé inferior direito */
+        .footer-timestamp {
             text-align: right;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #5e5147;
             font-family: sans-serif;
-            letter-spacing: 1px;
-        }
-
-        /* Ajustes responsivos para telas menores */
-        @media (max-width: 768px) {
-            .portal-container {
-                aspect-ratio: auto;
-                height: auto;
-            }
-            .main-content {
-                flex-direction: column;
-                height: auto;
-            }
-            .text-column, .door-column {
-                width: 100%;
-                margin-top: 20px;
-            }
-            .header-title {
-                font-size: 2.2rem;
-                padding-left: 20%;
-            }
-            .profile-box {
-                width: 22%;
-            }
-            .door-column {
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-            .vertical-text {
-                writing-mode: horizontal-tb;
-                text-align: center;
-                font-size: 1.1rem;
-            }
+            margin-top: 30px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="portal-container">
+    <div class="portal-wrapper">
         
-        <!-- Foto de Perfil Superior Esquerda -->
-        <div class="profile-box">
-            <img src="link_da_foto_da_kira.jpg" alt="Kira">
+        <!-- Área Superior: Foto e Título -->
+        <div class="header-area">
+            <div class="profile-box">
+                <!-- COLOQUE O LINK DA SUA FOTO DE PERFIL AQUI -->
+                <img src="SUA_FOTO_DE_PERFIL.jpg" alt="Kira">
+            </div>
+            <h1 class="header-title">Portal<br>Kira Lux</h1>
         </div>
 
-        <!-- Título Principal -->
-        <h1 class="header-title">Portal Kira Lux</h1>
-
-        <!-- Seção de Conteúdo -->
-        <div class="main-content">
+        <!-- Área Central: Textos e Lateral -->
+        <div class="content-layout">
             
-            <!-- Coluna de Texto Descritivo -->
-            <div class="text-column">
+            <div class="text-block">
                 <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
                 
                 <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
                 
                 <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
                 
-                <!-- Botão de Entrada -->
                 <a href="#entrar" class="enter-button">...Entre!</a>
             </div>
 
-            <!-- Inscrição em Latim ao lado da Porta -->
-            <div class="door-column">
+            <div class="sidebar-latin">
                 <div class="vertical-text">
                     INCOGNOSCAS IN ARTE UMBRARUM
                 </div>
@@ -227,8 +189,8 @@
 
         </div>
 
-        <!-- Rodapé do Layout -->
-        <div class="footer-date">
+        <!-- Rodapé -->
+        <div class="footer-timestamp">
             20 de out. de 2025 11:27:58
         </div>
 
