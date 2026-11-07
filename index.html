@@ -46,7 +46,7 @@
         .header-area {
             display: flex;
             align-items: center;
-            padding: 20px 15px 10px 15px;
+            padding: 20px 15px 5px 15px;
             z-index: 15;
             width: 100%;
         }
@@ -80,7 +80,7 @@
         .layout-grid {
             flex: 1;
             display: grid;
-            grid-template-columns: 58% 42%; /* Mantém o texto protegido na esquerda */
+            grid-template-columns: 56% 44%; /* Mantém o texto protegido na esquerda */
             width: 100%;
             z-index: 5;
         }
@@ -93,26 +93,26 @@
             justify-content: flex-start;
             align-items: center;
             text-align: center;
-            padding: 5px 5px 0 10px;
+            padding: 10px 5px 0 20px; /* Aumentado o recuo esquerdo para afastar da borda */
         }
 
         /* Bloco de texto com a nova fonte Almendra e estilo alongado */
         .intro-text {
             font-family: 'Almendra', serif;
-            font-size: 1.15rem; /* Aumentado ligeiramente para destacar os traços da fonte */
-            line-height: 1.25;
+            font-size: 1.15rem; 
+            line-height: 1.2; /* Linhas levemente mais compactas para liberar espaço abaixo */
             color: #e2d6d6;
             text-shadow: 2px 2px 3px #000, -2px -2px 3px #000, 2px -2px 3px #000, -2px 2px 3px #000, 0px 0px 8px #000;
         }
 
         .intro-text p {
-            margin-bottom: 12px;
+            margin-bottom: 8px; /* Reduzido o espaço entre os blocos de texto */
         }
 
         /* Botão ...ENTRE! idêntico à imagem de referência */
         .enter-button {
             display: inline-block;
-            margin-top: 5px;
+            margin-top: 12px;
             padding: 10px 35px;
             font-family: sans-serif;
             font-size: 1.3rem;
@@ -147,7 +147,7 @@
         /* Pequena adequação para telas muito pequenas */
         @media (max-height: 650px) {
             .main-title { font-size: 1.5rem; }
-            .intro-text { font-size: 0.95rem; line-height: 1.2; }
+            .intro-text { font-size: 0.95rem; line-height: 1.15; }
             .enter-button { font-size: 1.1rem; padding: 7px 25px; }
             .avatar-box { width: 75px; height: 90px; }
         }
