@@ -16,142 +16,95 @@
         }
 
         body {
-            background-color: #000000;
+            background-color: #030101;
             color: #d4c5b9;
             font-family: 'Goudy Bookletter 1911', serif;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             min-height: 100vh;
             padding: 10px;
         }
 
-        /* Container principal que força a estrutura idêntica ao modelo */
+        /* Container principal que mantém a proporção perfeita do cartaz original */
         .portal-wrapper {
             position: relative;
             width: 100%;
-            max-width: 600px; /* Mantém a proporção vertical perfeita mesmo no celular */
-            background-image: url('kira-portal.jpg'); 
+            max-width: 500px;
+            aspect-ratio: 3 / 4;
+            background-image: url('https://squarespace-cdn.com'); 
             background-size: cover;
             background-position: center;
-            border: 2px solid #1a0f0f;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
-            padding: 30px 20px 20px 20px;
+            border: 1px solid #1a0f0f;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.95);
+            padding: 25px 20px;
             display: flex;
             flex-direction: column;
-        }
-
-        /* Cabeçalho superior contendo a foto e o título alinhados */
-        .header-area {
-            display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 25px;
-            position: relative;
         }
 
-        /* Caixa da foto de perfil corrigida */
-        .profile-box {
-            width: 90px;
-            height: 110px;
-            border: 2px solid #800000;
-            box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
-            overflow: hidden;
-            background-color: #050202;
-        }
-
-        .profile-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Título com quebra controlada para o efeito neon */
-        .header-title {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 2.2rem;
-            text-align: right;
-            color: #ff3333;
-            text-shadow: 0 0 8px #ff0000, 0 0 15px #800000;
-            line-height: 1.2;
-            max-width: 70%;
-            text-transform: uppercase;
-        }
-
-        /* Área central flexível para acomodar o texto e a frase na lateral */
-        .content-layout {
+        /* Área de conteúdo que empurra os textos estritamente para o lado esquerdo */
+        .content-area {
+            width: 55%; /* Limita o texto para não passar por cima da porta da imagem */
             display: flex;
-            justify-content: space-between;
-            position: relative;
-            width: 100%;
-        }
-
-        /* Bloco dos parágrafos e botão */
-        .text-block {
-            width: 75%;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            z-index: 2;
+            margin-top: 15%;
         }
 
-        .text-block p {
-            font-size: 1.05rem;
-            line-height: 1.5;
-            margin-bottom: 22px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        .content-area p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8);
             color: #e0d5cb;
+            font-weight: 500;
         }
 
-        /* Botão estilizado idêntico ao da imagem */
+        /* Botão estilizado com efeito de profundidade */
         .enter-button {
             display: inline-block;
             background: linear-gradient(180deg, #ba0000 0%, #4a0000 100%);
             color: #ffffff;
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            padding: 12px 40px;
+            padding: 10px 30px;
             border: 2px solid #ff4d4d;
             border-radius: 6px;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.5);
             text-transform: uppercase;
-            margin-top: 10px;
-            transition: transform 0.2s ease;
+            margin-top: 5px;
+            letter-spacing: 1px;
         }
 
-        .enter-button:hover {
-            transform: scale(1.03);
-        }
-
-        /* Coluna lateral direita para o texto em latim vertical */
-        .sidebar-latin {
-            width: 20%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .vertical-text {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: #b09e8f;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            letter-spacing: 5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-            white-space: nowrap;
-        }
-
-        /* Data no rodapé inferior direito */
+        /* Rodapé posicionado de forma discreta no canto inferior direito */
         .footer-timestamp {
-            text-align: right;
-            font-size: 0.7rem;
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            font-size: 0.6rem;
             color: #5e5147;
             font-family: sans-serif;
-            margin-top: 30px;
-            width: 100%;
+            opacity: 0.7;
+        }
+
+        /* Ajuste específico para telas muito pequenas de celular */
+        @media (max-width: 380px) {
+            .content-area {
+                width: 60%;
+                margin-top: 10%;
+            }
+            .content-area p {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+            .enter-button {
+                font-size: 1rem;
+                padding: 8px 25px;
+            }
         }
     </style>
 </head>
@@ -159,37 +112,20 @@
 
     <div class="portal-wrapper">
         
-        <!-- Área Superior: Foto e Título -->
-        <div class="header-area">
-            <div class="profile-box">
-                <!-- COLOQUE O LINK DA SUA FOTO DE PERFIL AQUI -->
-                <img src="kira-3x4.jpg" alt="Kira">
-            </div>
-            <h1 class="header-title">Portal<br>Kira Lux</h1>
-        </div>
-
-        <!-- Área Central: Textos e Lateral -->
-        <div class="content-layout">
+        <!-- O título, a foto de perfil e o texto em latim já fazem parte da imagem de fundo instalada no .portal-wrapper -->
+        
+        <!-- Bloco de Texto posicionado dinamicamente à esquerda da porta gótica -->
+        <div class="content-area">
+            <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
             
-            <div class="text-block">
-                <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
-                
-                <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
-                
-                <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
-                
-                <a href="#entrar" class="enter-button">...Entre!</a>
-            </div>
-
-            <div class="sidebar-latin">
-                <div class="vertical-text">
-                    INCOGNOSCAS IN ARTE UMBRARUM
-                </div>
-            </div>
-
+            <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
+            
+            <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
+            
+            <a href="#entrar" class="enter-button">...Entre!</a>
         </div>
 
-        <!-- Rodapé -->
+        <!-- Rodapé do Layout -->
         <div class="footer-timestamp">
             20 de out. de 2025 11:27:58
         </div>
