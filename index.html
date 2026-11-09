@@ -1,136 +1,794 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Kira Lux</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500&family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Kira Lux</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            background-color: #030101;
-            color: #d4c5b9;
-            font-family: 'Goudy Bookletter 1911', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 10px;
-        }
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #000;
+    font-family: 'Cinzel', serif;
+  }
 
-        /* Container principal que mantém a proporção perfeita do cartaz original */
-        .portal-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 3 / 4;
-            background-image: url('https://squarespace-cdn.com'); 
-            background-size: cover;
-            background-position: center;
-            border: 1px solid #1a0f0f;
-            box-shadow: 0 0 35px rgba(0, 0, 0, 0.95);
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+  .page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #0a0806;
+  }
 
-        /* Área de conteúdo que empurra os textos estritamente para o lado esquerdo */
-        .content-area {
-            width: 55%; /* Limita o texto para não passar por cima da porta da imagem */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-top: 15%;
-        }
+  /* ===== BACKGROUND: Gothic street scene ===== */
+  .bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
 
-        .content-area p {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8);
-            color: #e0d5cb;
-            font-weight: 500;
-        }
+  .bg-sky {
+    background: linear-gradient(180deg,
+      #0a0c10 0%,
+      #12151a 15%,
+      #1a1e25 30%,
+      #252a30 45%,
+      #2a2520 60%,
+      #1a1510 80%,
+      #0d0a08 100%
+    );
+  }
 
-        /* Botão estilizado com efeito de profundidade */
-        .enter-button {
-            display: inline-block;
-            background: linear-gradient(180deg, #ba0000 0%, #4a0000 100%);
-            color: #ffffff;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 10px 30px;
-            border: 2px solid #ff4d4d;
-            border-radius: 6px;
-            text-decoration: none;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.5);
-            text-transform: uppercase;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
+  .bg-fog {
+    background:
+      radial-gradient(ellipse 600px 300px at 25% 55%, rgba(120,110,90,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 200px at 60% 45%, rgba(100,90,70,0.08) 0%, transparent 60%);
+    animation: fogMove 25s ease-in-out infinite alternate;
+  }
 
-        /* Rodapé posicionado de forma discreta no canto inferior direito */
-        .footer-timestamp {
-            position: absolute;
-            bottom: 12px;
-            right: 15px;
-            font-size: 0.6rem;
-            color: #5e5147;
-            font-family: sans-serif;
-            opacity: 0.7;
-        }
+  @keyframes fogMove {
+    0% { opacity: 0.5; transform: translateX(-15px); }
+    100% { opacity: 1; transform: translateX(15px); }
+  }
 
-        /* Ajuste específico para telas muito pequenas de celular */
-        @media (max-width: 380px) {
-            .content-area {
-                width: 60%;
-                margin-top: 10%;
-            }
-            .content-area p {
-                font-size: 0.85rem;
-                margin-bottom: 10px;
-            }
-            .enter-button {
-                font-size: 1rem;
-                padding: 8px 25px;
-            }
-        }
-    </style>
+  .bg-ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(15,12,8,0.3) 20%, rgba(20,16,10,0.6) 100%),
+      repeating-linear-gradient(90deg,
+        rgba(30,25,18,0.4) 0px, rgba(30,25,18,0.4) 38px,
+        rgba(20,16,10,0.6) 38px, rgba(20,16,10,0.6) 40px
+      ),
+      repeating-linear-gradient(0deg,
+        rgba(30,25,18,0.3) 0px, rgba(30,25,18,0.3) 18px,
+        rgba(20,16,10,0.5) 18px, rgba(20,16,10,0.5) 20px
+      );
+    background-color: #1a1510;
+  }
+
+  .bg-ground::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, transparent 30%, rgba(0,0,0,0.6) 100%);
+  }
+
+  /* Wet cobblestone reflections */
+  .bg-ground::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background:
+      radial-gradient(ellipse 200px 80px at 20% 30%, rgba(180,170,140,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 150px 60px at 50% 50%, rgba(180,170,140,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 100px 40px at 75% 20%, rgba(180,170,140,0.05) 0%, transparent 70%);
+  }
+
+  /* ===== VIGNETTE ===== */
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0,0,0,0.75) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ===== STREET LAMPS ===== */
+  .lamps {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .lamp {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lamp:nth-child(1) { left: 12%; top: 22%; }
+  .lamp:nth-child(2) { left: 8%; top: 30%; transform: scale(0.85); }
+  .lamp:nth-child(3) { left: 5%; top: 37%; transform: scale(0.7); }
+  .lamp:nth-child(4) { left: 3%; top: 43%; transform: scale(0.55); }
+
+  .lamp-lantern {
+    width: 28px;
+    height: 38px;
+    background: linear-gradient(180deg, #2a2218, #1a1510);
+    border: 1px solid #3a3020;
+    border-radius: 4px 4px 2px 2px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .lamp-lantern::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    right: 4px;
+    bottom: 6px;
+    background: radial-gradient(circle, #ffdd88 0%, #ffaa44 40%, #cc7722 70%, transparent 100%);
+    border-radius: 2px;
+    animation: lampGlow 3s ease-in-out infinite alternate;
+  }
+
+  .lamp-lantern::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255,200,100,0.25) 0%, rgba(255,180,80,0.1) 40%, transparent 70%);
+    border-radius: 50%;
+    animation: lampGlow 3s ease-in-out infinite alternate;
+  }
+
+  .lamp-pole {
+    width: 4px;
+    background: linear-gradient(180deg, #3a3020, #1a1510);
+    flex: 1;
+    min-height: 100px;
+  }
+
+  @keyframes lampGlow {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+
+  /* ===== PORTRAIT (top-left) ===== */
+  .portrait {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 110px;
+    height: 140px;
+    z-index: 10;
+    border: 2px solid #6b0000;
+    box-shadow: 0 0 12px rgba(139,0,0,0.6), 0 0 25px rgba(139,0,0,0.3), inset 0 0 8px rgba(0,0,0,0.5);
+    background: #0a0505;
+    overflow: hidden;
+  }
+
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    /* Placeholder: dark gothic portrait silhouette */
+    background:
+      radial-gradient(ellipse 35px 40px at 50% 30%, #1a1215 0%, #0a0508 60%, transparent 100%),
+      radial-gradient(ellipse 45px 60px at 50% 70%, #151012 0%, #0a0508 70%, transparent 100%),
+      linear-gradient(180deg, #120a0d 0%, #080406 100%);
+    position: relative;
+  }
+
+  .portrait-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+  }
+
+  /* ===== NEON TITLE ===== */
+  .neon-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-30%);
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: clamp(2rem, 5.5vw, 4.5rem);
+    color: #ff1a00;
+    white-space: nowrap;
+    z-index: 10;
+    text-shadow:
+      0 0 7px #ff2200,
+      0 0 10px #ff2200,
+      0 0 21px #ff2200,
+      0 0 42px #ff0000,
+      0 0 82px #ff0000,
+      0 0 92px #ff0000;
+    animation: neonFlicker 5s ease-in-out infinite;
+    letter-spacing: 3px;
+    pointer-events: none;
+  }
+
+  @keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+      text-shadow:
+        0 0 7px #ff2200,
+        0 0 10px #ff2200,
+        0 0 21px #ff2200,
+        0 0 42px #ff0000,
+        0 0 82px #ff0000,
+        0 0 92px #ff0000;
+    }
+    20%, 24%, 55% {
+      opacity: 0.75;
+      text-shadow:
+        0 0 4px #ff2200,
+        0 0 7px #ff2200;
+    }
+  }
+
+  /* ===== GOTHIC DOOR ===== */
+  .door-area {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+    width: 320px;
+    height: 550px;
+    z-index: 3;
+  }
+
+  .door-wall {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #3a3025 0%, #2a2018 30%, #1a1510 70%, #0d0a08 100%);
+    border-radius: 5px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+  }
+
+  .door-wall::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    border: 1px solid rgba(100,80,50,0.3);
+    border-radius: 3px;
+  }
+
+  .door-arch-outer {
+    position: absolute;
+    top: 8%;
+    left: 15%;
+    right: 15%;
+    bottom: 5%;
+    background: linear-gradient(180deg, #1a1208, #0d0805);
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    border: 3px solid #4a3a28;
+    box-shadow:
+      inset 0 0 30px rgba(0,0,0,0.8),
+      0 0 15px rgba(0,0,0,0.5);
+    overflow: hidden;
+  }
+
+  .door-arch-inner {
+    position: absolute;
+    top: 5%;
+    left: 8%;
+    right: 8%;
+    bottom: 3%;
+    background: linear-gradient(180deg, #2a1a0a, #1a0f05);
+    border-radius: 50% 50% 0 0 / 38% 38% 0 0;
+    border: 2px solid #5a4a38;
+  }
+
+  .door-wood {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 72%;
+    background:
+      linear-gradient(90deg,
+        #3a2515 0%, #4a3020 15%, #3a2515 30%,
+        #4a3020 45%, #3a2515 60%, #4a3020 75%, #3a2515 100%
+      );
+    border: 2px solid #5a4030;
+    border-radius: 50% 50% 0 0 / 15% 15% 0 0;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+  }
+
+  .door-wood::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    right: 8%;
+    bottom: 8%;
+    border: 1px solid #6a5040;
+    border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+  }
+
+  .door-wood::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #5a4030;
+  }
+
+  /* Door handle */
+  .door-handle {
+    position: absolute;
+    top: 52%;
+    right: 18%;
+    width: 12px;
+    height: 20px;
+    background: linear-gradient(180deg, #8a7050, #5a4030);
+    border-radius: 3px;
+    border: 1px solid #9a8060;
+    z-index: 5;
+  }
+
+  /* Glowing symbols on door */
+  .door-symbol {
+    position: absolute;
+    z-index: 5;
+  }
+
+  .door-symbol-top {
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+  }
+
+  .door-symbol-bottom {
+    top: 52%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 75px;
+  }
+
+  .door-symbol svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 8px #ff4400) drop-shadow(0 0 16px #ff2200);
+    animation: symbolGlow 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes symbolGlow {
+    0% { filter: drop-shadow(0 0 6px #ff4400) drop-shadow(0 0 12px #ff2200); opacity: 0.8; }
+    100% { filter: drop-shadow(0 0 12px #ff6600) drop-shadow(0 0 24px #ff4400) drop-shadow(0 0 36px #ff2200); opacity: 1; }
+  }
+
+  /* Latin text around door */
+  .latin-right {
+    position: absolute;
+    right: -2px;
+    top: 15%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 13px;
+    letter-spacing: 7px;
+    color: #c4a060;
+    text-shadow: 0 0 8px rgba(196,160,96,0.4);
+    z-index: 4;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+
+  .latin-left {
+    position: absolute;
+    left: 2%;
+    top: 20%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #a08050;
+    text-shadow: 0 0 6px rgba(160,128,80,0.3);
+    z-index: 4;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+
+  /* ===== FIGURE SILHOUETTE ===== */
+  .figure {
+    position: absolute;
+    left: 16%;
+    bottom: 2%;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .figure-hair {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-55%);
+    width: 55px;
+    height: 90px;
+    background: linear-gradient(180deg, #0a0808, #050404);
+    border-radius: 50% 40% 30% 60%;
+  }
+
+  .figure-head {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 52px;
+    background: radial-gradient(ellipse at 50% 40%, #1a1215 0%, #0a0808 60%, #050404 100%);
+    border-radius: 50% 50% 45% 45%;
+  }
+
+  .figure-body {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 220px;
+    background: linear-gradient(180deg, #0a0808 0%, #050404 100%);
+    border-radius: 15px 15px 5px 5px;
+  }
+
+  .figure-legs {
+    position: absolute;
+    top: 270px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 100px;
+    background: linear-gradient(180deg, #050404, #030202);
+    border-radius: 0 0 5px 5px;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .content {
+    position: relative;
+    z-index: 8;
+    padding: 100px 20px 60px;
+    max-width: 520px;
+    margin: 0 auto;
+    margin-left: 10%;
+  }
+
+  .description {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    line-height: 1.75;
+    color: #e8d5b0;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);
+  }
+
+  .description p {
+    margin-bottom: 18px;
+  }
+
+  /* ===== ENTER BUTTON ===== */
+  .btn-wrap {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+  }
+
+  .enter-btn {
+    display: inline-block;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 900;
+    color: #fff;
+    background: linear-gradient(180deg, #cc1100 0%, #8b0000 40%, #660000 100%);
+    padding: 14px 45px;
+    border: 2px solid #ff3300;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    box-shadow:
+      0 0 10px rgba(255,0,0,0.6),
+      0 0 20px rgba(255,0,0,0.4),
+      0 0 40px rgba(255,0,0,0.2),
+      inset 0 1px 0 rgba(255,100,100,0.3);
+    animation: btnGlow 2s ease-in-out infinite alternate;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .enter-btn:hover {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 15px rgba(255,0,0,0.8),
+      0 0 30px rgba(255,0,0,0.6),
+      0 0 60px rgba(255,0,0,0.4),
+      inset 0 1px 0 rgba(255,100,100,0.4);
+  }
+
+  @keyframes btnGlow {
+    0% {
+      box-shadow:
+        0 0 10px rgba(255,0,0,0.6),
+        0 0 20px rgba(255,0,0,0.4),
+        0 0 40px rgba(255,0,0,0.2),
+        inset 0 1px 0 rgba(255,100,100,0.3);
+    }
+    100% {
+      box-shadow:
+        0 0 15px rgba(255,0,0,0.8),
+        0 0 30px rgba(255,0,0,0.5),
+        0 0 50px rgba(255,0,0,0.3),
+        inset 0 1px 0 rgba(255,100,100,0.4);
+    }
+  }
+
+  /* ===== DATE STAMP ===== */
+  .date-stamp {
+    position: absolute;
+    bottom: 12px;
+    right: 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: #6a5a40;
+    z-index: 10;
+    text-shadow: 0 0 3px rgba(0,0,0,0.8);
+  }
+
+  /* ===== PARTICLES ===== */
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(200,180,140,0.25);
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    animation: particleFloat linear infinite;
+  }
+
+  @keyframes particleFloat {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.4; }
+    100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .door-area {
+      width: 220px;
+      height: 400px;
+      right: 0;
+      top: 15%;
+    }
+    .latin-right, .latin-left {
+      font-size: 9px;
+      letter-spacing: 4px;
+    }
+    .figure {
+      left: 10%;
+      transform: scale(0.75);
+      transform-origin: bottom left;
+    }
+    .content {
+      margin-left: 5%;
+      padding-top: 120px;
+    }
+    .neon-title {
+      transform: translateX(-20%);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+    .portrait {
+      width: 80px;
+      height: 100px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .door-area {
+      display: none;
+    }
+    .figure {
+      display: none;
+    }
+    .lamps {
+      display: none;
+    }
+    .latin-right, .latin-left {
+      display: none;
+    }
+    .content {
+      margin-left: 0;
+      padding: 130px 20px 60px;
+      max-width: 100%;
+    }
+    .neon-title {
+      transform: translateX(-10%);
+      font-size: clamp(1.5rem, 7vw, 2.5rem);
+      top: 60px;
+    }
+    .portrait {
+      width: 65px;
+      height: 85px;
+      top: 10px;
+      left: 10px;
+    }
+  }
+
+  /* Page load animation */
+  .page {
+    animation: pageIn 2s ease-out;
+  }
+  @keyframes pageIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
 </head>
 <body>
+<div class="page">
 
-    <div class="portal-wrapper">
-        
-        <!-- O título, a foto de perfil e o texto em latim já fazem parte da imagem de fundo instalada no .portal-wrapper -->
-        
-        <!-- Bloco de Texto posicionado dinamicamente à esquerda da porta gótica -->
-        <div class="content-area">
-            <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
-            
-            <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
-            
-            <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
-            
-            <a href="#entrar" class="enter-button">...Entre!</a>
+  <!-- Background layers -->
+  <div class="bg bg-sky"></div>
+  <div class="bg bg-fog"></div>
+  <div class="bg bg-ground"></div>
+  <div class="vignette"></div>
+
+  <!-- Street lamps -->
+  <div class="lamps">
+    <div class="lamp">
+      <div class="lamp-lantern"></div>
+      <div class="lamp-pole"></div>
+    </div>
+    <div class="lamp">
+      <div class="lamp-lantern"></div>
+      <div class="lamp-pole"></div>
+    </div>
+    <div class="lamp">
+      <div class="lamp-lantern"></div>
+      <div class="lamp-pole"></div>
+    </div>
+    <div class="lamp">
+      <div class="lamp-lantern"></div>
+      <div class="lamp-pole"></div>
+    </div>
+  </div>
+
+  <!-- Portrait -->
+  <div class="portrait">
+    <div class="portrait-img"></div>
+  </div>
+
+  <!-- Neon Title -->
+  <div class="neon-title">Portal Kira Lux</div>
+
+  <!-- Gothic Door -->
+  <div class="door-area">
+    <div class="door-wall"></div>
+    <div class="door-arch-outer">
+      <div class="door-arch-inner">
+        <div class="door-wood">
+          <div class="door-handle"></div>
         </div>
-
-        <!-- Rodapé do Layout -->
-        <div class="footer-timestamp">
-            20 de out. de 2025 11:27:58
-        </div>
-
+      </div>
     </div>
 
+    <!-- Top symbol: Triquetra / Rose -->
+    <div class="door-symbol door-symbol-top">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="38" fill="none" stroke="#ff4400" stroke-width="2.5"/>
+        <path d="M50 12 C58 28, 72 32, 82 48 C72 64, 58 68, 50 84 C42 68, 28 64, 18 48 C28 32, 42 28, 50 12Z" fill="none" stroke="#ff4400" stroke-width="2"/>
+        <circle cx="50" cy="50" r="12" fill="none" stroke="#ff4400" stroke-width="2"/>
+        <path d="M50 8 L50 92 M8 50 L92 50" stroke="#ff4400" stroke-width="1" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <!-- Bottom symbol: Eye of Horus -->
+    <div class="door-symbol door-symbol-bottom">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 50 Q50 8 92 50 Q50 92 8 50Z" fill="none" stroke="#ff4400" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="14" fill="none" stroke="#ff4400" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="6" fill="#ff4400"/>
+        <path d="M50 64 L50 88" stroke="#ff4400" stroke-width="2.5"/>
+        <path d="M50 88 L32 97" stroke="#ff4400" stroke-width="2"/>
+        <path d="M8 50 L3 62" stroke="#ff4400" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Latin text -->
+    <div class="latin-right">COGNOSCAS IN ARTE UMBRARUM</div>
+    <div class="latin-left">INGR DE UT LUCEM</div>
+  </div>
+
+  <!-- Figure silhouette -->
+  <div class="figure">
+    <div class="figure-hair"></div>
+    <div class="figure-head"></div>
+    <div class="figure-body"></div>
+    <div class="figure-legs"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="description">
+      <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
+      <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
+      <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="#" class="enter-btn" onclick="enterPortal(event)">...ENTRE!</a>
+    </div>
+  </div>
+
+  <!-- Date stamp -->
+  <div class="date-stamp">20 de out. de 2023 11:27:58</div>
+
+</div>
+
+<script>
+  function enterPortal(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.style.transition = 'all 0.5s ease';
+    btn.style.transform = 'scale(1.15)';
+    btn.style.boxShadow = '0 0 30px #ff0000, 0 0 60px #ff0000, 0 0 100px #ff0000';
+
+    setTimeout(() => {
+      document.querySelector('.page').style.transition = 'opacity 1.2s ease';
+      document.querySelector('.page').style.opacity = '0';
+
+      setTimeout(() => {
+        alert('🖤 Bem-vindo ao Portal Kira Lux!');
+        document.querySelector('.page').style.opacity = '1';
+        btn.style.transform = '';
+        btn.style.boxShadow = '';
+      }, 1200);
+    }, 400);
+  }
+
+  // Floating particles
+  function spawnParticle() {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (10 + Math.random() * 60) + '%';
+    p.style.bottom = (5 + Math.random() * 40) + '%';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
+    document.querySelector('.page').appendChild(p);
+    setTimeout(() => p.remove(), 16000);
+  }
+  setInterval(spawnParticle, 2500);
+</script>
 </body>
 </html>
