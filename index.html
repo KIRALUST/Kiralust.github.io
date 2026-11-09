@@ -22,9 +22,14 @@
     min-height: 100vh;
     overflow: hidden;
     background: #0a0806;
+    animation: pageIn 2s ease-out;
   }
 
-  /* ===== BACKGROUND: Gothic street ===== */
+  @keyframes pageIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
   .bg-sky {
     position: absolute;
     inset: 0;
@@ -92,7 +97,6 @@
       radial-gradient(ellipse 150px 60px at 50% 50%, rgba(180,170,140,0.04) 0%, transparent 70%);
   }
 
-  /* ===== VIGNETTE ===== */
   .vignette {
     position: absolute;
     inset: 0;
@@ -101,7 +105,6 @@
     pointer-events: none;
   }
 
-  /* ===== STREET LAMPS ===== */
   .lamps {
     position: absolute;
     left: 0; top: 0; bottom: 0;
@@ -163,7 +166,6 @@
     50% { opacity: 1; }
   }
 
-  /* ===== PORTRAIT ===== */
   .portrait {
     position: absolute;
     top: 15px; left: 15px;
@@ -177,14 +179,12 @@
 
   .portrait-img {
     width: 100%; height: 100%;
-    /* Substitua por: background-image: url('sua-foto.jpg'); background-size: cover; */
     background:
       radial-gradient(ellipse 35px 40px at 50% 30%, #1a1215 0%, #0a0508 60%, transparent 100%),
       radial-gradient(ellipse 45px 60px at 50% 70%, #151012 0%, #0a0508 70%, transparent 100%),
       linear-gradient(180deg, #120a0d 0%, #080406 100%);
   }
 
-  /* ===== NEON TITLE ===== */
   .neon-title {
     position: absolute;
     top: 10px;
@@ -220,7 +220,6 @@
     }
   }
 
-  /* ===== GOTHIC DOOR ===== */
   .door-area {
     position: absolute;
     right: 2%; top: 10%;
@@ -342,7 +341,6 @@
     white-space: nowrap;
   }
 
-  /* ===== FIGURE ===== */
   .figure {
     position: absolute;
     left: 16%; bottom: 2%;
@@ -386,7 +384,6 @@
     border-radius: 0 0 5px 5px;
   }
 
-  /* ===== MAIN CONTENT ===== */
   .content {
     position: relative;
     z-index: 8;
@@ -403,16 +400,15 @@
     color: #e8d5b0;
     text-align: center;
     text-shadow: 0 0 8px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);
-    /* FIX: remove text-transform uppercase if present */
-    text-transform: none;
-    font-variant: normal;
+    text-transform: none !important;
+    font-variant: normal !important;
+    font-weight: 400 !important;
   }
 
   .description p {
     margin-bottom: 18px;
   }
 
-  /* ===== ENTER BUTTON ===== */
   .btn-wrap {
     text-align: center;
     margin-top: 35px;
@@ -440,7 +436,7 @@
       inset 0 1px 0 rgba(255,100,100,0.3);
     animation: btnGlow 2s ease-in-out infinite alternate;
     transition: transform 0.2s, box-shadow 0.2s;
-    text-transform: none;
+    text-transform: none !important;
   }
 
   .enter-btn:hover {
@@ -469,7 +465,6 @@
     }
   }
 
-  /* ===== DATE STAMP ===== */
   .date-stamp {
     position: absolute;
     bottom: 12px; right: 18px;
@@ -480,7 +475,6 @@
     text-shadow: 0 0 3px rgba(0,0,0,0.8);
   }
 
-  /* ===== PARTICLES ===== */
   .particle {
     position: absolute;
     width: 2px; height: 2px;
@@ -498,7 +492,6 @@
     100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
   }
 
-  /* ===== RESPONSIVE — MOBILE ===== */
   @media (max-width: 900px) {
     .door-area {
       width: 220px; height: 400px;
@@ -576,14 +569,6 @@
       font-size: clamp(1.2rem, 4vw, 1.6rem);
     }
   }
-
-  .page {
-    animation: pageIn 2s ease-out;
-  }
-  @keyframes pageIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 </style>
 </head>
 <body>
@@ -594,7 +579,6 @@
   <div class="bg-ground"></div>
   <div class="vignette"></div>
 
-  <!-- Lamps -->
   <div class="lamps">
     <div class="lamp"><div class="lamp-lantern"></div><div class="lamp-pole"></div></div>
     <div class="lamp"><div class="lamp-lantern"></div><div class="lamp-pole"></div></div>
@@ -602,15 +586,12 @@
     <div class="lamp"><div class="lamp-lantern"></div><div class="lamp-pole"></div></div>
   </div>
 
-  <!-- Portrait -->
   <div class="portrait">
     <div class="portrait-img"></div>
   </div>
 
-  <!-- Title -->
   <div class="neon-title">Portal Kira Lux</div>
 
-  <!-- Door -->
   <div class="door-area">
     <div class="door-wall"></div>
     <div class="door-arch-outer">
@@ -643,7 +624,6 @@
     <div class="latin-left">INGR DE UT LUCEM</div>
   </div>
 
-  <!-- Figure -->
   <div class="figure">
     <div class="figure-hair"></div>
     <div class="figure-head"></div>
@@ -651,7 +631,6 @@
     <div class="figure-legs"></div>
   </div>
 
-  <!-- Content -->
   <div class="content">
     <div class="description">
       <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
@@ -687,383 +666,6 @@
     }, 400);
   }
 
-  function spawnParticle() {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = (10 + Math.random() * 60) + '%';
-    p.style.bottom = (5 + Math.random() * 40) + '%';
-    p.style.animationDuration = (6 + Math.random() * 10) + 's';
-    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
-    document.querySelector('.page').appendChild(p);
-    setTimeout(() => p.remove(), 16000);
-  }
-  setInterval(spawnParticle, 2500);
-</script>
-</body>
-</html>0.3);
-    z-index: 4;
-    transform: rotate(180deg);
-    white-space: nowrap;
-  }
-
-  /* ===== FIGURE SILHOUETTE ===== */
-  .figure {
-    position: absolute;
-    left: 16%;
-    bottom: 2%;
-    z-index: 4;
-    pointer-events: none;
-  }
-
-  .figure-hair {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-55%);
-    width: 55px;
-    height: 90px;
-    background: linear-gradient(180deg, #0a0808, #050404);
-    border-radius: 50% 40% 30% 60%;
-  }
-
-  .figure-head {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 42px;
-    height: 52px;
-    background: radial-gradient(ellipse at 50% 40%, #1a1215 0%, #0a0808 60%, #050404 100%);
-    border-radius: 50% 50% 45% 45%;
-  }
-
-  .figure-body {
-    position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 220px;
-    background: linear-gradient(180deg, #0a0808 0%, #050404 100%);
-    border-radius: 15px 15px 5px 5px;
-  }
-
-  .figure-legs {
-    position: absolute;
-    top: 270px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 100px;
-    background: linear-gradient(180deg, #050404, #030202);
-    border-radius: 0 0 5px 5px;
-  }
-
-  /* ===== MAIN CONTENT ===== */
-  .content {
-    position: relative;
-    z-index: 8;
-    padding: 100px 20px 60px;
-    max-width: 520px;
-    margin: 0 auto;
-    margin-left: 10%;
-  }
-
-  .description {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-    line-height: 1.75;
-    color: #e8d5b0;
-    text-align: center;
-    text-shadow: 0 0 8px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);
-  }
-
-  .description p {
-    margin-bottom: 18px;
-  }
-
-  /* ===== ENTER BUTTON ===== */
-  .btn-wrap {
-    text-align: center;
-    margin-top: 35px;
-    margin-bottom: 30px;
-  }
-
-  .enter-btn {
-    display: inline-block;
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 900;
-    color: #fff;
-    background: linear-gradient(180deg, #cc1100 0%, #8b0000 40%, #660000 100%);
-    padding: 14px 45px;
-    border: 2px solid #ff3300;
-    border-radius: 8px;
-    text-decoration: none;
-    cursor: pointer;
-    letter-spacing: 3px;
-    text-shadow: 0 0 8px rgba(255,255,255,0.5);
-    box-shadow:
-      0 0 10px rgba(255,0,0,0.6),
-      0 0 20px rgba(255,0,0,0.4),
-      0 0 40px rgba(255,0,0,0.2),
-      inset 0 1px 0 rgba(255,100,100,0.3);
-    animation: btnGlow 2s ease-in-out infinite alternate;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .enter-btn:hover {
-    transform: scale(1.06);
-    box-shadow:
-      0 0 15px rgba(255,0,0,0.8),
-      0 0 30px rgba(255,0,0,0.6),
-      0 0 60px rgba(255,0,0,0.4),
-      inset 0 1px 0 rgba(255,100,100,0.4);
-  }
-
-  @keyframes btnGlow {
-    0% {
-      box-shadow:
-        0 0 10px rgba(255,0,0,0.6),
-        0 0 20px rgba(255,0,0,0.4),
-        0 0 40px rgba(255,0,0,0.2),
-        inset 0 1px 0 rgba(255,100,100,0.3);
-    }
-    100% {
-      box-shadow:
-        0 0 15px rgba(255,0,0,0.8),
-        0 0 30px rgba(255,0,0,0.5),
-        0 0 50px rgba(255,0,0,0.3),
-        inset 0 1px 0 rgba(255,100,100,0.4);
-    }
-  }
-
-  /* ===== DATE STAMP ===== */
-  .date-stamp {
-    position: absolute;
-    bottom: 12px;
-    right: 18px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    color: #6a5a40;
-    z-index: 10;
-    text-shadow: 0 0 3px rgba(0,0,0,0.8);
-  }
-
-  /* ===== PARTICLES ===== */
-  .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: rgba(200,180,140,0.25);
-    border-radius: 50%;
-    z-index: 2;
-    pointer-events: none;
-    animation: particleFloat linear infinite;
-  }
-
-  @keyframes particleFloat {
-    0% { transform: translateY(0) translateX(0); opacity: 0; }
-    20% { opacity: 0.6; }
-    80% { opacity: 0.4; }
-    100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .door-area {
-      width: 220px;
-      height: 400px;
-      right: 0;
-      top: 15%;
-    }
-    .latin-right, .latin-left {
-      font-size: 9px;
-      letter-spacing: 4px;
-    }
-    .figure {
-      left: 10%;
-      transform: scale(0.75);
-      transform-origin: bottom left;
-    }
-    .content {
-      margin-left: 5%;
-      padding-top: 120px;
-    }
-    .neon-title {
-      transform: translateX(-20%);
-      font-size: clamp(1.8rem, 5vw, 3rem);
-    }
-    .portrait {
-      width: 80px;
-      height: 100px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .door-area {
-      display: none;
-    }
-    .figure {
-      display: none;
-    }
-    .lamps {
-      display: none;
-    }
-    .latin-right, .latin-left {
-      display: none;
-    }
-    .content {
-      margin-left: 0;
-      padding: 130px 20px 60px;
-      max-width: 100%;
-    }
-    .neon-title {
-      transform: translateX(-10%);
-      font-size: clamp(1.5rem, 7vw, 2.5rem);
-      top: 60px;
-    }
-    .portrait {
-      width: 65px;
-      height: 85px;
-      top: 10px;
-      left: 10px;
-    }
-  }
-
-  /* Page load animation */
-  .page {
-    animation: pageIn 2s ease-out;
-  }
-  @keyframes pageIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <!-- Background layers -->
-  <div class="bg bg-sky"></div>
-  <div class="bg bg-fog"></div>
-  <div class="bg bg-ground"></div>
-  <div class="vignette"></div>
-
-  <!-- Street lamps -->
-  <div class="lamps">
-    <div class="lamp">
-      <div class="lamp-lantern"></div>
-      <div class="lamp-pole"></div>
-    </div>
-    <div class="lamp">
-      <div class="lamp-lantern"></div>
-      <div class="lamp-pole"></div>
-    </div>
-    <div class="lamp">
-      <div class="lamp-lantern"></div>
-      <div class="lamp-pole"></div>
-    </div>
-    <div class="lamp">
-      <div class="lamp-lantern"></div>
-      <div class="lamp-pole"></div>
-    </div>
-  </div>
-
-  <!-- Portrait -->
-  <div class="portrait">
-    <div class="portrait-img"></div>
-  </div>
-
-  <!-- Neon Title -->
-  <div class="neon-title">Portal Kira Lux</div>
-
-  <!-- Gothic Door -->
-  <div class="door-area">
-    <div class="door-wall"></div>
-    <div class="door-arch-outer">
-      <div class="door-arch-inner">
-        <div class="door-wood">
-          <div class="door-handle"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Top symbol: Triquetra / Rose -->
-    <div class="door-symbol door-symbol-top">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="38" fill="none" stroke="#ff4400" stroke-width="2.5"/>
-        <path d="M50 12 C58 28, 72 32, 82 48 C72 64, 58 68, 50 84 C42 68, 28 64, 18 48 C28 32, 42 28, 50 12Z" fill="none" stroke="#ff4400" stroke-width="2"/>
-        <circle cx="50" cy="50" r="12" fill="none" stroke="#ff4400" stroke-width="2"/>
-        <path d="M50 8 L50 92 M8 50 L92 50" stroke="#ff4400" stroke-width="1" opacity="0.4"/>
-      </svg>
-    </div>
-
-    <!-- Bottom symbol: Eye of Horus -->
-    <div class="door-symbol door-symbol-bottom">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 50 Q50 8 92 50 Q50 92 8 50Z" fill="none" stroke="#ff4400" stroke-width="2.5"/>
-        <circle cx="50" cy="50" r="14" fill="none" stroke="#ff4400" stroke-width="2.5"/>
-        <circle cx="50" cy="50" r="6" fill="#ff4400"/>
-        <path d="M50 64 L50 88" stroke="#ff4400" stroke-width="2.5"/>
-        <path d="M50 88 L32 97" stroke="#ff4400" stroke-width="2"/>
-        <path d="M8 50 L3 62" stroke="#ff4400" stroke-width="2"/>
-      </svg>
-    </div>
-
-    <!-- Latin text -->
-    <div class="latin-right">COGNOSCAS IN ARTE UMBRARUM</div>
-    <div class="latin-left">INGR DE UT LUCEM</div>
-  </div>
-
-  <!-- Figure silhouette -->
-  <div class="figure">
-    <div class="figure-hair"></div>
-    <div class="figure-head"></div>
-    <div class="figure-body"></div>
-    <div class="figure-legs"></div>
-  </div>
-
-  <!-- Main content -->
-  <div class="content">
-    <div class="description">
-      <p>Este é um site dedicado à cultura gótica, artes plásticas, literatura, HQ (comics, mangás, etc.), música, androginia, filosofia, espiritualidade, esoterismo, teatro e RPG.</p>
-      <p>Autodedicado por Kira, foi criado para apreciadores de arte, cultura e conhecimento, incluindo experiências nos contextos cult, thrash, pop, fantasia, ficção e cyberpunk.</p>
-      <p>Se você já é apaixonado por esses temas ou quer conhecê-los melhor, atravesse a porta que lhe permitirá conhecer a luz na arte das sombras e...</p>
-    </div>
-
-    <div class="btn-wrap">
-      <a href="#" class="enter-btn" onclick="enterPortal(event)">...ENTRE!</a>
-    </div>
-  </div>
-
-  <!-- Date stamp -->
-  <div class="date-stamp">20 de out. de 2023 11:27:58</div>
-
-</div>
-
-<script>
-  function enterPortal(e) {
-    e.preventDefault();
-    const btn = e.target;
-    btn.style.transition = 'all 0.5s ease';
-    btn.style.transform = 'scale(1.15)';
-    btn.style.boxShadow = '0 0 30px #ff0000, 0 0 60px #ff0000, 0 0 100px #ff0000';
-
-    setTimeout(() => {
-      document.querySelector('.page').style.transition = 'opacity 1.2s ease';
-      document.querySelector('.page').style.opacity = '0';
-
-      setTimeout(() => {
-        alert('🖤 Bem-vindo ao Portal Kira Lux!');
-        document.querySelector('.page').style.opacity = '1';
-        btn.style.transform = '';
-        btn.style.boxShadow = '';
-      }, 1200);
-    }, 400);
-  }
-
-  // Floating particles
   function spawnParticle() {
     const p = document.createElement('div');
     p.className = 'particle';
